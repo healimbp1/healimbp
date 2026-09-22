@@ -589,7 +589,12 @@ function generateSelfCareCard() {
 
 async function renderCard(svgString, fileName) {
   const resvg = new Resvg(svgString, {
-    fitTo: { mode: 'width', value: 1080 }
+    fitTo: { mode: 'width', value: 1080 },
+    font: {
+      fontDirs: ['C:\\Windows\\Fonts'],
+      loadSystemFonts: true,
+      defaultFontFamily: 'Malgun Gothic'
+    }
   });
   const pngData = resvg.render();
   const pngBuffer = pngData.asPng();

@@ -182,10 +182,20 @@ image: "/blog-images/bupyeong-insomnia/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
+        <span>잠은 잘 드는데 매일 새벽 3~4시만 되면 눈이 번쩍 떠지고 다시 잠들지 못하는 원인이 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        이는 수면유지장애(중도각성)로, 한의학적으로는 간(肝)과 심장의 허열이 밤사이 해독과 휴식을 방해하거나 기혈이 부족해 뇌를 깊은 수면 상태로 붙잡아두지 못하기 때문입니다. 새벽 시간대 체온 조절과 간열(肝熱)을 다스리는 산조인탕 가감방으로 수면 지속력을 복원합니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>새벽에 깼을 때 시간을 자꾸 확인하게 되는데 괜찮은 습관인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -194,20 +204,11 @@ image: "/blog-images/bupyeong-insomnia/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
         <span>새벽에 깨서 화장실을 자주 가는 야간뇨가 불면증의 원인인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         반대로 얕은 잠 때문에 뇌가 깨어나면서 방광 충만감을 민감하게 느끼는 경우가 대부분입니다. 신장(腎臟)의 양기를 덥히고 수면 깊이를 늘려주면 야간뇨 횟수도 자연스럽게 줄어듭니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>잠은 잘 드는데 매일 새벽 3~4시만 되면 눈이 번쩍 떠지고 다시 잠들지 못하는 원인이 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        이는 수면유지장애(중도각성)로, 한의학적으로는 간(肝)과 심장의 허열이 밤사이 해독과 휴식을 방해하거나 기혈이 부족해 뇌를 깊은 수면 상태로 붙잡아두지 못하기 때문입니다. 새벽 시간대 체온 조절과 간열(肝熱)을 다스리는 산조인탕 가감방으로 수면 지속력을 복원합니다.
       </p>
     </div>
 </div>

@@ -182,19 +182,11 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>어지럼증이 심할 때 어지럼증 약(보나링에이, 신경진정제)을 계속 먹어도 괜찮나요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        급성기 며칠간은 도움될 수 있으나, 전정 억제제를 장기 복용하면 뇌의 전정 보상 작용(스스로 균형을 잡는 훈련)을 방해하여 어지럼증이 만성화됩니다. 원인 치료를 통해 약물을 서서히 중단해야 합니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>이비인후과와 뇌 MRI 검사에서 이상이 없다는데 머리가 안개 낀 듯 멍하고(브레인포그) 어지러운 이유는 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>경추성 어지럼증을 치료하려면 목뼈 교정(추나요법)과 한약이 둘 다 필요한가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         네, 상부 경추의 구조적 비틀림을 바로잡는 정밀 추나요법으로 신경 압박을 풀고, 뇌 혈류 순환을 촉진하고 미세 염증을 제거하는 거담청뇌(祛痰淸腦) 한약을 병행해야 재발 없이 맑은 머리를 되찾을 수 있습니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>어지럼증이 심할 때 어지럼증 약(보나링에이, 신경진정제)을 계속 먹어도 괜찮나요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        급성기 며칠간은 도움될 수 있으나, 전정 억제제를 장기 복용하면 뇌의 전정 보상 작용(스스로 균형을 잡는 훈련)을 방해하여 어지럼증이 만성화됩니다. 원인 치료를 통해 약물을 서서히 중단해야 합니다.
       </p>
     </div>
 </div>

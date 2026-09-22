@@ -124,36 +124,36 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 05</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>가슴 두근거림과 함께 체온 조절이 안 되어 손발은 찬데 얼굴로만 열이 오르는 증상도 치료되나요?</span>
+        <span>주말에 하루 종일 쉬고 영양제를 챙겨 먹어도 피로가 전혀 안 풀리는데 자율신경실조증인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        전형적인 기립성 빈맥 증후군(POTS) 및 자율신경 실조 증상입니다. 심장의 기력을 보강하고 말초 혈관 탄력성을 높여주는 익기승양 한방 치료로 깨끗이 회복될 수 있습니다.
+        네, 한스 셀리에(Hans Selye)의 스트레스 3단계 중 부신 호르몬(코르티솔)과 자율신경계가 완전히 방전된 "소진기(Exhaustion Stage)" 상태입니다. 단순 휴식으로는 충전되지 않으므로, 심장과 신장의 원기를 보강하는 보중익기탕·공진단 요법과 교감-부교감 밸런스 정상화 치료가 필요합니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
-        <span>앉았다가 일어설 때 눈앞이 하얘지고 핑 돌며 주저앉게 되는 기립성 저혈압은 자율신경과 어떤 관련이 있나요?</span>
+        <span>자율신경실조증으로 인한 만성 피로는 병원 피검사에서 왜 이상이 안 나오나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        일어설 때 중력에 의해 하체로 쏠리는 500~800ml의 혈액을 교감신경이 즉각 혈관을 수축시켜 뇌로 올려주어야 하는데, 자율신경 반사 속도가 느려져 일시적으로 뇌 혈류가 허혈 상태에 빠지기 때문입니다.
+        피검사는 간염, 신부전, 빈혈 등 기질적 장기 손상만 감지할 뿐, 1초에 수십 번씩 전신 장기를 조율하는 자율신경계의 기능적 조절 장애(HRV 심박변이도 저하)는 잡아내지 못하기 때문입니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>기립성 어지럼증 환자가 일상에서 실천할 수 있는 가장 좋은 습관은 무엇인가요?</span>
+        <span>만성 피로와 함께 소화불량, 어지럼증, 가슴 답답함이 같이 오는 이유는 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        아침 기상 시 침대에서 벌떡 일어나지 마시고 30초간 다리를 주무르고 앉았다가 천천히 일어서야 합니다. 또한 하루 1.5~2L의 충분한 수분 섭취와 하체 근력 운동(스쿼트, 까치발 들기)이 큰 도움이 됩니다.
+        자율신경계는 심장, 위장, 혈관, 땀샘을 동시에 관장하므로, 자율신경 조절 밸런스가 무너지면 전신 다발성 신체화 증상이 동시다발적으로 나타나는 것이 특징입니다.
       </p>
     </div>
 </div>

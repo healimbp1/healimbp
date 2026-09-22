@@ -182,10 +182,20 @@ image: "/blog-images/bupyeong-autonomic/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
+        <span>주말에 하루 종일 쉬고 영양제를 챙겨 먹어도 피로가 전혀 안 풀리는데 자율신경실조증인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        네, 한스 셀리에(Hans Selye)의 스트레스 3단계 중 부신 호르몬(코르티솔)과 자율신경계가 완전히 방전된 "소진기(Exhaustion Stage)" 상태입니다. 단순 휴식으로는 충전되지 않으므로, 심장과 신장의 원기를 보강하는 보중익기탕·공진단 요법과 교감-부교감 밸런스 정상화 치료가 필요합니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>자율신경실조증으로 인한 만성 피로는 병원 피검사에서 왜 이상이 안 나오나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -194,20 +204,11 @@ image: "/blog-images/bupyeong-autonomic/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
         <span>만성 피로와 함께 소화불량, 어지럼증, 가슴 답답함이 같이 오는 이유는 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         자율신경계는 심장, 위장, 혈관, 땀샘을 동시에 관장하므로, 자율신경 조절 밸런스가 무너지면 전신 다발성 신체화 증상이 동시다발적으로 나타나는 것이 특징입니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>주말에 하루 종일 쉬고 영양제를 챙겨 먹어도 피로가 전혀 안 풀리는데 자율신경실조증인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        네, 한스 셀리에(Hans Selye)의 스트레스 3단계 중 부신 호르몬(코르티솔)과 자율신경계가 완전히 방전된 "소진기(Exhaustion Stage)" 상태입니다. 단순 휴식으로는 충전되지 않으므로, 심장과 신장의 원기를 보강하는 보중익기탕·공진단 요법과 교감-부교감 밸런스 정상화 치료가 필요합니다.
       </p>
     </div>
 </div>

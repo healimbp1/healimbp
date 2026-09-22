@@ -460,7 +460,7 @@ function generateSlideSvg(slideNum, data) {
           <rect x="0" y="0" width="70" height="70" rx="20" fill="${cat.badgeBg}" />
           <text x="35" y="45" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="${FONT_FAMILY}">원장</text>
           <text x="95" y="38" font-size="30" font-weight="800" fill="#ffffff" font-family="${FONT_FAMILY}">권형근 대표원장</text>
-          <text x="95" y="72" font-size="20" font-weight="600" fill="${cat.accentColor}" font-family="${FONT_FAMILY}">한의학 박사 ｜ 뇌신경·자율신경 중점 진료</text>
+          <text x="95" y="72" font-size="20" font-weight="600" fill="${cat.accentColor}" font-family="${FONT_FAMILY}">한방침구과 전문의 ｜ 뇌신경·자율신경 중점 진료</text>
         </g>
 
         <!-- Divider -->

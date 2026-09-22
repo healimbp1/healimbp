@@ -143,23 +143,14 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 05</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>가슴 두근거림과 함께 체온 조절이 안 되어 손발은 찬데 얼굴로만 열이 오르는 증상도 치료되나요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        전형적인 기립성 빈맥 증후군(POTS) 및 자율신경 실조 증상입니다. 심장의 기력을 보강하고 말초 혈관 탄력성을 높여주는 익기승양 한방 치료로 깨끗이 회복될 수 있습니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>앉았다가 일어설 때 눈앞이 하얘지고 핑 돌며 주저앉게 되는 기립성 저혈압은 자율신경과 어떤 관련이 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -168,11 +159,20 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>기립성 어지럼증 환자가 일상에서 실천할 수 있는 가장 좋은 습관은 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         아침 기상 시 침대에서 벌떡 일어나지 마시고 30초간 다리를 주무르고 앉았다가 천천히 일어서야 합니다. 또한 하루 1.5~2L의 충분한 수분 섭취와 하체 근력 운동(스쿼트, 까치발 들기)이 큰 도움이 됩니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>가슴 두근거림과 함께 체온 조절이 안 되어 손발은 찬데 얼굴로만 열이 오르는 증상도 치료되나요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        전형적인 기립성 빈맥 증후군(POTS) 및 자율신경 실조 증상입니다. 심장의 기력을 보강하고 말초 혈관 탄력성을 높여주는 익기승양 한방 치료로 깨끗이 회복될 수 있습니다.
       </p>
     </div>
 </div>

@@ -2045,7 +2045,7 @@ async function postTelegramMessage(botToken, chatId, text) {
 
 // 9. 텔레그램 알림 발송
 export async function sendTelegramNotification(column, slug, target = null) {
-  const botToken = process.env.TELEGRAM_BOT_TOKEN || '8673980673:AAHRmp8S-FwQPBzPyPT-uea0OQ-zWzpM1Lc';
+  const botToken = process.env.TELEGRAM_BOT_TOKEN || '8825145197:AAFNSDxXpqCBq1c0BW93kDbrtDC7Ncr2Bxk';
   const chatId = process.env.TELEGRAM_CHAT_ID || '2026055528';
 
   if (!botToken || !chatId) {
@@ -2064,37 +2064,35 @@ export async function sendTelegramNotification(column, slug, target = null) {
     p3: column.tistoryTitle || column.title
   };
 
-  const homepageNotice = `📢 <b>[해아림한의원] 새 건강 칼럼이 공식 홈페이지에 자동 발행되었습니다!</b>
-
-📌 <b>홈페이지 제목 (${escapeHtml(pName)}):</b>
-<code>${escapeHtml(column.title)}</code>
-
-🏷️ <b>분류:</b> ${escapeHtml(column.categoryName)}
-🗓️ <b>발행일:</b> ${column.date}
-
-📝 <b>홈페이지 칼럼 요약:</b>
-${escapeHtml(column.summary)}
-
-🔗 <a href="${columnUrl}">홈페이지에서 칼럼 바로가기</a>`;
-
   const tTags = (column.tistoryTags || column.tags || []).map(t => `#${t.replace(/^#|\s+/g, '')}`).join(' ');
   const dynamicFaq = column.faq || getDiverseFaq(column.categoryName, { focus: column.title }, { title: column.title });
   const rawScript = column.tistoryScript || generateFallbackTistoryScript({ name: column.categoryName }, { focus: '', hookLine: '' }, { short: '부평' }, column.patternType || 0, variants, dynamicFaq);
-  const tScript = injectFaqIntoTistoryScript(rawScript, dynamicFaq);
+  const tScript = injectFaqIntoTistoryScript(rawScript, dynamicFaq)
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .trim();
 
-  const tistoryNotice = `📋 <b>[블로그 원클릭 복사용 맞춤 대본]</b>
-<i>※ 홈페이지 칼럼과 100% 다른 문장과 친근한 블로그 스토리텔링으로 재작성된 6섹션 원고입니다. (유사문서 페널티 완벽 방지)</i>
+  // 1:1 썸네일 단일 소스 리졸빙
+  const relThumb = resolveThumbnail({
+    categoryName: column.categoryName,
+    title: column.title || variants.p1,
+    slug: slug,
+    currentImage: column.image
+  });
+  const absThumbPath = path.join(rootDir, 'static', relThumb.replace(/^\//, ''));
+  const hasThumb = fs.existsSync(absThumbPath);
+
+  const tistoryNotice = `📋 <b>[티스토리/블로그 원클릭 복사용 맞춤 대본]</b>
+<i>※ 마크다운 볼드 기호(**)가 일체 없어 에디터에 바로 붙여넣으실 수 있습니다.</i>
 
 🎯 <b>[블로그 포스팅용 추천 제목 3종 세트]</b>
-<i>(원하시는 스타일을 골라 복사해서 블로그 제목으로 사용하세요)</i>
-
-1️⃣ <b>맨앞 지역명형:</b>
+1️⃣ <b>표준 지역명형:</b>
 <code>${escapeHtml(variants.p1)}</code>
 
-2️⃣ <b>중간 지역명형 (파란색 강조 스타일 ⭐):</b>
+2️⃣ <b>질환 기전 집중형:</b>
 <code>${escapeHtml(variants.p2)}</code>
 
-3️⃣ <b>지역명 없는 스토리/질문형:</b>
+3️⃣ <b>1:1 맞춤 솔루션형:</b>
 <code>${escapeHtml(variants.p3)}</code>
 
 ─────────────────
@@ -2102,9 +2100,10 @@ ${escapeHtml(tScript)}
 ─────────────────
 
 🏥 <b>[해아림한의원 인천부평점 안내]</b>
-• 진료: 권형근 대표원장 (한방침구과 전문의)
+• 진료: 권형근 대표원장 (한방침구과 전문의 직접 진료)
 • 위치: 인천 부평구 경원대로 1412, 2층 (부평역 7번 출구 도보 5분)
 • 문의: 032-719-3472
+• 야간진료: 월 · 수 · 금 저녁 8시까지
 • 네이버예약: ${bookingUrl}
 • 카카오톡상담: ${kakaoUrl}
 • 홈페이지 칼럼원문: ${columnUrl}
@@ -2113,27 +2112,54 @@ ${escapeHtml(tScript)}
 <code>${escapeHtml(tTags)}</code>`;
 
   try {
-    // 1) 홈페이지 발행 요약 알림 (텍스트 메시지)
-    await postTelegramMessage(botToken, chatId, homepageNotice);
-    console.log('[Auto-Column SEO] Telegram 1/2 (홈페이지 발행 알림 텍스트) 전송 완료!');
+    // 1) 고화질 100% 매칭 대표 썸네일 사진 전송
+    if (hasThumb) {
+      const thumbBuffer = fs.readFileSync(absThumbPath);
+      const thumbExt = path.extname(absThumbPath).toLowerCase() === '.png' ? 'png' : 'jpg';
+      const thumbMime = thumbExt === 'png' ? 'image/png' : 'image/jpeg';
+      const thumbFileName = `thumbnail_${slug}.${thumbExt}`;
 
+      const photoCaption = `🖼️ <b>[티스토리/칼럼 1:1 매칭 썸네일]</b>\n\n` +
+        `📝 <b>칼럼 제목:</b> <code>${escapeHtml(column.title)}</code>\n` +
+        `📂 <b>진료 분야:</b> ${escapeHtml(column.categoryName)}\n` +
+        `🏷️ <b>추천 태그:</b> <code>${escapeHtml(tTags)}</code>`;
+
+      const photoFormData = new FormData();
+      photoFormData.append('chat_id', chatId);
+      photoFormData.append('caption', photoCaption);
+      photoFormData.append('parse_mode', 'HTML');
+      photoFormData.append('photo', new Blob([thumbBuffer], { type: thumbMime }), thumbFileName);
+
+      await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+        method: 'POST',
+        body: photoFormData
+      });
+      console.log('[Auto-Column SEO] Telegram 1/3 (대표 썸네일 사진) 전송 완료!');
+      await new Promise(r => setTimeout(r, 600));
+    }
+
+    // 2) 복사용 대본 (마크다운 볼드 없는 정자체)
     const MAX_LEN = 3800;
     if (tistoryNotice.length <= MAX_LEN) {
       await postTelegramMessage(botToken, chatId, tistoryNotice);
-      console.log('[Auto-Column SEO] Telegram 2/2 (티스토리 차별화 대본) 전송 완료!');
+      console.log('[Auto-Column SEO] Telegram 2/3 (티스토리 차별화 대본) 전송 완료!');
     } else {
       const part1 = tistoryNotice.slice(0, MAX_LEN);
       const part2 = tistoryNotice.slice(MAX_LEN);
       await postTelegramMessage(botToken, chatId, part1);
       await postTelegramMessage(botToken, chatId, part2);
-      console.log('[Auto-Column SEO] Telegram 2/2 (티스토리 대본 분할) 전송 완료!');
+      console.log('[Auto-Column SEO] Telegram 2/3 (티스토리 대본 분할) 전송 완료!');
     }
 
+    await new Promise(r => setTimeout(r, 600));
+
+    // 3) 티스토리 HTML 모드 전용 파일 첨부
     try {
-      const tistoryHtml = formatTistoryContent(column, slug);
+      const columnObj = { ...column, image: relThumb };
+      const tistoryHtml = formatTistoryContent(columnObj, slug);
       const formData = new FormData();
       formData.append('chat_id', chatId);
-      formData.append('caption', `📝 <b>[티스토리 HTML 모드 전용 파일]</b>\n이 파일을 열어 전체 복사 후 티스토리 에디터 [HTML] 모드에 붙여넣으시면 차별화된 서식/박스/버튼이 100% 완벽하게 적용됩니다.`);
+      formData.append('caption', `📝 <b>[티스토리 HTML 모드 전용 파일]</b>\n파일을 열어 전체 복사 후 티스토리 에디터 [HTML] 모드에 붙여넣으시면 상단 맞춤 썸네일과 모든 박스/비교표 서식이 100% 완벽하게 적용됩니다.`);
       formData.append('parse_mode', 'HTML');
       const blob = new Blob([tistoryHtml], { type: 'text/html;charset=utf-8' });
       formData.append('document', blob, `tistory_${slug}.html`);

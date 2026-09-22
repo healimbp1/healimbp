@@ -5,7 +5,7 @@ date: "2026-08-16"
 type: column
 category: "신체화 & 담적·두통·턱관절"
 tags: ["계양구신체화장애","인천신경성두통","부평신체증상장애","스트레스성위장장애","뇌감각과민","청뇌안신탕","부평한의원"]
-image: "/blog-images/bupyeong-dizziness/01_naver_main_thumbnail.jpg"
+image: "/blog-images/bupyeong-somatic/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -182,19 +182,11 @@ image: "/blog-images/bupyeong-dizziness/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>진통제를 먹어도 온몸의 쑤심과 뻐근함이 가라앉지 않는 이유는 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        근육이나 관절 자체의 염증이 아니라 뇌 신경계의 감각 과민 반응이기 때문입니다. 일반 소염진통제 대신 뇌 신경을 진정시키고 기혈 울체를 풀어주는 활혈거어(活血祛瘀) 한약 치료가 정답입니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>종합병원 검진을 다 받아도 "정상"이라는데 온몸이 쑤시고 여기저기 돌아가며 아픈 신체화장애는 왜 생기나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ image: "/blog-images/bupyeong-dizziness/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>가족들이 "꾀병 아니냐"며 이해해주지 않아 서러운데 환자가 느끼는 통증은 진짜인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         절대로 꾀병이 아닙니다. 환자의 뇌 통증 중추(시상 및 체성감각피질)에서는 실제로 극심한 통증 신호가 실시간으로 발생하고 있습니다. 환자의 고통을 객관적으로 인정해주고 지지해주는 가족의 태도가 치유의 시작입니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>진통제를 먹어도 온몸의 쑤심과 뻐근함이 가라앉지 않는 이유는 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        근육이나 관절 자체의 염증이 아니라 뇌 신경계의 감각 과민 반응이기 때문입니다. 일반 소염진통제 대신 뇌 신경을 진정시키고 기혈 울체를 풀어주는 활혈거어(活血祛瘀) 한약 치료가 정답입니다.
       </p>
     </div>
 </div>

@@ -182,10 +182,20 @@ image: "/blog-images/bupyeong-depression/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
+        <span>목구멍에 가래나 솜뭉치가 걸린 듯 삼켜지지도 뱉어지지도 않는 매핵기(梅核氣)와 가슴 답답함의 원인은 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        이비인후과 내시경 검사상 이상이 없는 목 이물감은 억울함, 분노, 스트레스가 가슴 중앙(전중혈)과 목구멍의 기혈을 꽉 막아버린 전형적인 화병(火病) 증상입니다. 뭉친 기운을 흩뿌려주는 반하후박탕, 소간해울 한약과 흉부 침구 치료로 목구멍과 가슴이 시원하게 뚫립니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>가슴 한가운데 뼈(전중혈)를 누르면 비명이 나올 정도로 아픈데 화병 진단 기준인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -194,20 +204,11 @@ image: "/blog-images/bupyeong-depression/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
         <span>화병을 방치하면 고혈압이나 심장 질환으로 발전할 수도 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         화병으로 인한 만성 교감신경 과항진과 혈관 수축은 고혈압, 협심증, 뇌혈관 질환의 발병 위험을 2~3배 높입니다. 가슴의 불을 끄는 조기 한방 치료가 심혈관 건강을 지키는 지름길입니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>목구멍에 가래나 솜뭉치가 걸린 듯 삼켜지지도 뱉어지지도 않는 매핵기(梅核氣)와 가슴 답답함의 원인은 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        이비인후과 내시경 검사상 이상이 없는 목 이물감은 억울함, 분노, 스트레스가 가슴 중앙(전중혈)과 목구멍의 기혈을 꽉 막아버린 전형적인 화병(火病) 증상입니다. 뭉친 기운을 흩뿌려주는 반하후박탕, 소간해울 한약과 흉부 침구 치료로 목구멍과 가슴이 시원하게 뚫립니다.
       </p>
     </div>
 </div>

@@ -5,7 +5,7 @@ date: "2026-08-14"
 type: column
 category: "공황 · 불안 & 강박증"
 tags: ["시흥발표불안","배곧사회공포증","인천무대공포증","목소리떨림치료","인천사회불안장애","부평한의원","안심정지탕"]
-image: "/blog-images/bupyeong-anxiety/01_naver_main_thumbnail.jpg"
+image: "/blog-images/bucheon-social-phobia/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -182,6 +182,7 @@ image: "/blog-images/bupyeong-anxiety/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">

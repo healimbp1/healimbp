@@ -183,10 +183,20 @@ image: "/blog-images/bupyeong-tic/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
+        <span>밤마다 쫓기는 악몽을 꾸거나 몸이 굳어 움직이지 않는 가위눌림(수면마비)에 시달리는 이유는 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        육체적 피로와 정신적 스트레스로 뇌의 렘(REM)수면 조절 기전이 무너진 상태입니다. 몸의 근육은 마취 상태인데 뇌 의식만 불완전하게 깨어나면서 공포 환각과 가위눌림이 발생합니다. 한의학적으로 심담허겁(心膽虛怯)과 심비양허(心脾兩虛)를 보강하여 깊은 델타파 수면을 유도해야 합니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>가위눌림이 시작될 때 어떻게 하면 빨리 빠져나올 수 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -195,20 +205,11 @@ image: "/blog-images/bupyeong-tic/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
         <span>꿈을 너무 많이 꿔서 자고 일어나도 밤새 일한 것처럼 피곤한 다몽증(多夢症)도 치료가 되나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         네, 얕은 렘수면 비율이 지나치게 높고 깊은 서파 수면이 부족하여 발생하는 현상입니다. 뇌로 치솟는 심장과 간의 허열을 식혀주면 꿈의 빈도가 줄고 아침 기상 시 피로감이 사라집니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>밤마다 쫓기는 악몽을 꾸거나 몸이 굳어 움직이지 않는 가위눌림(수면마비)에 시달리는 이유는 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        육체적 피로와 정신적 스트레스로 뇌의 렘(REM)수면 조절 기전이 무너진 상태입니다. 몸의 근육은 마취 상태인데 뇌 의식만 불완전하게 깨어나면서 공포 환각과 가위눌림이 발생합니다. 한의학적으로 심담허겁(心膽虛怯)과 심비양허(心脾兩虛)를 보강하여 깊은 델타파 수면을 유도해야 합니다.
       </p>
     </div>
 </div>

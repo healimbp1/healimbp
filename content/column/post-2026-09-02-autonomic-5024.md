@@ -4,7 +4,7 @@ summary: "자율신경 & 실신·어지럼증·이명 증상으로 고통받는 
 date: "2026-09-02"
 type: column
 category: "자율신경 & 실신·어지럼증·이명"
-image: "/blog-images/bupyeong-dizziness/01_naver_main_thumbnail.jpg"
+image: "/blog-images/bucheon-vasovagal/01_naver_main_thumbnail.jpg"
 tags: ["자율신경","자율신경치료","한방신경정신과","자율신경","맞춤한약"]
 ---
 
@@ -182,19 +182,11 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>미주신경성 실신은 평생 재발을 안고 살아야 하나요, 한방 치료로 완치가 가능한가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        기립 시 하체로 쏠린 혈액을 심장과 뇌로 힘차게 올려주는 혈관 수축 반사력과 심장 펌프력을 보강하는 승양익기(升陽益氣) 맞춤 한약 치료를 통해 실신 빈도를 제로(0)로 만들고 완치할 수 있습니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>만원 지하철이나 출퇴근길에 서 있다가 갑자기 눈앞이 캄캄해지고 핑 돌며 쓰러지는 미주신경성 실신의 전조 증상은 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>실신 전조 증상이 올 때 바로 주저앉거나 취해야 하는 응급 대처 자세는 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         전조 증상이 느껴지면 즉시 그 자리에 쪼그려 앉거나 바닥에 누워 다리를 심장보다 높게 올려야 합니다. 서 있는 상태에서는 다리를 X자로 교차하고 엉덩이와 허벅지 근육에 강하게 힘을 주는 카운터 프레셔(Counter-pressure) 기법으로 뇌 혈류를 유지할 수 있습니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>미주신경성 실신은 평생 재발을 안고 살아야 하나요, 한방 치료로 완치가 가능한가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        기립 시 하체로 쏠린 혈액을 심장과 뇌로 힘차게 올려주는 혈관 수축 반사력과 심장 펌프력을 보강하는 승양익기(升陽益氣) 맞춤 한약 치료를 통해 실신 빈도를 제로(0)로 만들고 완치할 수 있습니다.
       </p>
     </div>
 </div>

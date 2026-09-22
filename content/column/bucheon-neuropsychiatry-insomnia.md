@@ -202,13 +202,23 @@ tags: ["부천신경정신과","부천불면증","부천불면증치료","부천
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 07</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
+        <span>수면제(스틸녹스, 졸피뎀)나 신경안정제를 수개월째 복용 중인데 내성이 생겨 잠이 안 옵니다. 어떻게 끊어야 하나요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        수면제를 갑자기 끊으면 극심한 반동 불면과 불안이 오므로 절대 한 번에 끊으시면 안 됩니다. 한방 수면 치료를 병행하여 뇌 스스로 멜라토닌과 GABA를 생성하는 자생력을 키운 후, 2~4주 간격으로 약 용량을 1/4씩 서서히 줄여나가는 안전한 감량(Tapering)을 진행해야 합니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>수면유도제나 수면제를 복용하면 다음 날 아침 멍하고 기억력이 떨어지는 이유는 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -217,20 +227,11 @@ tags: ["부천신경정신과","부천불면증","부천불면증치료","부천
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
         <span>수면제 복용 중 몽유병처럼 밤에 음식을 먹거나 기억이 안 나는 증상이 있는데 위험한가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         졸피뎀 계열의 대표적인 부작용인 복합 수면 행동(전향성 건망증)입니다. 낙상이나 사고 위험이 있으므로 즉시 의료진과 상의하여 한방 병행 치료를 통해 약물을 안전하게 감량하셔야 합니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>수면제(스틸녹스, 졸피뎀)나 신경안정제를 수개월째 복용 중인데 내성이 생겨 잠이 안 옵니다. 어떻게 끊어야 하나요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        수면제를 갑자기 끊으면 극심한 반동 불면과 불안이 오므로 절대 한 번에 끊으시면 안 됩니다. 한방 수면 치료를 병행하여 뇌 스스로 멜라토닌과 GABA를 생성하는 자생력을 키운 후, 2~4주 간격으로 약 용량을 1/4씩 서서히 줄여나가는 안전한 감량(Tapering)을 진행해야 합니다.
       </p>
     </div>
 </div>

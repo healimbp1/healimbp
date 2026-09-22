@@ -182,19 +182,11 @@ image: "/blog-images/bucheon-ocd/01_main_summary_thumbnail.png"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>오염 강박으로 손을 하루에 수십 번 씻어 손이 다 트는데 한방 치료가 도움이 되나요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        오염에 대한 과도한 혐오와 공포는 뇌 뇌도(Insula) 부위의 과민 반응입니다. 체내 허열을 식히고 뇌척수액 순환을 돕는 두개천골 추나와 청뇌탕약으로 불안 감각 역치를 정상화합니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>현관문을 잠갔는지, 가스불을 껐는지 수십 번씩 확인하느라 외출이 힘든데 강박증(OCD)의 원인이 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ image: "/blog-images/bucheon-ocd/01_main_summary_thumbnail.png"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>확인하고 싶은 충동이 들 때 억지로 참으려고 하면 불안해서 미칠 것 같은데 어떻게 대처하나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         확인 충동이 들 때 바로 확인하지 마시고, "15분 뒤에 확인하자"며 타이머를 맞추고 다른 활동으로 주의를 돌리는 지연 훈련(ERP)을 진행해야 합니다. 15분이 지나면 뇌의 불안 파도가 절반 이하로 줄어듭니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>오염 강박으로 손을 하루에 수십 번 씻어 손이 다 트는데 한방 치료가 도움이 되나요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        오염에 대한 과도한 혐오와 공포는 뇌 뇌도(Insula) 부위의 과민 반응입니다. 체내 허열을 식히고 뇌척수액 순환을 돕는 두개천골 추나와 청뇌탕약으로 불안 감각 역치를 정상화합니다.
       </p>
     </div>
 </div>

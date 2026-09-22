@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getAbsoluteThumbnailUrl } from './thumbnail-resolver.mjs';
+import { getAbsoluteThumbnailUrl, resolveThumbnail } from './thumbnail-resolver.mjs';
+import { buildTistoryThumbnailPng } from './exact-tistory-thumbnail-builder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, '..');
 
 export function getTistoryThumbnailUrl(content = '', slug = '', column = null) {
   return getAbsoluteThumbnailUrl({
@@ -15,9 +17,56 @@ export function getTistoryThumbnailUrl(content = '', slug = '', column = null) {
   });
 }
 
+import { parseMasterColumn } from './parse-master-column.mjs';
+import { renderMasterColumnToTistoryHtml } from './format-master-column.mjs';
+
 export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = null) {
+  // If it's a structured master column (contains section-label or standard 6-section structure)
+  if (mdContent.includes('<div class="section-label">') || mdContent.includes('<div class="voice-box">')) {
+    try {
+      const parsedData = parseMasterColumn(mdContent, slug);
+      if (column) {
+        if (column.title) parsedData.title = column.title;
+        if (column.category) parsedData.category = column.category;
+      }
+      return renderMasterColumnToTistoryHtml(parsedData);
+    } catch (err) {
+      console.warn('[render-tistory] Master column parse fallback:', err.message);
+    }
+  }
+
   let content = mdContent.replace(/^---[\s\S]*?---\r?\n/, '').trim();
-  const thumbnailUrl = getTistoryThumbnailUrl(content, slug, column);
+
+  // 0. 칼럼 객체 또는 마크다운 정보로부터 1:1 완벽 일치 썸네일 실시간 생성 & Base64 임베딩
+  let thumbnailUrl = '';
+  try {
+    const colInfo = column || {
+      title: (mdContent.match(/title:\s*"([^"]+)"/) || [])[1] || slug,
+      category: (mdContent.match(/category:\s*"([^"]+)"/) || [])[1] || '신경정신과 클리닉',
+      categoryName: (mdContent.match(/category:\s*"([^"]+)"/) || [])[1] || '신경정신과 클리닉',
+      image: (mdContent.match(/image:\s*"([^"]+)"/) || [])[1] || ''
+    };
+
+    const relThumb = resolveThumbnail({
+      categoryName: colInfo.categoryName || colInfo.category,
+      title: colInfo.title,
+      slug: slug,
+      currentImage: colInfo.image
+    });
+    const absThumbPath = path.join(rootDir, 'static', relThumb.replace(/^\//, ''));
+    if (fs.existsSync(absThumbPath)) {
+      const ext = path.extname(absThumbPath).toLowerCase() === '.png' ? 'png' : 'jpeg';
+      const fileBuf = fs.readFileSync(absThumbPath);
+      thumbnailUrl = `data:image/${ext};base64,${fileBuf.toString('base64')}`;
+    } else {
+      const outPngPath = path.join(rootDir, 'static', 'blog-images', 'tistory-thumbnails', `${slug}.png`);
+      const { base64 } = buildTistoryThumbnailPng(colInfo, outPngPath);
+      thumbnailUrl = base64;
+    }
+  } catch (err) {
+    console.warn('[render-tistory] 1:1 실시간 썸네일 빌드 폴백 사용:', err.message);
+    thumbnailUrl = getTistoryThumbnailUrl(content, slug, column);
+  }
 
   // 물결표 주변 공백 표준화 (취소선 방지)
   content = content.replace(/(\d+)\s*~\s*(\d+)/g, '$1 ~ $2');
@@ -37,7 +86,7 @@ export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = 
     content = content.replace(adviceMatch[0], '').trim();
   }
 
-  // 2. 환자 호소문 인용구 분리 (상단 HTML blockquote 또는 마크다운 > "..." / > “...” / > &ldquo;...)
+  // 2. 환자 호소문 인용구 분리
   let quoteHtml = '';
   const htmlQuoteMatch = content.match(/<blockquote[^>]*>([\s\S]*?)<\/blockquote>/i);
   if (htmlQuoteMatch) {
@@ -129,7 +178,7 @@ export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = 
     }
   }
 
-  // 4. 원장 조언 박스 추가 (font-style: normal)
+  // 4. 원장 조언 박스 추가
   if (doctorAdvice) {
     parsedBodyHtml += `\n  <!-- 원장 조언 박스 -->
   <div style="background: linear-gradient(135deg, #F0F6F3 0%, #E8F1EC 100%); border-left: 5px solid #2F5D50; border-radius: 4px 14px 14px 4px; padding: 22px 26px; margin: 36px 0; color: #2C3E35; box-shadow: 0 2px 6px rgba(47,93,80,0.06); font-style: normal;">
@@ -150,7 +199,7 @@ export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = 
   return `
 <div style="font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; line-height: 1.85; color: #333333; max-width: 780px; margin: 0 auto; padding: 10px 0; font-style: normal;">
   
-  <!-- 대표 썸네일 이미지 (다음/카카오/네이버 검색 썸네일 자동 연동) -->
+  <!-- 대표 썸네일 이미지 (1:1 완벽 맞춤형 카드 썸네일) -->
   <div style="text-align: center; margin: 0 0 24px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
     <img src="${thumbnailUrl}" alt="해아림한의원 인천부평점 건강 칼럼" style="width: 100%; max-width: 780px; height: auto; display: block; border-radius: 12px; margin: 0 auto; object-fit: cover;" />
   </div>
@@ -212,29 +261,22 @@ function parseSectionBody(text) {
   if (!text) return '';
   let html = '';
 
-  // 볼드체 치환 (마크다운 **text**)
   text = text.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #1E4638; font-weight: 700;">$1</strong>');
-
-  // 문단 분할
   const paragraphs = text.split(/\r?\n\r?\n+/);
 
   for (let p of paragraphs) {
     p = p.trim();
     if (!p) continue;
 
-    // 1. 이미 완성된 HTML 블록 (<table, <div, <blockquote 등)
     if (p.startsWith('<table') || p.startsWith('<div') || p.startsWith('<blockquote') || p.startsWith('<ul') || p.startsWith('<ol')) {
       html += `  ${p}\n`;
-    }
-    // 2. 마크다운 테이블 (| ... |)
-    else if (p.startsWith('|') && p.includes('\n|')) {
+    } else if (p.startsWith('|') && p.includes('\n|')) {
       const rows = p.split(/\r?\n/).map(r => r.trim()).filter(Boolean);
       let tableHtml = `  <div style="margin: 22px 0; overflow-x: auto;">\n    <table style="width: 100%; border-collapse: collapse; border: 1px solid #E2EAE5; border-radius: 10px; overflow: hidden; font-size: 14.5px; line-height: 1.6; text-align: left; background-color: #ffffff;">\n`;
       
       let isHeader = true;
       for (const row of rows) {
         if (/^\|[\s\-:]+\|$/.test(row.replace(/\s+/g, ''))) {
-          // 구분선 건너뜀
           isHeader = false;
           continue;
         }
@@ -256,9 +298,7 @@ function parseSectionBody(text) {
       }
       tableHtml += `    </table>\n  </div>\n`;
       html += tableHtml;
-    }
-    // 3. 번호 목록 (1. 2. 3.)
-    else if (/^\d+\.\s+/.test(p)) {
+    } else if (/^\d+\.\s+/.test(p)) {
       const items = p.split(/\r?\n/).filter(Boolean);
       html += `  <div style="margin: 18px 0;">\n`;
       items.forEach(li => {
@@ -268,9 +308,7 @@ function parseSectionBody(text) {
     </div>\n`;
       });
       html += `  </div>\n`;
-    }
-    // 4. 불릿 목록 (* ...)
-    else if (/^\*\s+/.test(p)) {
+    } else if (/^\*\s+/.test(p)) {
       const items = p.split(/\r?\n/).filter(Boolean);
       html += `  <ul style="list-style-type: none; padding-left: 0; margin: 18px 0; font-style: normal;">\n`;
       items.forEach(li => {
@@ -281,13 +319,10 @@ function parseSectionBody(text) {
     </li>\n`;
       });
       html += `  </ul>\n`;
-    }
-    // 5. 일반 문단
-    else {
+    } else {
       html += `  <p style="font-size: 16px; line-height: 1.85; color: #374151; margin-bottom: 18px; word-break: keep-all; font-style: normal;">${p.replace(/\r?\n/g, '<br>')}</p>\n`;
     }
   }
 
   return html;
 }
-

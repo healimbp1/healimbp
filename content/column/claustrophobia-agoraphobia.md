@@ -182,19 +182,11 @@ image: "/blog-images/incheon-namdong-panic/01_naver_main_thumbnail.jpg"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>가족이나 지인이 함께 타면 괜찮은데 혼자서는 못 타는 이유가 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        동행자를 뇌의 "안전 신호(Safety Cue)"로 인식하기 때문입니다. 동행자에게 의존하는 패턴을 서서히 줄이기 위해, 처음에는 옆 칸에 타기, 다음에는 한 정거장 혼자 가기 등으로 자립 훈련을 진행해야 합니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>지하철, 터널, 엘리베이터, 미용실처럼 꽉 막힌 공간에만 가면 심장이 터질 것 같은 광장공포증은 왜 생기나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ image: "/blog-images/incheon-namdong-panic/01_naver_main_thumbnail.jpg"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>지하철을 탈 때 중간에 공황이 오면 즉시 내려야 하나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         불안이 정점에 달했을 때 즉시 도망치듯 내리면 뇌는 "도망쳤기 때문에 살았다"고 착각하여 공포 회로가 강화됩니다. 다음 역까지 복식호흡을 하며 2~3분만 버텨내어 심박수가 스스로 가라앉는 과정을 경험하는 것이 공포 회로를 끊는 핵심입니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>가족이나 지인이 함께 타면 괜찮은데 혼자서는 못 타는 이유가 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        동행자를 뇌의 "안전 신호(Safety Cue)"로 인식하기 때문입니다. 동행자에게 의존하는 패턴을 서서히 줄이기 위해, 처음에는 옆 칸에 타기, 다음에는 한 정거장 혼자 가기 등으로 자립 훈련을 진행해야 합니다.
       </p>
     </div>
 </div>

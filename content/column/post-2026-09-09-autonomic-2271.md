@@ -187,15 +187,6 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>만성 피로와 함께 소화불량, 어지럼증, 가슴 답답함이 같이 오는 이유는 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        자율신경계는 심장, 위장, 혈관, 땀샘을 동시에 관장하므로, 자율신경 조절 밸런스가 무너지면 전신 다발성 신체화 증상이 동시다발적으로 나타나는 것이 특징입니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>주말에 하루 종일 쉬고 영양제를 챙겨 먹어도 피로가 전혀 안 풀리는데 자율신경실조증인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -204,11 +195,20 @@ tags: ["자율신경","자율신경치료","한방신경정신과","자율신경
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>자율신경실조증으로 인한 만성 피로는 병원 피검사에서 왜 이상이 안 나오나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         피검사는 간염, 신부전, 빈혈 등 기질적 장기 손상만 감지할 뿐, 1초에 수십 번씩 전신 장기를 조율하는 자율신경계의 기능적 조절 장애(HRV 심박변이도 저하)는 잡아내지 못하기 때문입니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>만성 피로와 함께 소화불량, 어지럼증, 가슴 답답함이 같이 오는 이유는 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        자율신경계는 심장, 위장, 혈관, 땀샘을 동시에 관장하므로, 자율신경 조절 밸런스가 무너지면 전신 다발성 신체화 증상이 동시다발적으로 나타나는 것이 특징입니다.
       </p>
     </div>
 </div>

@@ -5,7 +5,7 @@ date: "2026-08-18"
 type: column
 category: "신체화 & 담적·두통·턱관절"
 tags: ["시흥담적병","배곧신경성소화불량","인천기능성소화장애","부평담적치료","명치답답함","평위산","반하사심탕"]
-image: "/blog-images/depression-somatic/01_naver_main_thumbnail.png"
+image: "/blog-images/bupyeong-somatic/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -182,19 +182,11 @@ image: "/blog-images/depression-somatic/01_naver_main_thumbnail.png"
 <div class="section-label">진료실 자주 묻는 질문 06</div>
 
 ## 환자분들이 진료실에서 가장 많이 묻는 현실적 질문 (FAQ)
+
 <div class="space-y-4 my-6 not-prose">
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>담적병 환자가 피해야 할 가장 해로운 식습관 3가지는 무엇인가요?</span>
-      </div>
-      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        1) 식사 후 바로 눕는 습관, 2) 찬물이나 차가운 음료 자주 마시기, 3) 밤늦은 야식과 밀가루·기름진 음식 섭취입니다. 따뜻한 음식을 천천히 꼭꼭 씹어 드셔야 합니다.
-      </p>
-    </div>
-    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
-      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>위내시경 검사는 깨끗하다는데 늘 체한 듯 명치가 돌처럼 딱딱하고 더부룩한 이유가 담적병(痰積病) 때문인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
@@ -203,11 +195,20 @@ image: "/blog-images/depression-somatic/01_naver_main_thumbnail.png"
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
-        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
         <span>담적병이 있으면 왜 소화불량뿐만 아니라 두통, 어지럼증, 눈 침침함이 함께 오나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
         위장에서 발생한 탁한 담음(痰飮) 가스가 뇌-장 신경망과 혈관을 타고 상체로 치솟아 머리의 기혈 순환을 차단하기 때문입니다. 위장의 담적을 치료하면 만성 두통과 어지럼증이 동시에 씻은 듯 사라집니다.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
+      <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
+        <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
+        <span>담적병 환자가 피해야 할 가장 해로운 식습관 3가지는 무엇인가요?</span>
+      </div>
+      <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
+        1) 식사 후 바로 눕는 습관, 2) 찬물이나 차가운 음료 자주 마시기, 3) 밤늦은 야식과 밀가루·기름진 음식 섭취입니다. 따뜻한 음식을 천천히 꼭꼭 씹어 드셔야 합니다.
       </p>
     </div>
 </div>

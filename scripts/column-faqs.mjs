@@ -93,7 +93,7 @@ export const TOPIC_FAQ_DATABASE = {
     },
     {
       q: '불안할 때 몸에 힘을 빼는 가장 효과적인 한방 지압혈이 있나요?',
-      a: '손목 안쪽 주름에서 팔꿈치 쪽으로 손가락 2마디 올라간 위치의 **내관혈(內關穴)**과 가슴 정중앙의 **전중혈(膻中穴)**을 숨을 깊이 내쉬며 지그시 눌러주면 교감신경 긴장이 빠르게 완화됩니다.'
+      a: '손목 안쪽 주름에서 팔꿈치 쪽으로 손가락 2마디 올라간 위치의 내관혈(內關穴)과 가슴 정중앙의 전중혈(膻中穴)을 숨을 깊이 내쉬며 지그시 눌러주면 교감신경 긴장이 빠르게 완화됩니다.'
     }
   ],
 
@@ -131,7 +131,7 @@ export const TOPIC_FAQ_DATABASE = {
   'sleep-onset': [
     {
       q: '누우면 머릿속에서 온갖 잡생각이 꼬리를 물고 1~2시간 넘게 뒤척이는 입면장애는 왜 생기나요?',
-      a: '휴식 시 꺼져야 하는 뇌의 **디폴트 모드 네트워크(DMN)** 스위치가 만성 과각성으로 인해 꺼지지 않기 때문입니다. 불을 끄고 자극이 사라지면 뇌가 낮 동안 억눌린 걱정과 기억을 폭발적으로 재생합니다. 뇌의 상열감을 내리고 DMN을 진정시키는 청뇌안신 한약과 수면 뇌파 훈련이 필수적입니다.'
+      a: '휴식 시 꺼져야 하는 뇌의 디폴트 모드 네트워크(DMN) 스위치가 만성 과각성으로 인해 꺼지지 않기 때문입니다. 불을 끄고 자극이 사라지면 뇌가 낮 동안 억눌린 걱정과 기억을 폭발적으로 재생합니다. 뇌의 상열감을 내리고 DMN을 진정시키는 청뇌안신 한약과 수면 뇌파 훈련이 필수적입니다.'
     },
     {
       q: '침대에 누워 30분 이상 잠이 안 올 때는 어떻게 해야 하나요?',
@@ -542,60 +542,71 @@ export const TOPIC_FAQ_DATABASE = {
  * 본문 및 제목 키워드를 분석하여 최적의 FAQ 토픽 키 반환
  */
 export function findTopicKey(topicFocus = '', title = '', categoryName = '') {
-  const text = `${topicFocus} ${title}`.toLowerCase();
+  // 1단계: title과 topicFocus의 제목/주제 키워드만 먼저 순수하게 검사!
+  const titleText = `${topicFocus} ${title}`.toLowerCase();
 
-  // 1. 실신 / 미주신경성 (광장공포증 지하철 키워드보다 최우선 매칭)
-  if (text.includes('실신') || text.includes('미주신경') || text.includes('쓰러') || text.includes('눈앞이 캄캄')) return 'vasovagal-syncope';
+  // 1. 실신 / 미주신경성 / 기립성 (최우선)
+  if (titleText.includes('미주신경') || titleText.includes('실신') || titleText.includes('쓰러') || titleText.includes('눈앞이 캄캄')) return 'vasovagal-syncope';
+  if (titleText.includes('기립성') || titleText.includes('일어설 때') || titleText.includes('눈앞이 하')) return 'orthostatic-hypotension';
 
-  // 2. 턱관절 / 이갈이 / 후두신경통 / 신체화
-  if (text.includes('이갈이') || text.includes('이악물기') || text.includes('교근')) return 'bruxism-jaw';
-  if (text.includes('턱관절') || text.includes('fcst') || text.includes('딱 소리') || text.includes('개구')) return 'tmj-migraine';
-  if (text.includes('후두신경') || text.includes('긴장성 두통') || text.includes('목덜미') || text.includes('경추성 긴장')) return 'cervicogenic-headache';
-  if (text.includes('신체화') || text.includes('온몸이 아') || text.includes('통증 역치') || text.includes('섬유근육통')) return 'somatization-disorder';
-  if (text.includes('담적') || text.includes('소화불량') || text.includes('명치') || text.includes('체기') || text.includes('위내시경') || text.includes('더부룩')) return 'damjeok-dyspepsia';
-  if (text.includes('과민성') || text.includes('대장') || text.includes('ibs') || text.includes('복통') || text.includes('설사')) return 'ibs';
+  // 2. 이명 / 뇌명
+  if (titleText.includes('이명') || titleText.includes('뇌명') || titleText.includes('귀뚜라미') || titleText.includes('삐 소리') || titleText.includes('귀에서')) return 'tinnitus-autonomic';
 
-  // 3. 우울증 / 산후우울 / 갱년기 / 화병 / 번아웃 / 분노
-  if (text.includes('산후') || text.includes('출산') || text.includes('육아우울')) return 'postpartum-depression';
-  if (text.includes('갱년기') || text.includes('안면홍조') || text.includes('폐경')) return 'menopausal-hwabyeong';
-  if (text.includes('매핵기') || text.includes('목 이물감') || text.includes('목구멍') || text.includes('화병') || text.includes('전중혈') || text.includes('가슴 답답') || text.includes('간화')) return 'hwabyeong-maehaekgi';
-  if (text.includes('번아웃') || text.includes('직장인') || text.includes('무기력감')) return 'burnout-syndrome';
-  if (text.includes('분노') || text.includes('간열') || text.includes('감정 기복') || text.includes('분노 조절')) return 'anger-control';
-  if (text.includes('우울') || text.includes('세로토닌') || text.includes('의욕 저하')) return 'chronic-depression';
+  // 3. 공황 / 광장공포 / 운전공포 / 터널 / 고속도로 / 과호흡 / 강박 / 사회공포 / 범불안 (식은땀/긴장보다 공황/공포증 우선!)
+  if (titleText.includes('터널') || titleText.includes('고속도로') || titleText.includes('운전 공포') || titleText.includes('광장공포') || titleText.includes('밀폐') || titleText.includes('엘리베이터') || titleText.includes('공간 지각')) return 'agoraphobia';
+  if (titleText.includes('과호흡') || titleText.includes('숨이 턱') || titleText.includes('공황발작') || titleText.includes('공황장애') || titleText.includes('공황') || titleText.includes('심장마비 올까')) return 'panic-attack';
+  if (titleText.includes('예기불안') || titleText.includes('또 발작')) return 'anticipatory-anxiety';
+  if (titleText.includes('사회공포') || titleText.includes('발표') || titleText.includes('시선') || titleText.includes('무대') || titleText.includes('목소리 떨림') || titleText.includes('손떨림')) return 'social-anxiety';
+  if (titleText.includes('강박') || titleText.includes('확인') || titleText.includes('cstc') || titleText.includes('오염')) return 'ocd';
+  if (titleText.includes('범불안') || titleText.includes('최악을 상상') || titleText.includes('조마조마') || titleText.includes('건강염려') || titleText.includes('질병불안') || titleText.includes('불안장애') || titleText.includes('만성 불안')) return 'generalized-anxiety';
 
-  // 4. 소아청소년 틱 & ADHD / 성인 ADHD / 스마트폰 중독
-  if (text.includes('음성틱') || text.includes('음성 틱') || text.includes('뚜렛') || text.includes('킁킁') || text.includes('음음') || text.includes('헛기침')) return 'vocal-tic';
-  if (text.includes('눈 깜빡') || text.includes('소아 틱') || text.includes('소아틱') || text.includes('운동틱') || text.includes('근육틱') || (text.includes('틱') && !text.includes('성인') && !text.includes('청소년'))) return 'pediatric-tic';
-  if (text.includes('청소년') && (text.includes('틱') || text.includes('학습') || text.includes('사춘기'))) return 'adolescent-tic';
-  if (text.includes('스마트폰') || text.includes('게임') || text.includes('팝콘 브레인') || text.includes('과의존')) return 'smartphone-addiction';
-  if (text.includes('성인 adhd') || text.includes('성인adhd') || text.includes('직장인 adhd') || text.includes('미루기') || text.includes('실행기능') || text.includes('도파민 고갈')) return 'adult-adhd';
-  if (text.includes('소아 adhd') || text.includes('소아adhd') || (text.includes('adhd') && (text.includes('아이') || text.includes('초등') || text.includes('산만') || text.includes('주의력')))) return 'pediatric-adhd';
+  // 4. 갱년기 / 산후우울 / 화병 / 매핵기 / 분노 (식은땀보다 갱년기/화병 우선!)
+  if (titleText.includes('갱년기') || titleText.includes('안면홍조') || titleText.includes('폐경')) return 'menopausal-hwabyeong';
+  if (titleText.includes('산후') || titleText.includes('출산') || titleText.includes('육아우울')) return 'postpartum-depression';
+  if (titleText.includes('매핵기') || titleText.includes('목 이물감') || titleText.includes('목구멍') || titleText.includes('화병') || titleText.includes('가슴 답답') || titleText.includes('울화') || titleText.includes('전중혈') || titleText.includes('소간해울')) return 'hwabyeong-maehaekgi';
+  if (titleText.includes('번아웃') || titleText.includes('무기력감') || titleText.includes('배터리 방전')) return 'burnout-syndrome';
+  if (titleText.includes('분노') || titleText.includes('간열') || titleText.includes('감정 기복') || titleText.includes('분노 조절') || titleText.includes('욱하')) return 'anger-control';
+  if (titleText.includes('우울') || titleText.includes('세로토닌') || titleText.includes('의욕 저하')) return 'chronic-depression';
 
-  // 5. 자율신경 / 어지럼 / 이명 / 기립성 / 다한증 / 만성피로
-  if (text.includes('이명') || text.includes('뇌명') || text.includes('귀뚜라미') || text.includes('삐 소리') || text.includes('귀에서')) return 'tinnitus-autonomic';
-  if (text.includes('기립성') || text.includes('저혈압') || text.includes('일어설 때') || text.includes('눈앞이 하')) return 'orthostatic-hypotension';
-  if (text.includes('다한증') || text.includes('손발 땀') || text.includes('식은땀') || text.includes('교감신경 절제')) return 'hyperhidrosis';
-  if (text.includes('경추성') || text.includes('어지럼') || text.includes('브레인포그') || text.includes('이비인후과') || text.includes('빙빙') || text.includes('이석증')) return 'cervicogenic-dizziness';
-  if (text.includes('만성피로') || text.includes('소진') || text.includes('배터리') || text.includes('무기력') || text.includes('자율신경')) return 'chronic-fatigue';
+  // 5. 다한증 / 땀
+  if (titleText.includes('다한증') || titleText.includes('수족다한') || (titleText.includes('손발') && titleText.includes('땀')) || (titleText.includes('땀') && !titleText.includes('식은땀'))) return 'hyperhidrosis';
 
-  // 6. 불면증 / 수면장애
-  if (text.includes('야경증') || text.includes('야제증') || text.includes('악몽') || text.includes('가위눌림') || text.includes('다몽') || text.includes('수면마비')) return 'nightmare-paralysis';
-  if (text.includes('수면제') || text.includes('스틸녹스') || text.includes('졸피뎀') || text.includes('단약') || text.includes('내성') || text.includes('수면유도제')) return 'sleeping-pill';
-  if (text.includes('입면') || text.includes('뒤척') || text.includes('잡생각') || text.includes('dmn') || text.includes('잠들기')) return 'sleep-onset';
-  if (text.includes('생체시계') || text.includes('수면 리듬') || text.includes('교대근무') || text.includes('생체 리듬') || text.includes('멜라토닌')) return 'circadian-rhythm';
-  if (text.includes('수면 분절') || text.includes('얕은 수면') || text.includes('델타파') || text.includes('하지불안')) return 'sleep-fragmentation';
-  if (text.includes('새벽') || text.includes('중도각성') || text.includes('자다 깨') || text.includes('수면유지') || text.includes('야간뇨') || text.includes('통잠') || text.includes('불면')) return 'sleep-maintenance';
+  // 6. 신체화 / 담적 / 섬유근육통 / 구강작열감 / 위경련
+  if (titleText.includes('구강작열') || titleText.includes('신체화') || titleText.includes('온몸이 아') || titleText.includes('통증 역치') || titleText.includes('섬유근육통')) return 'somatization-disorder';
+  if (titleText.includes('담적') || titleText.includes('소화불량') || titleText.includes('명치') || titleText.includes('체기') || titleText.includes('위내시경') || titleText.includes('더부룩') || titleText.includes('복부 팽만') || titleText.includes('위경련') || titleText.includes('트림')) return 'damjeok-dyspepsia';
+  if (titleText.includes('과민성') || titleText.includes('대장') || titleText.includes('ibs') || titleText.includes('복통') || titleText.includes('설사')) return 'ibs';
 
-  // 7. 공황 / 불안 / 공포 / 강박
-  if (text.includes('과호흡') || text.includes('숨이 턱') || text.includes('공황발작') || text.includes('공황장애') || text.includes('공황')) return 'panic-attack';
-  if (text.includes('예기불안') || text.includes('또 발작')) return 'anticipatory-anxiety';
-  if (text.includes('광장공포') || text.includes('지하철') || text.includes('엘리베이터') || text.includes('밀폐') || text.includes('터널') || text.includes('공간 지각')) return 'agoraphobia';
-  if (text.includes('사회공포') || text.includes('발표') || text.includes('시선') || text.includes('무대') || text.includes('목소리 떨림') || text.includes('손떨림')) return 'social-anxiety';
-  if (text.includes('강박') || text.includes('확인') || text.includes('cstc') || text.includes('오염')) return 'ocd';
-  if (text.includes('범불안') || text.includes('만성 불안') || text.includes('조마조마') || text.includes('불안장애') || text.includes('최악을 상상')) return 'generalized-anxiety';
+  // 7. 턱관절 / 이갈이 / 경추성 두통
+  if (titleText.includes('이갈이') || titleText.includes('이악물기') || titleText.includes('교근')) return 'bruxism-jaw';
+  if (titleText.includes('턱관절') || titleText.includes('fcst') || titleText.includes('딱 소리') || titleText.includes('개구')) return 'tmj-migraine';
+  if (titleText.includes('두통') || titleText.includes('후두신경') || titleText.includes('긴장성 두통') || titleText.includes('목덜미') || titleText.includes('경추성 긴장')) return 'cervicogenic-headache';
 
-  // Fallback: categoryName 기반
-  const cat = categoryName.toLowerCase();
+  // 8. 어지럼증 / 브레인포그 / 경추성 어지럼
+  if (titleText.includes('어지럼') || titleText.includes('빙빙') || titleText.includes('이석증') || titleText.includes('경추성 어지')) return 'cervicogenic-dizziness';
+
+  // 9. 틱장애 / 뚜렛
+  if (titleText.includes('음성틱') || titleText.includes('음성 틱') || titleText.includes('뚜렛') || titleText.includes('킁킁') || titleText.includes('음음') || titleText.includes('헛기침')) return 'vocal-tic';
+  if (titleText.includes('청소년') && (titleText.includes('틱') || titleText.includes('사춘기'))) return 'adolescent-tic';
+  if (titleText.includes('틱') || titleText.includes('눈 깜빡') || titleText.includes('소아 틱') || titleText.includes('소아틱') || titleText.includes('운동틱') || titleText.includes('근육틱')) return 'pediatric-tic';
+
+  // 10. 불면증 / 수면장애 / 하지불안
+  if (titleText.includes('하지불안') || titleText.includes('수면 분절') || titleText.includes('얕은 잠') || titleText.includes('얕은 수면') || titleText.includes('델타파')) return 'sleep-fragmentation';
+  if (titleText.includes('수면제') || titleText.includes('스틸녹스') || titleText.includes('졸피뎀') || titleText.includes('단약') || titleText.includes('내성') || titleText.includes('수면유도제')) return 'sleeping-pill';
+  if (titleText.includes('야경증') || titleText.includes('야제증') || titleText.includes('악몽') || titleText.includes('가위눌림') || titleText.includes('다몽') || titleText.includes('수면마비')) return 'nightmare-paralysis';
+  if (titleText.includes('생체시계') || titleText.includes('수면 리듬') || titleText.includes('교대근무') || titleText.includes('생체 리듬') || titleText.includes('멜라토닌')) return 'circadian-rhythm';
+  if (titleText.includes('입면') || titleText.includes('뒤척') || titleText.includes('잡생각') || titleText.includes('dmn') || titleText.includes('잠들기')) return 'sleep-onset';
+  if (titleText.includes('새벽') || titleText.includes('중도각성') || titleText.includes('자다 깨') || titleText.includes('수면유지') || titleText.includes('야간뇨') || titleText.includes('통잠') || titleText.includes('불면')) return 'sleep-maintenance';
+
+  // 11. ADHD / 집중력 / 스마트폰
+  if (titleText.includes('스마트폰') || titleText.includes('게임') || titleText.includes('팝콘 브레인') || titleText.includes('과의존')) return 'smartphone-addiction';
+  if (titleText.includes('성인 adhd') || titleText.includes('성인adhd') || titleText.includes('직장인 adhd') || titleText.includes('미루기') || titleText.includes('실행기능') || titleText.includes('도파민')) return 'adult-adhd';
+  if (titleText.includes('조용한 adhd') || titleText.includes('add') || titleText.includes('소아 adhd') || titleText.includes('소아adhd') || titleText.includes('adhd') || titleText.includes('산만') || titleText.includes('주의력')) return 'pediatric-adhd';
+
+  // 12. 만성피로 & 자율신경
+  if (titleText.includes('만성피로') || titleText.includes('소진') || titleText.includes('피로') || titleText.includes('상열하한') || titleText.includes('식후 졸음') || titleText.includes('자율신경')) return 'chronic-fatigue';
+
+  // 12. Fallback: CategoryName 기반
+  const cat = (categoryName || '').toLowerCase();
   if (cat.includes('공황') || cat.includes('불안')) return 'panic-attack';
   if (cat.includes('수면') || cat.includes('불면')) return 'sleep-maintenance';
   if (cat.includes('성인') && cat.includes('adhd')) return 'adult-adhd';
@@ -608,6 +619,7 @@ export function findTopicKey(topicFocus = '', title = '', categoryName = '') {
 
 /**
  * 주어진 카테고리, 주제, 인덱스/슬롯을 기반으로 3개의 다채로운 질환 특화 FAQ 반환
+ * (절대로 다른 질환의 FAQ를 섞지 않고, 해당 풀 내에서만 순환)
  */
 export function getDiverseFaq(categoryName = '', topic = {}, options = {}) {
   const topicFocus = typeof topic === 'string' ? topic : (topic?.focus || topic?.titleSuffix || '');
@@ -617,7 +629,7 @@ export function getDiverseFaq(categoryName = '', topic = {}, options = {}) {
 
   const seed = options.seed !== undefined ? options.seed : (options.slot !== undefined ? options.slot : 0);
 
-  // 3개 질문 선택 (풀 크기에 맞춰 순환 및 중복 방지)
+  // 3개 질문 선택 (해당 풀 내에서만 순환)
   const count = Math.min(3, pool.length);
   const selected = [];
   for (let i = 0; i < count; i++) {
@@ -625,19 +637,9 @@ export function getDiverseFaq(categoryName = '', topic = {}, options = {}) {
     selected.push(pool[idx]);
   }
 
-  // 만약 풀이 3개 미만이면 카테고리 보조 풀에서 중복 없이 보충
-  if (selected.length < 3) {
-    const fallbackKeys = Object.keys(TOPIC_FAQ_DATABASE);
-    for (const fbKey of fallbackKeys) {
-      if (selected.length >= 3) break;
-      const fbPool = TOPIC_FAQ_DATABASE[fbKey];
-      for (const item of fbPool) {
-        if (!selected.some(s => s.q === item.q)) {
-          selected.push(item);
-          if (selected.length >= 3) break;
-        }
-      }
-    }
+  // 만약 풀에 2개 이하만 있을 경우에도 절대 다른 질환 풀에서 가져오지 않고 해당 풀 항목 반복/변형
+  while (selected.length < 3 && pool.length > 0) {
+    selected.push(pool[selected.length % pool.length]);
   }
 
   return selected;
