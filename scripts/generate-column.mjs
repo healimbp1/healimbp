@@ -519,10 +519,14 @@ export const CATEGORIES = [
 // 3. 기존 발행 이력 분석 및 100% 고유한 스마트 타겟 선정 (무한 중복 방지)
 export function selectSmartTarget() {
   const now = new Date();
-  const kstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  const dateStr = kstDate.toISOString().slice(0, 10);
-  const dayOfYear = Math.floor((kstDate - new Date(kstDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-  const hour = kstDate.getHours();
+  const kstDateStr = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+  const [kYear, kMonth, kDay] = kstDateStr.split('-').map(Number);
+  const dateStr = kstDateStr; // "YYYY-MM-DD"
+  const kstDateObj = new Date(Date.UTC(kYear, kMonth - 1, kDay));
+  const kstYearStart = new Date(Date.UTC(kYear, 0, 1));
+  const dayOfYear = Math.floor((kstDateObj - kstYearStart) / (1000 * 60 * 60 * 24)) + 1;
+  const hourFormatter = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', hour: 'numeric', hour12: false });
+  const hour = parseInt(hourFormatter.format(now), 10);
   const slot = hour < 10 ? 0 : hour < 14 ? 1 : hour < 18 ? 2 : 3;
 
   // 기존 발행된 모든 칼럼 파일 스캔하여 기존 제목 집합 구축

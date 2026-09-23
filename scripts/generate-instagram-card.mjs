@@ -563,15 +563,19 @@ ${cat.solutions.map(s => `🔹 ${s.title} : ${s.desc}`).join('\n')}
 // 4. 메인 실행 함수
 async function main() {
   const now = new Date();
-  const kstDate = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-  const dayOfYear = Math.floor((kstDate - new Date(kstDate.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-  const hour = kstDate.getHours();
+  const kstDateStr = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+  const [kYear, kMonth, kDay] = kstDateStr.split('-').map(Number);
+  const dateStr = kstDateStr;
+  const kstDateObj = new Date(Date.UTC(kYear, kMonth - 1, kDay));
+  const kstYearStart = new Date(Date.UTC(kYear, 0, 1));
+  const dayOfYear = Math.floor((kstDateObj - kstYearStart) / (1000 * 60 * 60 * 24)) + 1;
+  const hourFormatter = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', hour: 'numeric', hour12: false });
+  const hour = parseInt(hourFormatter.format(now), 10);
   const slot = hour < 12 ? 0 : 1; // 하루 2회 인스타 주기
   const runIndex = (dayOfYear * 2) + slot;
 
   const cat = CATEGORIES[runIndex % CATEGORIES.length];
   const region = REGION_POOLS[runIndex % REGION_POOLS.length];
-  const dateStr = kstDate.toISOString().slice(0, 10);
   const postId = `insta-${dateStr}-${cat.id}-${runIndex}`;
 
   console.log(`[Instagram Card News] Generating post for: ${cat.name} (${region.short})`);
