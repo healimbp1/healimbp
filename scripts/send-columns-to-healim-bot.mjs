@@ -304,6 +304,23 @@ ${escapeHtml(cleanBody)}
   const docJson = await docRes.json();
   if (!docJson.ok) throw new Error(docJson.description || JSON.stringify(docJson));
   console.log(`   ✅ 3단계: 썸네일 내장 완결형 티스토리 HTML 파일 전송 완료!`);
+
+  await new Promise(r => setTimeout(r, 600));
+
+  // 4. Send TXT Manuscript File (원고 텍스트 파일)
+  const docTxtFormData = new FormData();
+  docTxtFormData.append('chat_id', chatId);
+  docTxtFormData.append('caption', `📄 <b>[전체 원고 텍스트 파일 #${i + 1}]</b>\n${slug} 전체 원고 TXT 파일입니다.`);
+  docTxtFormData.append('parse_mode', 'HTML');
+  docTxtFormData.append('document', new Blob([cleanBody], { type: 'text/plain;charset=utf-8' }), `column_${slug}.txt`);
+
+  const docTxtRes = await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+    method: 'POST',
+    body: docTxtFormData
+  });
+  const docTxtJson = await docTxtRes.json();
+  if (!docTxtJson.ok) throw new Error(docTxtJson.description || JSON.stringify(docTxtJson));
+  console.log(`   ✅ 4단계: 전체 원고 텍스트(TXT) 파일 전송 완료!`);
 }
 
 async function run() {
