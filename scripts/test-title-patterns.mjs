@@ -8,7 +8,7 @@ const REGION_POOLS = [
   { short: '인천 구월동', full: '남동구' },
   { short: '시흥 배곧', full: '시흥시' },
   { short: '인천 청라', full: '인천 서구' },
-  { short: '인천 송도', full: '인천 연수구' }
+  { short: '검단신도시', full: '인천 서구' }
 ];
 
 // 2. 카테고리 풀

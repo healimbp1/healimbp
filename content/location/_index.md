@@ -7,7 +7,7 @@ sections:
   - block: html
     content:
       html: |
-        <div class="w-full max-w-5xl mx-auto py-6 space-y-8">
+        <div class="w-full max-w-5xl mx-auto py-6 px-3.5 sm:px-6 space-y-8">
 
           <!-- 1. Header (참조 이미지 스타일: Location 서브텍스트 + 타이틀 + 우측 다크 필 버튼 2개) -->
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">

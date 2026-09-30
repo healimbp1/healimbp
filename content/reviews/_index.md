@@ -7,30 +7,30 @@ sections:
   - block: html
     content:
       html: |
-        <div class="w-full max-w-5xl mx-auto py-6 space-y-10">
+        <div class="w-full max-w-5xl mx-auto py-6 px-3.5 sm:px-6 space-y-10">
 
           <!-- 1. Header Banner -->
           <div class="lia-hero-box text-center space-y-4">
             <span class="heal-hero-badge">Patient Reviews & Recovery Stories</span>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-[#26332E]">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-[#26332E]">
               해아림과 함께 찾은 평온한 일상
             </h1>
-            <p class="text-base sm:text-lg text-[#53615B] leading-relaxed max-w-2xl mx-auto">
+            <p class="text-sm sm:text-lg text-[#53615B] leading-relaxed max-w-2xl mx-auto">
               단순한 한 줄 평이 아닌, 질환의 고통 속에서 권형근 원장님과 함께 몸과 마음의 균형을 되찾으신 환자분들의 <strong>진정성 있는 실제 회복 이야기</strong>입니다.
             </p>
           </div>
 
           <!-- 2. 후기 대분류 탭 (네이버 영수증 리뷰 vs 자필 수기 후기) -->
-          <div class="flex flex-wrap justify-center gap-3">
-            <button id="tab-naver" onclick="showTab('naver')" class="px-5 py-3 rounded-xl font-extrabold text-sm sm:text-base transition-all duration-200 bg-[#2F5D50] text-white shadow-md flex items-center gap-2 cursor-pointer">
-              <span class="text-base">⭐</span>
+          <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+            <button id="tab-naver" onclick="showTab('naver')" class="flex-1 sm:flex-initial px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-extrabold text-xs sm:text-base transition-all duration-200 bg-[#2F5D50] text-white shadow-md flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap">
+              <span class="text-xs sm:text-base">⭐</span>
               <span>네이버 방문자 영수증 리뷰</span>
-              <span class="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full font-bold">인증 리뷰</span>
+              <span class="bg-white/20 text-white text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold hidden sm:inline">인증</span>
             </button>
-            <button id="tab-handwritten" onclick="showTab('handwritten')" class="px-5 py-3 rounded-xl font-extrabold text-sm sm:text-base transition-all duration-200 bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] flex items-center gap-2 border border-[#DDE6E1] cursor-pointer">
-              <span class="text-base">✍️</span>
-              <span>원내 자필 수기 치료 후기</span>
-              <span class="bg-[#2F5D50]/10 text-[#2F5D50] text-xs px-2 py-0.5 rounded-full font-bold">자필 원본</span>
+            <button id="tab-handwritten" onclick="showTab('handwritten')" class="flex-1 sm:flex-initial px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-extrabold text-xs sm:text-base transition-all duration-200 bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] flex items-center justify-center gap-1.5 sm:gap-2 border border-[#DDE6E1] cursor-pointer whitespace-nowrap">
+              <span class="text-xs sm:text-base">✍️</span>
+              <span>원내 자필 수기 후기</span>
+              <span class="bg-[#2F5D50]/10 text-[#2F5D50] text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full font-bold hidden sm:inline">자필</span>
             </button>
           </div>
 

@@ -11,27 +11,27 @@
       </div>
     </div>
 
-    <div class="flex items-center justify-between w-full md:w-auto gap-2 sm:gap-3">
+    <div class="grid grid-cols-3 sm:flex items-center justify-between w-full md:w-auto gap-2 sm:gap-3">
       <!-- 전화 예약 -->
-      <a href="tel:032-719-3472" class="heal-btn heal-btn-primary flex-1 md:flex-initial py-2.5 px-3.5 sm:px-4 text-xs sm:text-sm">
-        <i class="fa-solid fa-phone"></i>
-        <span>032-719-3472</span>
+      <a href="tel:032-719-3472" class="heal-btn heal-btn-primary py-2.5 px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap text-center justify-center">
+        <i class="fa-solid fa-phone text-xs sm:text-sm"></i>
+        <span><span class="inline sm:hidden">전화상담</span><span class="hidden sm:inline">032-719-3472</span></span>
       </a>
 
       <!-- 카카오톡 채널 상담 -->
-      <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao flex-1 md:flex-initial py-2.5 px-3.5 sm:px-4 text-xs sm:text-sm">
-        <i class="fa-solid fa-comment"></i>
-        <span>카톡 상담</span>
+      <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao py-2.5 px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap text-center justify-center">
+        <i class="fa-solid fa-comment text-xs sm:text-sm"></i>
+        <span>카톡상담</span>
       </a>
 
       <!-- 네이버 간편예약 -->
-      <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver flex-1 md:flex-initial py-2.5 px-3.5 sm:px-4 text-xs sm:text-sm">
-        <i class="fa-solid fa-calendar-check"></i>
-        <span>네이버 예약</span>
+      <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver py-2.5 px-2 sm:px-4 text-xs sm:text-sm whitespace-nowrap text-center justify-center">
+        <i class="fa-solid fa-calendar-check text-xs sm:text-sm"></i>
+        <span>네이버예약</span>
       </a>
 
-      <!-- 오시는 길 -->
-      <a href="/location/" class="heal-btn heal-btn-outline hidden sm:inline-flex py-2.5 px-3.5 text-xs sm:text-sm">
+      <!-- 오시는 길 (PC/태블릿에서만 표시) -->
+      <a href="/location/" id="floating-location-btn" class="heal-btn heal-btn-outline hidden sm:inline-flex py-2.5 px-3.5 text-xs sm:text-sm whitespace-nowrap">
         <i class="fa-solid fa-location-dot"></i>
         <span>부평역 7번출구</span>
       </a>

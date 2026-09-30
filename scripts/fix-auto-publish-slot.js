@@ -50,7 +50,7 @@ const newFunc = `async function publishColumn(targetCol) {
     \`📂 <b>카테고리:</b> \${category}\\n\` +
     \`📅 <b>발행일시:</b> <code>\${dateStr}</code>\\n\` +
     \`🏷️ <b>태그:</b> <code>\${tags.join(', ')}</code>\\n\\n\` +
-    \`🌐 <b>공식 사이트:</b> https://healim-bp.com/column/\${slug}/\\n\` +
+    \`🌐 <b>공식 사이트:</b> https://healimbp.com/column/\${slug}/\\n\` +
     \`📄 <i>아래 전송되는 HTML 파일을 복사하여 티스토리에 그대로 붙여넣으시면 됩니다.</i>\`;
 
   if (fs.existsSync(thumbPath)) {

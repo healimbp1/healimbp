@@ -2,17 +2,17 @@
  * 썸네일 이미지 단일 소스 리졸버 (Hierarchical Multi-Tier Single Source of Truth)
  * 해아림한의원 인천부평점 - 질환 세부 주제 + 대상 지역 100% 일치 정밀 매칭
  * 
- * 🚫 우울증/번아웃 오매칭 0% 보장 원칙:
+ * 🚫 지역 불일치(Cross-Region Mismatch) & 우울증 오매칭 0% 보장 원칙:
  * 1. 슬러그와 일치하는 static/blog-images/[slug]/ 폴더 우선 탐색
- * 2. 제목(title) 및 슬러그(slug)의 세부 질환 키워드 최우선 스코어링
- * 3. 카테고리 이름에 '우울증'이 포함되어 있더라도 제목에 '우울'이 없으면 우울증 썸네일 매칭 절대 불가
- * 4. 기성 이미지가 없는 경우 exact-tistory-thumbnail-builder로 100% 맞춤형 PNG 실시간 렌더링
+ * 2. 제목(title) 및 슬러그(slug)의 지역명과 질환 키워드 동시 스코어링
+ * 3. 글의 타깃 지역과 다른 지역의 기성 썸네일(예: 만수동 글에 동암/루원/상동 이미지) 매칭 절대 차단
+ * 4. 기성 이미지가 없거나 지역이 다를 경우 exact-tistory-thumbnail-builder로 [지역명 + 질환명] 100% 일치 PNG 실시간 렌더링
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildTistoryThumbnailPng } from './exact-tistory-thumbnail-builder.mjs';
+import { buildTistoryThumbnailPng, extractRegionLabel } from './exact-tistory-thumbnail-builder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -95,91 +95,91 @@ export function detectCategoryId(categoryId = '', categoryName = '', title = '',
 
 /**
  * 65개 세부 블로그 폴더 대상 스마트 키워드 스코어링 매칭 테이블
- * priority: 1순위(특화 증상: 매핵기, 식은땀, 박동성이명 등), 2순위(지역+질환), 3순위(일반질환)
+ * regionTag: 해당 썸네일 폴더의 고유 지역 (타 지역 매칭 차단용)
  */
 const TOPIC_FOLDER_RULES = [
   // 1. 특화 신체화 / 이비인후 / 담적 (매핵기, 담적, 턱관절)
-  { folder: 'samsan-throat-foreign-body-maehaekgi', keywords: ['매핵기', '이물감', '목 이물감', '목에 이물감', '목에 무언가', '목에 뭔가', '목이물감', '삼킴곤란', '삼킴', '인후', 'maehaekgi', 'throat'], weight: 10 },
-  { folder: 'ganseok-damjeok-dyspepsia', keywords: ['담적', '소화불량', '역류성', '과민성', '과민대장', '명치', '위장', '가스 차', 'damjeok', 'dyspepsia'], weight: 10 },
-  { folder: 'bupyeong-somatic', keywords: ['신체화', '담적병', '턱관절', '이갈이', '두통', '편두통', 'somatic'], weight: 6 },
-  { folder: 'bucheon-cityhall-brainfog', keywords: ['브레인포그', '멍함', '머리 멍', 'brainfog'], weight: 8 },
+  { folder: 'samsan-throat-foreign-body-maehaekgi', regionTag: '삼산', keywords: ['매핵기', '이물감', '목 이물감', '목에 이물감', '삼킴곤란', '인후', 'maehaekgi'], weight: 10 },
+  { folder: 'ganseok-damjeok-dyspepsia', regionTag: '간석', keywords: ['담적', '소화불량', '역류성', '과민성', '과민대장', '명치', '위장', 'damjeok'], weight: 10 },
+  { folder: 'bupyeong-somatic', regionTag: '부평', keywords: ['신체화', '담적병', '턱관절', '이갈이', '두통', '편두통', 'somatic'], weight: 6 },
+  { folder: 'bucheon-cityhall-brainfog', regionTag: '부천', keywords: ['브레인포그', '멍함', '머리 멍', 'brainfog'], weight: 8 },
 
   // 2. 화병 전용 (우울증 분리)
-  { folder: 'bucheon-jungdong-hwabyeong', keywords: ['화병', '울화', '화병클리닉', '가슴 답답', 'hwabyeong'], weight: 10 },
+  { folder: 'bucheon-jungdong-hwabyeong', regionTag: '중동', keywords: ['화병', '울화', '화병클리닉', '가슴 답답', 'hwabyeong'], weight: 10 },
 
   // 3. 자율신경 / 식은땀 / 어지럼 / 이명 / 실신
-  { folder: 'gyeyang-jakjeon-autonomic-sweat', keywords: ['상열하한', '식은땀', '야간 식은땀', '도한', '작전', '계양', '상열감', 'gyeyang', 'jakjeon', 'sweat'], weight: 10 },
-  { folder: 'seochang-pulsatile-tinnitus-brain-ringing', keywords: ['박동성', '이명', '뇌명', '귀에서', '삐 소리', '머리 울림', '귀뚜라미', 'seochang', 'tinnitus', 'ringing'], weight: 10 },
-  { folder: 'luwon-vasovagal-syncope-bus', keywords: ['실신', '미주신경', '기절', '버스', '루원', 'syncope', 'vasovagal'], weight: 10 },
-  { folder: 'bucheon-sinjungdong-vasovagal', keywords: ['신중동 실신', '신중동 미주신경'], weight: 9 },
-  { folder: 'bucheon-vasovagal', keywords: ['부천 실신', '부천 미주신경'], weight: 8 },
-  { folder: 'incheon-seogu-dizziness', keywords: ['서구 어지럼', '청라 어지럼', '검단 어지럼'], weight: 8 },
-  { folder: 'bucheon-dizziness', keywords: ['부천 어지럼', '부천 어지러움'], weight: 7 },
-  { folder: 'bupyeong-dizziness', keywords: ['어지럼', '어지러움', 'dizziness', '전정'], weight: 6 },
-  { folder: 'bupyeong-hyperhidrosis', keywords: ['다한증', '손발 땀', 'hyperhidrosis'], weight: 8 },
-  { folder: 'bucheon-autonomic', keywords: ['부천 자율신경'], weight: 7 },
-  { folder: 'bupyeong-autonomic', keywords: ['자율신경', 'autonomic'], weight: 6 },
-  { folder: 'autonomic-dizziness', keywords: ['자율신경 어지럼', 'autonomic dizziness'], weight: 5 },
+  { folder: 'gimpo-geomdan-vasovagal', regionTag: '검단', keywords: ['검단 실신', '김포 실신', '검단 미주신경', '김포 미주신경', '검단한의원 자율신경', '김포 검단'], weight: 11 },
+  { folder: 'gyeyang-jakjeon-autonomic-sweat', regionTag: '작전', keywords: ['상열하한', '식은땀', '야간 식은땀', '도한', '작전', '계양', '상열감', 'sweat'], weight: 10 },
+  { folder: 'seochang-pulsatile-tinnitus-brain-ringing', regionTag: '서창', keywords: ['박동성', '이명', '뇌명', '귀에서', '삐 소리', '머리 울림', 'seochang', 'tinnitus'], weight: 10 },
+  { folder: 'luwon-vasovagal-syncope-bus', regionTag: '루원', keywords: ['루원 실신', '루원 미주신경', '루원시티 실신', '기절', '버스', 'syncope'], weight: 10 },
+  { folder: 'bucheon-sinjungdong-vasovagal', regionTag: '신중동', keywords: ['신중동 실신', '신중동 미주신경'], weight: 9 },
+  { folder: 'bucheon-vasovagal', regionTag: '부천', keywords: ['부천 실신', '부천 미주신경'], weight: 8 },
+  { folder: 'incheon-seogu-dizziness', regionTag: '서구', keywords: ['서구 어지럼', '청라 어지럼', '검단 어지럼'], weight: 8 },
+  { folder: 'bucheon-dizziness', regionTag: '부천', keywords: ['부천 어지럼', '부천 어지러움'], weight: 7 },
+  { folder: 'bupyeong-dizziness', regionTag: '부평', keywords: ['부평 어지럼', '부평 어지러움', 'dizziness'], weight: 6 },
+  { folder: 'bupyeong-hyperhidrosis', regionTag: '부평', keywords: ['다한증', '손발 땀', 'hyperhidrosis'], weight: 8 },
+  { folder: 'bucheon-autonomic', regionTag: '부천', keywords: ['부천 자율신경'], weight: 7 },
+  { folder: 'bupyeong-autonomic', regionTag: '부평', keywords: ['부평 자율신경', '자율신경', 'autonomic'], weight: 6 },
 
   // 4. 공황 / 과호흡 / 불안 / 강박 / 공포
-  { folder: 'dongam-panic-attack-palpitation', keywords: ['공황발작', '심전도', '가슴 두근', '가슴두근', '심계항진', '동암', 'dongam', 'palpitation'], weight: 10 },
-  { folder: 'luwon-subway-panic-hyperventilation', keywords: ['과호흡', '지하철', '숨이 막', '질식감', '루원', 'subway', 'hyperventilation'], weight: 10 },
-  { folder: 'bucheon-sangdong-driving-panic', keywords: ['운전 공황', '고속도로', '터널 공황', 'driving'], weight: 9 },
-  { folder: 'bucheon-sangdong-panic', keywords: ['상동 공황'], weight: 8 },
-  { folder: 'incheon-namdong-panic', keywords: ['남동 공황', '구월 공황'], weight: 8 },
-  { folder: 'cheongna-anxiety', keywords: ['청라 불안', '청라 예기불안'], weight: 8 },
-  { folder: 'bucheon-anxiety', keywords: ['부천 불안'], weight: 7 },
-  { folder: 'incheon-anxiety', keywords: ['인천 불안', '불안장애'], weight: 7 },
-  { folder: 'bupyeong-anxiety', keywords: ['불안', '예기불안', 'anxiety'], weight: 6 },
-  { folder: 'bucheon-ocd', keywords: ['강박', '확인강박', '침투사고', 'ocd'], weight: 9 },
-  { folder: 'bucheon-social-phobia', keywords: ['사회공포', '발표불안', '무대공포', '시선공포', '목소리 떨림', '손떨림', 'phobia'], weight: 9 },
-  { folder: 'incheon-panic', keywords: ['인천 공황'], weight: 7 },
-  { folder: 'bupyeong-panic', keywords: ['공황', '과호흡', 'panic'], weight: 6 },
-  { folder: 'panic-anxiety', keywords: ['공황불안'], weight: 5 },
+  { folder: 'dongam-panic-attack-palpitation', regionTag: '동암', keywords: ['동암 공황', '동암역 공황', '동암 공황발작', '심계항진', 'dongam'], weight: 10 },
+  { folder: 'luwon-subway-panic-hyperventilation', regionTag: '루원', keywords: ['루원 공황', '루원 과호흡', '루원시티 공황', 'subway'], weight: 10 },
+  { folder: 'bucheon-sangdong-driving-panic', regionTag: '상동', keywords: ['운전 공황', '고속도로', '터널 공황', '상동 운전'], weight: 9 },
+  { folder: 'bucheon-sangdong-panic', regionTag: '상동', keywords: ['상동 공황'], weight: 8 },
+  { folder: 'incheon-namdong-panic', regionTag: '남동', keywords: ['남동 공황', '구월 공황', '만수동 공황', '만수 공황'], weight: 8 },
+  { folder: 'cheongna-anxiety', regionTag: '청라', keywords: ['청라 불안', '청라 예기불안'], weight: 8 },
+  { folder: 'bucheon-anxiety', regionTag: '부천', keywords: ['부천 불안'], weight: 7 },
+  { folder: 'incheon-anxiety', regionTag: '인천', keywords: ['인천 불안', '불안장애'], weight: 7 },
+  { folder: 'bupyeong-anxiety', regionTag: '부평', keywords: ['부평 불안', '예기불안'], weight: 6 },
+  { folder: 'bucheon-ocd', regionTag: '부천', keywords: ['강박', '확인강박', '침투사고', 'ocd'], weight: 9 },
+  { folder: 'bucheon-social-phobia', regionTag: '부천', keywords: ['사회공포', '발표불안', '무대공포', '시선공포', '손떨림'], weight: 9 },
+  { folder: 'incheon-panic', regionTag: '인천', keywords: ['인천 공황'], weight: 7 },
+  { folder: 'bupyeong-panic', regionTag: '부평', keywords: ['부평 공황', '과호흡', 'panic'], weight: 6 },
 
   // 5. 소아청소년 틱 · 성인 ADHD
-  { folder: 'bugae-child-tic-relapse', keywords: ['새학기', '재발', '초등학생 틱', '부개', 'relapse'], weight: 10 },
-  { folder: 'geomdan-child-tic-eyeblink', keywords: ['눈깜빡', '안과', '눈 깜빡', '눈 깜박', '검단', 'geomdan', 'eyeblink'], weight: 10 },
-  { folder: 'bucheon-okgil-child-tic', keywords: ['옥길', '소아 틱'], weight: 8 },
-  { folder: 'bucheon-beombak-throat-clearing-tic', keywords: ['음성틱', '킁킁', '헛기침 틱', '범박'], weight: 9 },
-  { folder: 'bucheon-teen-tic', keywords: ['청소년 틱', '중고등', 'teen tic'], weight: 8 },
-  { folder: 'bucheon-songnae-adult-adhd', keywords: ['송내', '성인 adhd', '성인adhd'], weight: 9 },
-  { folder: 'bupyeong-adult-adhd', keywords: ['성인 adhd', '성인adhd', '미루기', '실행기능', 'adult-adhd'], weight: 8 },
-  { folder: 'bucheon-adhd', keywords: ['부천 adhd', '산만'], weight: 7 },
-  { folder: 'incheon-seogu-adhd', keywords: ['서구 adhd', '청라 adhd'], weight: 7 },
-  { folder: 'bupyeong-adhd', keywords: ['adhd', '주의력', '산만'], weight: 6 },
-  { folder: 'bucheon-tic', keywords: ['부천 틱'], weight: 7 },
-  { folder: 'incheon-tic', keywords: ['인천 틱'], weight: 7 },
-  { folder: 'bupyeong-tic', keywords: ['틱', '뚜렛', 'tic'], weight: 6 },
-  { folder: 'tic-adhd', keywords: ['소아청소년 틱'], weight: 5 },
+  { folder: 'bugae-child-tic-relapse', regionTag: '부개', keywords: ['부개 틱', '부개동 틱', '새학기 틱', '초등학생 틱'], weight: 10 },
+  { folder: 'geomdan-child-tic-eyeblink', regionTag: '검단', keywords: ['검단 틱', '눈깜빡', '눈 깜빡', '안과 틱', 'eyeblink'], weight: 10 },
+  { folder: 'bucheon-okgil-child-tic', regionTag: '옥길', keywords: ['옥길', '옥길 틱'], weight: 8 },
+  { folder: 'bucheon-beombak-throat-clearing-tic', regionTag: '범박', keywords: ['범박', '음성틱', '킁킁', '헛기침 틱'], weight: 9 },
+  { folder: 'bucheon-teen-tic', regionTag: '부천', keywords: ['청소년 틱', '중고등 틱'], weight: 8 },
+  { folder: 'bucheon-songnae-adult-adhd', regionTag: '송내', keywords: ['송내', '송내 adhd', '성인 adhd'], weight: 9 },
+  { folder: 'bupyeong-adult-adhd', regionTag: '부평', keywords: ['부평 성인 adhd', '미루기', '실행기능'], weight: 8 },
+  { folder: 'bucheon-adhd', regionTag: '부천', keywords: ['부천 adhd', '부천 산만'], weight: 7 },
+  { folder: 'incheon-seogu-adhd', regionTag: '서구', keywords: ['서구 adhd', '청라 adhd'], weight: 7 },
+  { folder: 'bupyeong-adhd', regionTag: '부평', keywords: ['부평 adhd', '주의력'], weight: 6 },
+  { folder: 'bucheon-tic', regionTag: '부천', keywords: ['부천 틱'], weight: 7 },
+  { folder: 'incheon-tic', regionTag: '인천', keywords: ['인천 틱'], weight: 7 },
+  { folder: 'bupyeong-tic', regionTag: '부평', keywords: ['부평 틱', '뚜렛'], weight: 6 },
 
   // 6. 불면증 / 수면장애 / 단약
-  { folder: 'cheongna-lake-sleeping-pills-tapering', keywords: ['호수공원', '수면유도제', '수면제', '단약', '스틸녹스', '졸피뎀', '내성', '테이퍼링', 'tapering', 'sleeping-pills'], weight: 10 },
-  { folder: 'cheongna-adult-insomnia-shallow-sleep', keywords: ['얕은잠', '청라 불면', 'shallow-sleep'], weight: 9 },
-  { folder: 'gyesan-insomnia-early-awakening', keywords: ['조기각성', '새벽', '일찍 깨', '계산', 'gyesan', 'early-awakening'], weight: 10 },
-  { folder: 'bucheon-sangdong-nocturnal-awakening', keywords: ['중도각성', '야간각성', '자다 깨', '상동 불면'], weight: 9 },
-  { folder: 'bucheon-jungdong-tapering', keywords: ['중동 단약', '중동 수면제'], weight: 8 },
-  { folder: 'nowon-insomnia', keywords: ['노원 불면'], weight: 7 },
-  { folder: 'bucheon-insomnia', keywords: ['부천 불면'], weight: 7 },
-  { folder: 'incheon-insomnia', keywords: ['인천 불면'], weight: 7 },
-  { folder: 'bupyeong-insomnia', keywords: ['불면', '수면', 'insomnia', '입면'], weight: 6 },
-  { folder: 'insomnia-sleep', keywords: ['수면장애'], weight: 5 },
+  { folder: 'cheongna-lake-sleeping-pills-tapering', regionTag: '청라', keywords: ['청라 수면제', '청라 단약', '호수공원', '스틸녹스', '졸피뎀', '테이퍼링'], weight: 10 },
+  { folder: 'cheongna-adult-insomnia-shallow-sleep', regionTag: '청라', keywords: ['청라 얕은잠', '청라 불면'], weight: 9 },
+  { folder: 'gyesan-insomnia-early-awakening', regionTag: '계산', keywords: ['계산 불면', '조기각성', '새벽에 일찍 깨', '계산동'], weight: 10 },
+  { folder: 'bucheon-sangdong-nocturnal-awakening', regionTag: '상동', keywords: ['상동 불면', '중도각성', '야간각성', '자다 깨'], weight: 9 },
+  { folder: 'bucheon-jungdong-tapering', regionTag: '중동', keywords: ['중동 단약', '중동 수면제'], weight: 8 },
+  { folder: 'bucheon-insomnia', regionTag: '부천', keywords: ['부천 불면'], weight: 7 },
+  { folder: 'incheon-insomnia', regionTag: '인천', keywords: ['인천 불면'], weight: 7 },
+  { folder: 'bupyeong-insomnia', regionTag: '부평', keywords: ['부평 불면', '수면장애', '입면'], weight: 6 },
 
-  // 7. 우울증 / 번아웃 / 무기력 (제목에 명시적 우울/번아웃 키워드가 있을 때만 매칭)
-  { folder: 'incheon-seogu-depression', keywords: ['서구 우울', '청라 우울'], weight: 8 },
-  { folder: 'bucheon-depression', keywords: ['부천 우울', '부천 번아웃'], weight: 8 },
-  { folder: 'incheon-depression', keywords: ['인천 우울'], weight: 7 },
-  { folder: 'bupyeong-depression', keywords: ['우울증', '우울감', '우울', '번아웃', '무기력', 'depression'], weight: 6 }
+  // 7. 우울증 / 번아웃 / 무기력
+  { folder: 'seochang-burnout', regionTag: '서창', keywords: ['서창 번아웃', '서창동 번아웃', '서창 우울', '사향공진단', '건뇌단', '만성피로'], weight: 10 },
+  { folder: 'incheon-seogu-depression', regionTag: '서구', keywords: ['서구 우울', '청라 우울'], weight: 8 },
+  { folder: 'bucheon-depression', regionTag: '부천', keywords: ['부천 우울', '부천 번아웃'], weight: 8 },
+  { folder: 'incheon-depression', regionTag: '인천', keywords: ['인천 우울'], weight: 7 },
+  { folder: 'bupyeong-depression', regionTag: '부평', keywords: ['부평 우울증', '부평 우울감', '우울증'], weight: 6 }
 ];
 
 /**
- * 주어진 메타데이터(슬러그, 제목, 카테고리)로부터 최적의 로컬/웹 썸네일 경로를 안전하고 정밀하게 결정
+ * 주어진 메타데이터(슬러그, 제목, 카테고리, 지역)로부터 최적의 로컬/웹 썸네일 경로를 안전하고 정밀하게 결정
  */
 export function resolveThumbnail({ categoryId = '', categoryName = '', title = '', slug = '', region = '', currentImage = '' }) {
   const normSlug = (slug || '').toLowerCase().trim();
   const normTitle = (title || '').toLowerCase().trim();
   const primaryText = `${normSlug} ${normTitle}`.toLowerCase();
   const fullText = `${normSlug} ${normTitle} ${region} ${categoryName}`.toLowerCase();
+
+  // 대상 지역 라벨 정밀 추출
+  const targetRegion = extractRegionLabel(title, region, slug);
 
   // Tier 1: 슬러그와 정확히 일치하는 디렉터리 검사
   if (normSlug) {
@@ -189,25 +189,50 @@ export function resolveThumbnail({ categoryId = '', categoryName = '', title = '
     }
   }
 
-  // Tier 2: currentImage 유효성 검사 (단, 타 질환인데 generic 우울증/신체화 폴백 이미지인 경우는 무효화)
+  // Tier 2: currentImage 유효성 검사 (타 지역 이미지나 generic 우울증 폴백 무효화)
   if (currentImage && verifyStaticImage(currentImage)) {
     const isGenericFallBack = currentImage.includes('depression-somatic') || 
                               currentImage.endsWith('/01_naver_main_thumbnail.jpg') && currentImage === '/blog-images/01_naver_main_thumbnail.jpg' ||
                               (currentImage.includes('bupyeong-depression') && !primaryText.includes('우울') && !primaryText.includes('번아웃'));
-    if (!isGenericFallBack) {
+    
+    // 만약 글에 특정 지역(예: 만수동, 상동)이 있는데 currentImage가 다른 지역(예: dongam, luwon)인 경우 무효화
+    let isCrossRegion = false;
+    if (targetRegion) {
+      if (targetRegion.includes('만수') && (currentImage.includes('dongam') || currentImage.includes('luwon') || currentImage.includes('sangdong'))) isCrossRegion = true;
+      if (targetRegion.includes('상동') && (currentImage.includes('dongam') || currentImage.includes('bupyeong') || currentImage.includes('cheongna'))) isCrossRegion = true;
+      if (targetRegion.includes('청라') && (currentImage.includes('dongam') || currentImage.includes('bucheon') || currentImage.includes('gyesan'))) isCrossRegion = true;
+    }
+
+    if (!isGenericFallBack && !isCrossRegion) {
       return currentImage.startsWith('/') ? currentImage : `/${currentImage}`;
     }
   }
 
-  // Tier 3: 스마트 키워드 스코어링 매칭 (제목+슬러그 기반 고가중치 채점)
+  // Tier 3: 스마트 키워드 스코어링 매칭 (지역 및 질환 동시 일치 검증)
   let bestFolder = null;
   let maxScore = 0;
 
   for (const rule of TOPIC_FOLDER_RULES) {
-    // 우울증 폴더는 제목/슬러그에 실제 '우울', '번아웃', '무기력'이 없을 때 매칭 제외
+    // 🚫 우울증 폴더는 제목/슬러그에 실제 '우울', '번아웃', '무기력'이 없을 때 매칭 제외
     if (rule.folder.includes('depression')) {
       const isDepressionTopic = primaryText.includes('우울') || primaryText.includes('번아웃') || primaryText.includes('무기력') || primaryText.includes('depression');
       if (!isDepressionTopic) continue;
+    }
+
+    // 🚫 지역 불일치(Cross-Region) 원천 차단:
+    // 글에 세부 지역(동/구)이 지정되어 있을 때, 엉뚱한 타 세부지역 폴더 매칭 배제
+    if (targetRegion && rule.regionTag) {
+      const isExactRegionMatch = targetRegion.includes(rule.regionTag) || 
+                                (rule.regionTag === '남동' && (targetRegion.includes('만수') || targetRegion.includes('구월') || targetRegion.includes('간석') || targetRegion.includes('서창'))) ||
+                                (rule.regionTag === '서구' && (targetRegion.includes('청라') || targetRegion.includes('루원') || targetRegion.includes('가좌'))) ||
+                                (rule.regionTag === '부천' && (targetRegion.includes('상동') || targetRegion.includes('중동') || targetRegion.includes('송내') || targetRegion.includes('옥길') || targetRegion.includes('범박'))) ||
+                                (rule.regionTag === '부평' && targetRegion.includes('부평')) ||
+                                (rule.regionTag === '인천' && targetRegion.includes('인천'));
+
+      // 지역이 정확히 일치하지 않는 기성 폴더는 완전히 제외 (Tier 5에서 100% 맞춤 썸네일 생성 유도)
+      if (!isExactRegionMatch) {
+        continue;
+      }
     }
 
     let score = 0;
@@ -229,90 +254,18 @@ export function resolveThumbnail({ categoryId = '', categoryName = '', title = '
     }
   }
 
-  if (bestFolder && maxScore >= 4) {
+  // 높은 점수로 지역+질환이 일치하는 기성 폴더가 있으면 사용
+  if (bestFolder && maxScore >= 6) {
     return bestFolder;
   }
 
-  // Tier 4: 상위 카테고리별 엄격 분기 (우울증 절대 오매칭 방지)
-  const mainCat = detectCategoryId(categoryId, categoryName, title, slug);
-
-  if (mainCat === 'tic') {
-    if (primaryText.includes('adhd')) {
-      const p = findThumbnailInDir('bupyeong-adult-adhd') || findThumbnailInDir('bupyeong-adhd');
-      if (p) return p;
-    }
-    return findThumbnailInDir('bupyeong-tic') || findThumbnailInDir('incheon-tic') || '/blog-images/tic-adhd/01_naver_main_thumbnail.png';
-  }
-
-  if (mainCat === 'insomnia') {
-    if (primaryText.includes('수면제') || primaryText.includes('단약')) {
-      const p = findThumbnailInDir('cheongna-lake-sleeping-pills-tapering');
-      if (p) return p;
-    }
-    return findThumbnailInDir('bupyeong-insomnia') || findThumbnailInDir('incheon-insomnia') || '/blog-images/insomnia-sleep/01_naver_main_thumbnail.png';
-  }
-
-  if (mainCat === 'autonomic') {
-    if (primaryText.includes('실신') || primaryText.includes('syncope') || primaryText.includes('미주신경')) {
-      const p = findThumbnailInDir('luwon-vasovagal-syncope-bus') || findThumbnailInDir('bucheon-vasovagal');
-      if (p) return p;
-    }
-    if (primaryText.includes('이명') || primaryText.includes('뇌명') || primaryText.includes('박동성')) {
-      const p = findThumbnailInDir('seochang-pulsatile-tinnitus-brain-ringing');
-      if (p) return p;
-    }
-    if (primaryText.includes('어지럼')) {
-      const p = findThumbnailInDir('bupyeong-dizziness') || findThumbnailInDir('bucheon-dizziness');
-      if (p) return p;
-    }
-    if (primaryText.includes('식은땀') || primaryText.includes('상열하한')) {
-      const p = findThumbnailInDir('gyeyang-jakjeon-autonomic-sweat');
-      if (p) return p;
-    }
-    return findThumbnailInDir('bupyeong-autonomic') || findThumbnailInDir('bucheon-autonomic') || '/blog-images/autonomic-dizziness/01_naver_main_thumbnail.png';
-  }
-
-  if (mainCat === 'panic') {
-    if (primaryText.includes('강박') || primaryText.includes('ocd')) {
-      const p = findThumbnailInDir('bucheon-ocd');
-      if (p) return p;
-    }
-    if (primaryText.includes('사회공포') || primaryText.includes('발표')) {
-      const p = findThumbnailInDir('bucheon-social-phobia');
-      if (p) return p;
-    }
-    if (primaryText.includes('불안') && !primaryText.includes('공황')) {
-      const p = findThumbnailInDir('bupyeong-anxiety') || findThumbnailInDir('cheongna-anxiety');
-      if (p) return p;
-    }
-    return findThumbnailInDir('bupyeong-panic') || findThumbnailInDir('incheon-panic') || '/blog-images/panic-anxiety/01_naver_main_thumbnail.png';
-  }
-
-  if (mainCat === 'somatic') {
-    if (primaryText.includes('매핵기') || primaryText.includes('이물감') || primaryText.includes('목')) {
-      const p = findThumbnailInDir('samsan-throat-foreign-body-maehaekgi');
-      if (p) return p;
-    }
-    if (primaryText.includes('담적') || primaryText.includes('소화') || primaryText.includes('과민성')) {
-      const p = findThumbnailInDir('ganseok-damjeok-dyspepsia');
-      if (p) return p;
-    }
-    return findThumbnailInDir('bupyeong-somatic') || '/blog-images/bupyeong-somatic/01_naver_main_thumbnail.jpg';
-  }
-
-  if (mainCat === 'hwabyeong') {
-    return findThumbnailInDir('bucheon-jungdong-hwabyeong') || findThumbnailInDir('samsan-throat-foreign-body-maehaekgi') || '/blog-images/bupyeong-depression/01_naver_main_thumbnail.jpg';
-  }
-
-  if (mainCat === 'stress') {
-    return findThumbnailInDir('bupyeong-depression') || findThumbnailInDir('incheon-depression') || '/blog-images/bupyeong-depression/01_naver_main_thumbnail.jpg';
-  }
-
-  // Tier 5: 동적 1:1 실시간 썸네일 자동 생성 및 반환 (우울증 일반 폴백 완전 제거)
+  // Tier 4: 기성 폴더 중 지역이 일치하지 않는 경우, 엉뚱한 이미지를 쓰지 않고
+  // 100% 실시간 맞춤 썸네일(Tier 5)로 직행하여 [지역명 + 질환명] 완벽 결합 PNG 렌더링!
   try {
-    const safeSlug = normSlug || `topic-${Date.now()}`;
+    const safeSlug = normSlug || `thumb-${Date.now()}`;
     const outPngPath = path.join(blogImagesDir, 'tistory-thumbnails', `${safeSlug}.png`);
-    buildTistoryThumbnailPng({ title, categoryName, category: categoryName, slug: safeSlug }, outPngPath);
+    const regionParam = targetRegion || region || '';
+    buildTistoryThumbnailPng({ title, categoryName, category: categoryName, slug: safeSlug, region: regionParam }, outPngPath);
     return `/blog-images/tistory-thumbnails/${safeSlug}.png`;
   } catch (err) {
     console.warn('[thumbnail-resolver] Real-time thumbnail generation fallback:', err.message);

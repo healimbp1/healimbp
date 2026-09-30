@@ -1,12 +1,12 @@
 ---
 title: "해아림한의원 인천부평점 | 인천·부평·부천 공황장애·불면증·자율신경 한의원"
-description: "인천 부평역 위치 (인천/부천/시흥/청라/송도). 공황장애, 불면증, 자율신경실조증, 미주신경실신, 어지럼증, 다한증, 틱장애, ADHD 1:1 맞춤 한방 치료. 한방침구과 전문의 권형근 원장 직접 진료."
+description: "인천 부평역 위치 (인천 부평/계양/서구/남동/부천/시흥/검단/청라). 공황장애, 불면증, 자율신경실조증, 미주신경실신, 어지럼증, 다한증, 틱장애, ADHD 1:1 맞춤 한방 치료. 한방침구과 전문의 권형근 원장 직접 진료."
 type: landing
 sections:
   - block: html
     content:
       html: |
-        <div class="w-full max-w-5xl mx-auto py-4 space-y-16">
+        <div class="w-full max-w-5xl mx-auto py-4 px-3 sm:px-6 space-y-12 sm:space-y-16">
 
           <!-- 1. Hero Section (첫인상 및 핵심 가치) -->
           <div class="lia-hero-box space-y-6">
@@ -15,29 +15,29 @@ sections:
                 <i class="fa-solid fa-seedling"></i>
                 <span>인천 · 부평 · 부천 자율신경 & 두뇌 클리닉</span>
               </div>
-              <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.3] text-[#26332E]">
+              <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.3] text-[#26332E]">
                 마음과 몸의 불균형을 세심하게 다스리는<br class="hidden sm:inline">
                 <span class="text-[#2F5D50] underline decoration-[#ADC4BA] underline-offset-8">1:1 맞춤 자율신경 한방 치료</span>
               </h1>
-              <p class="text-base sm:text-lg text-[#53615B] leading-relaxed">
+              <p class="text-sm sm:text-lg text-[#53615B] leading-relaxed">
                 공황장애, 불면증, 자율신경실조증, 미주신경성실신, 만성 어지럼증 등 병원 검사에서 이상이 없어도 반복되는 신체 이상 신호.<br class="hidden sm:inline">
                 단순한 증상 억제가 아닌, <strong>자율신경과 두뇌 밸런스를 바로잡아 스스로 회복하는 자생력</strong>을 되찾아드립니다.
               </p>
             </div>
             
-            <!-- CTA Button Group -->
-            <div class="pt-2 flex flex-wrap gap-3 sm:gap-4">
-              <a href="tel:032-719-3472" class="heal-btn heal-btn-primary shadow-md">
+            <!-- CTA Button Group (모바일: 상단 2열 + 하단 1열 와이드, 데스크톱: 3열 가로) -->
+            <div class="pt-2 grid grid-cols-2 lg:flex lg:flex-row gap-2.5 sm:gap-3.5">
+              <a href="tel:032-719-3472" class="heal-btn heal-btn-primary shadow-sm text-xs sm:text-sm py-2.5 px-3 text-center justify-center whitespace-nowrap">
                 <i class="fa-solid fa-phone"></i>
-                <span>전화 상담: 032-719-3472</span>
+                <span>전화 상담</span>
               </a>
-              <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao shadow-md">
+              <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao shadow-sm text-xs sm:text-sm py-2.5 px-3 text-center justify-center whitespace-nowrap">
                 <i class="fa-solid fa-comment"></i>
-                <span>카카오톡 채널 상담</span>
+                <span>카카오톡 상담</span>
               </a>
-              <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver shadow-md">
+              <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="col-span-2 lg:col-span-1 heal-btn heal-btn-naver shadow-sm text-xs sm:text-sm py-2.5 px-4 text-center justify-center whitespace-nowrap">
                 <i class="fa-solid fa-calendar-check"></i>
-                <span>네이버 간편 예약</span>
+                <span>네이버 간편 진료예약</span>
               </a>
             </div>
 
@@ -301,14 +301,14 @@ sections:
             </div>
 
             <!-- 자가진단 탭 버튼 -->
-            <div class="flex flex-wrap justify-center gap-2 pt-2">
-              <button onclick="switchDiagnosisTab('autonomic')" id="diag-btn-autonomic" class="diag-tab-btn px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#2F5D50] text-white shadow-sm cursor-pointer">
+            <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2 pt-2">
+              <button onclick="switchDiagnosisTab('autonomic')" id="diag-btn-autonomic" class="diag-tab-btn flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#2F5D50] text-white shadow-sm cursor-pointer whitespace-nowrap text-center">
                 🌿 자율신경 · 만성피로 · 어지럼
               </button>
-              <button onclick="switchDiagnosisTab('panic')" id="diag-btn-panic" class="diag-tab-btn px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer">
+              <button onclick="switchDiagnosisTab('panic')" id="diag-btn-panic" class="diag-tab-btn flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer whitespace-nowrap text-center">
                 💓 공황 · 불안 · 가슴두근거림
               </button>
-              <button onclick="switchDiagnosisTab('insomnia')" id="diag-btn-insomnia" class="diag-tab-btn px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer">
+              <button onclick="switchDiagnosisTab('insomnia')" id="diag-btn-insomnia" class="diag-tab-btn flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer whitespace-nowrap text-center">
                 🌙 불면증 · 수면장애 · 가슴답답
               </button>
             </div>
@@ -941,12 +941,12 @@ sections:
               if (t === tab) {
                 if (panel) panel.style.display = 'block';
                 if (btn) {
-                  btn.className = "diag-tab-btn px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#2F5D50] text-white shadow-sm cursor-pointer";
+                  btn.className = "diag-tab-btn flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#2F5D50] text-white shadow-sm cursor-pointer whitespace-nowrap text-center";
                 }
               } else {
                 if (panel) panel.style.display = 'none';
                 if (btn) {
-                  btn.className = "diag-tab-btn px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer";
+                  btn.className = "diag-tab-btn flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-extrabold text-xs sm:text-sm transition bg-[#F4F7F5] text-[#556B62] hover:bg-[#E8EFEA] border border-[#DDE6E1] cursor-pointer whitespace-nowrap text-center";
                 }
               }
             });

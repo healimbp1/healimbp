@@ -5,7 +5,14 @@
   "description": "해아림한의원 인천부평점 공식 홈페이지",
   "scripts": {
     "dev": "hugo server --disableFastRender",
-    "build": "hugo --minify",
+    "build": "hugo --minify --buildFuture",
+    "deploy": "node scripts/deploy-cloudflare.mjs",
+    "deploy:fast": "npx wrangler pages deploy ./public --project-name=healimbp --branch=main --commit-dirty=true",
+    "auto:column": "node scripts/auto-publish-column.mjs",
+    "auto:qa": "node scripts/auto-publish-qa.mjs",
+    "auto:all": "node scripts/auto-publish-column.mjs && node scripts/auto-publish-qa.mjs",
+    "qa:rebuild": "node scripts/rebuild-qa-index.mjs",
+    "scheduler": "node scripts/column-scheduler.mjs",
     "validate": "node scripts/validate-columns.mjs",
     "audit:fix": "node scripts/audit-and-fix-columns.mjs",
     "test": "node scripts/validate-columns.mjs"
@@ -17,5 +24,8 @@
     "pagefind": "^1.4.0",
     "preact": "^10.27.2",
     "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "wrangler": "^4.142.0"
   }
 }

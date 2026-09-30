@@ -7,7 +7,7 @@ sections:
   - block: html
     content:
       html: |
-        <div class="w-full max-w-5xl mx-auto py-6 space-y-16">
+        <div class="w-full max-w-5xl mx-auto py-6 px-3.5 sm:px-6 space-y-12 sm:space-y-16">
 
           <!-- 1. Header Banner -->
           <div class="lia-hero-box text-center space-y-4">
