@@ -15,9 +15,11 @@ try {
   process.exit(1);
 }
 
+const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+
 console.log('☁️ [2/2] Cloudflare Pages 배포 시작 (healimbp)...');
 try {
-  execSync('npx wrangler pages deploy ./public --project-name=healimbp --branch=main --commit-dirty=true', {
+  execSync(`${npxCmd} wrangler pages deploy ./public --project-name=healimbp --branch=main --commit-dirty=true`, {
     cwd: rootDir,
     stdio: 'inherit'
   });
