@@ -4,8 +4,8 @@ summary: "인천 구월동, 만수동, 부평, 송도 지역에서 지하철·�
 date: "2026-08-18"
 type: column
 category: "자율신경 & 실신·어지럼증·이명"
+image: "/blog-images/tistory-thumbnails/vasovagal-syncope.png"
 tags: ["구월동미주신경성실신","인천실신한의원","부평기립성어지럼증","지하철실신","뇌혈류장애","보중익기탕","인천어지럼증"]
-image: "/blog-images/bucheon-vasovagal/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -187,28 +187,28 @@ image: "/blog-images/bucheon-vasovagal/01_naver_main_thumbnail.jpg"
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>만원 지하철이나 출퇴근길에 서 있다가 갑자기 눈앞이 캄캄해지고 핑 돌며 쓰러지는 미주신경성 실신의 전조 증상은 무엇인가요?</span>
+        <span>실신 전조 증상(어지럼, 식은땀, 암전)이 느껴지면 즉시 어떻게 해야 하나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        실신 직전 1~2분 전 하품, 식은땀, 메스꺼움(구역감), 시야가 좁아지는 터널 시야, 귀 먹먹함 등의 전조 증상이 나타납니다. 부교감신경(미주신경)이 과도하게 흥분하여 심박수를 급격히 떨어뜨리고 뇌 혈류를 차단하기 때문입니다.
+        체면을 생각하지 마시고 **즉시 그 자리에 쪼그려 앉거나 바닥에 누워 다리를 높이 들어 올려야 합니다.** 또한 양손 깍지를 끼고 서로 바깥쪽으로 힘껏 당기거나, 다리를 꼬고 엉덩이 근육에 힘을 주는 반가압(Counter-pressure) 운동을 하면 혈압이 급상승하여 실신을 즉시 예방할 수 있습니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
-        <span>실신 전조 증상이 올 때 바로 주저앉거나 취해야 하는 응급 대처 자세는 무엇인가요?</span>
+        <span>대학병원에서 검사해도 약이 없다고 하는데 한방으로 완치가 가능한가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        전조 증상이 느껴지면 즉시 그 자리에 쪼그려 앉거나 바닥에 누워 다리를 심장보다 높게 올려야 합니다. 서 있는 상태에서는 다리를 X자로 교차하고 엉덩이와 허벅지 근육에 강하게 힘을 주는 카운터 프레셔(Counter-pressure) 기법으로 뇌 혈류를 유지할 수 있습니다.
+        양방에서는 미주신경성 실신에 대해 뚜렷한 치료제가 없어 수분 섭취와 주의사항만 안내하는 경우가 많습니다. 한의학은 심장의 펌프 기능과 혈관 긴장도를 조절하는 기혈을 보강하므로 실신의 재발을 근본적으로 차단할 수 있습니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>미주신경성 실신은 평생 재발을 안고 살아야 하나요, 한방 치료로 완치가 가능한가요?</span>
+        <span>평소 물이나 소금을 많이 먹는 것이 도움이 되나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        기립 시 하체로 쏠린 혈액을 심장과 뇌로 힘차게 올려주는 혈관 수축 반사력과 심장 펌프력을 보강하는 승양익기(升陽益氣) 맞춤 한약 치료를 통해 실신 빈도를 제로(0)로 만들고 완치할 수 있습니다.
+        네, 혈장량을 늘리기 위해 하루 2L 이상의 미온수 섭취와 적절한 염분 섭취가 권장됩니다. 하지만 위장 기능이 약한 분들은 물을 너무 많이 마시면 오히려 담음(痰飮)이 차 어지럼증이 심해질 수 있으므로 한방 진단 후 체질에 맞게 조절해야 합니다.
       </p>
     </div>
 </div>

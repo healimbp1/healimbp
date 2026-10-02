@@ -4,8 +4,8 @@ summary: "인천 부평, 부천, 구월동 지역에서 응급실 검사상 이�
 date: "2026-08-20"
 type: column
 category: "공황 · 불안 & 강박증"
-tags: ["부평공황장애","인천공황발작","부천공황장애한의원","과호흡증후군","호흡곤란","편도체과열","시호가용골모려탕","인천공황한의원"]
 image: "/blog-images/bupyeong-panic/01_naver_main_thumbnail.jpg"
+tags: ["부평공황장애","인천공황발작","부천공황장애한의원","과호흡증후군","호흡곤란","편도체과열","시호가용골모려탕","인천공황한의원"]
 ---
 
 <div class="voice-box">
@@ -187,28 +187,28 @@ image: "/blog-images/bupyeong-panic/01_naver_main_thumbnail.jpg"
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>공황발작이 시작될 때 숨이 턱 막히고 죽을 것 같은데 종이봉투 호흡법이 정말 도움이 되나요?</span>
+        <span>공황발작이 오면 정말로 심장마비가 오거나 질식해서 죽을 수도 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        과호흡으로 혈중 이산화탄소 농도가 급격히 떨어지면 뇌혈관이 수축하여 어지럼증과 질식감이 악화됩니다. 이때 종이봉투를 대고 호흡하거나 4초 들이마시고 7초 멈춘 뒤 8초 동안 길게 내쉬는 복식호흡을 하면 이산화탄소 농도가 정상화되며 뇌 편도체의 헛경보를 빠르게 진정시킬 수 있습니다.
+        절대로 그렇지 않습니다. 공황발작은 인체의 자율신경계가 "위험에 대처하기 위해" 심장을 빨리 뛰게 하고 근육을 긴장시키는 생리적 대피 반응일 뿐, 심장 마비나 뇌출혈을 일으키지 않습니다. 공황발작은 보통 10~20분 내에 정점을 찍고 반드시 저절로 가라앉으므로 "이 신호로 죽지 않는다"는 인지적 확신이 중요합니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
-        <span>공황발작이 오면 정말로 심장마비가 오거나 질식해서 사망할 수도 있나요?</span>
+        <span>공황장애 진단을 받았는데 정신과 약(자낙스, 항우울제) 없이 한방으로 완치가 가능한가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        절대로 그렇지 않습니다. 공황발작은 인체의 자율신경계(교감신경)가 위급 상황으로 착각하여 작동시킨 과도한 방어 반응일 뿐, 심장 기형이나 뇌출혈을 유발하지 않습니다. 공황발작은 보통 10~20분 내에 정점을 찍고 저절로 가라앉으므로 "이 신호로 죽지 않는다"는 인지적 안심이 필수적입니다.
+        네, 초기 또는 중등도 공황장애는 한방 단독 치료로 완치가 충분히 가능합니다. 이미 양약을 수개월 이상 복용 중인 만성 환자라 하더라도 한약 치료로 뇌 신경계의 기초 체력을 회복시키며 단계적으로 양약을 안전하게 줄여(Tapering) 완전 단약에 도달할 수 있습니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>응급실이나 심장내과에서 심전도, 피검사를 다 해도 "정상"이라는데 왜 가슴이 터질 듯 뛸까요?</span>
+        <span>치료 중 커피나 술은 절대 마시면 안 되나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        심장 자체의 기질적 질환이 아니라, 뇌 변연계(편도체)와 자율신경계의 과열로 인해 심장에 가짜 위험 신호가 지속 전달되기 때문입니다. 심장의 허열을 내리고 뇌 신경을 안정시키는 청심안신(淸心安神) 한방 치료가 근본 해결책입니다.
+        치료 초기에는 철저히 금하시는 것이 좋습니다. 카페인은 심장 아데노신 수용체를 차단해 인위적으로 교감신경을 흥분시키며, 알코올은 분해 과정에서 혈관을 수축시키고 탈수를 유발해 다음 날 새벽 극심한 반동성 공황발작을 일으키는 주원인이 됩니다.
       </p>
     </div>
 </div>

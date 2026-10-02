@@ -4,8 +4,8 @@ summary: "부천 중동, 신중동, 상동, 부평 지역에서 24시간 엄습�
 date: "2026-08-18"
 type: column
 category: "공황 · 불안 & 강박증"
+image: "/blog-images/tistory-thumbnails/anticipatory-anxiety.png"
 tags: ["부천불안장애","부천예기불안","인천공황장애치료","부평불안증한의원","편도체안정","심담허겁","자율신경안정"]
-image: "/blog-images/bucheon-anxiety/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -187,28 +187,28 @@ image: "/blog-images/bucheon-anxiety/01_naver_main_thumbnail.jpg"
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>공황발작이 시작될 때 숨이 턱 막히고 죽을 것 같은데 종이봉투 호흡법이 정말 도움이 되나요?</span>
+        <span>예기불안 때문에 직장 생활이나 외출이 불가능한데 극복할 수 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        과호흡으로 혈중 이산화탄소 농도가 급격히 떨어지면 뇌혈관이 수축하여 어지럼증과 질식감이 악화됩니다. 이때 종이봉투를 대고 호흡하거나 4초 들이마시고 7초 멈춘 뒤 8초 동안 길게 내쉬는 복식호흡을 하면 이산화탄소 농도가 정상화되며 뇌 편도체의 헛경보를 빠르게 진정시킬 수 있습니다.
+        충분히 극복할 수 있습니다. 한방 치료를 통해 뇌 신경계의 자생력이 회복되면, "불안감이 올라와도 나는 안전하며 가라앉힐 수 있다"는 신체적 확신이 생기면서 점진적으로 활동 반경을 넓혀 정상적인 일상 복귀가 가능해집니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
-        <span>공황발작이 오면 정말로 심장마비가 오거나 질식해서 사망할 수도 있나요?</span>
+        <span>신경안정제를 매일 먹고 있는데 언제쯤 줄일 수 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        절대로 그렇지 않습니다. 공황발작은 인체의 자율신경계(교감신경)가 위급 상황으로 착각하여 작동시킨 과도한 방어 반응일 뿐, 심장 기형이나 뇌출혈을 유발하지 않습니다. 공황발작은 보통 10~20분 내에 정점을 찍고 저절로 가라앉으므로 "이 신호로 죽지 않는다"는 인지적 안심이 필수적입니다.
+        한방 치료를 시작하고 약 3~4주가 지나면 몸의 긴장도와 예기불안의 강도가 완화되기 시작합니다. 이때부터 주치의와 상의하여 양약의 복용 간격을 늘리고 용량을 단계적으로 줄여나가게 됩니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>응급실이나 심장내과에서 심전도, 피검사를 다 해도 "정상"이라는데 왜 가슴이 터질 듯 뛸까요?</span>
+        <span>예기불안이 심할 때 즉시 할 수 있는 대처법이 있나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        심장 자체의 기질적 질환이 아니라, 뇌 변연계(편도체)와 자율신경계의 과열로 인해 심장에 가짜 위험 신호가 지속 전달되기 때문입니다. 심장의 허열을 내리고 뇌 신경을 안정시키는 청심안신(淸心安神) 한방 치료가 근본 해결책입니다.
+        불안이 엄습할 때는 5-4-3-2-1 그라운딩(Grounding) 기법을 사용하세요. 주변에 보이는 5가지 사물, 만져지는 4가지 감각, 들리는 3가지 소리에 집중하며 뇌의 주의를 공포 상상에서 현실 감각으로 강제 전환하는 것이 큰 도움이 됩니다.
       </p>
     </div>
 </div>

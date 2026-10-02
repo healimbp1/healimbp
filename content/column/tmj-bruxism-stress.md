@@ -4,8 +4,8 @@ summary: "김포시, 인천 검단, 청라, 부평 지역에서 턱관절 편차
 date: "2026-08-14"
 type: column
 category: "신체화 & 담적·두통·턱관절"
+image: "/blog-images/gimpo-geomdan-vasovagal/01_naver_main_thumbnail.jpg"
 tags: ["김포턱관절","검단턱관절병원","인천이갈이치료","부평턱관절두통","FCST","구강균형장치","경추추나요법","턱관절소리"]
-image: "/blog-images/bupyeong-somatic/01_naver_main_thumbnail.jpg"
 ---
 
 <div class="voice-box">
@@ -187,28 +187,28 @@ image: "/blog-images/bupyeong-somatic/01_naver_main_thumbnail.jpg"
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q1</span>
-        <span>자고 일어났을 때 턱관절이 뻐근하고 치아가 시리며 머리가 띠로 조이듯 아픈 이갈이·이악물기의 원인은 무엇인가요?</span>
+        <span>턱에서 딱딱 소리가 나는데 아프지 않으면 그냥 둬도 되나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        수면 중 뇌가 스트레스를 분출하는 과정에서 저작근(교근, 측두근)에 무의식적으로 70~100kg에 달하는 엄청난 압력을 가하기 때문입니다. 수면 중 뇌파 과각성을 낮추는 안신 한약과 턱 근육 긴장을 푸는 침구 치료가 필요합니다.
+        턱 소리는 턱관절 디스크가 제자리를 벗어나 뼈끼리 부딪히고 있다는 **경고 신호**입니다. 방치하면 디스크가 완전히 닳아 뼈가 변형되는 퇴행성 골관절염으로 진행하여 입이 안 벌어지는 개구장애와 만성 두통을 유발하므로 소리가 날 때 조기 교정해야 합니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q2</span>
-        <span>수면 중 이갈이가 심하면 얼굴형이 사각턱으로 변하거나 턱관절염이 생길 수도 있나요?</span>
+        <span>치과 교정과 한의원 턱관절 치료의 차이점은 무엇인가요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        네, 교근(씹는 근육)이 비정상적으로 비대해져 사각턱으로 변형될 수 있으며, 턱관절 연골이 마모되어 만성 관절염과 안면 비대칭으로 진행될 수 있으므로 조기 치료가 중요합니다.
+        치과가 치아 교합(이빨의 맞물림)에 집중한다면, 한의학적 FCST 치료는 **턱관절을 지렛대 삼아 상부 경추, 전신 척추, 뇌신경계의 균형을 전인적으로 치료**하여 턱 통증뿐만 아니라 두통, 이명, 자세 불균형을 동시에 해결합니다.
       </p>
     </div>
     <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q3</span>
-        <span>보톡스 주사를 맞지 않고도 이갈이와 턱 근육 뭉침을 한방으로 풀 수 있나요?</span>
+        <span>턱관절 치료를 받으면 안면 비대칭도 함께 개선되나요?</span>
       </div>
       <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed pl-8 m-0">
-        근육을 일시 마비시키는 보톡스와 달리, 한방 치료는 턱 주위 경혈(협거혈, 하관혈)의 심부 근막을 이완시키고 뇌의 수면 과각성을 낮추어 수면 중 무의식적인 악물기 충동 자체를 소실시킵니다.
+        네, 턱관절의 중심축 편차가 바로잡히면 틀어졌던 턱선의 위치가 제자리를 찾고 입꼬리 비대칭과 안면 근육의 불균형이 자연스럽게 개선됩니다.
       </p>
     </div>
 </div>

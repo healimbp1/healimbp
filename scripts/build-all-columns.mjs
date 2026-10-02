@@ -7,6 +7,7 @@ import { PANIC_ANXIETY_COLUMNS } from './columns-data-2-panic-anxiety.mjs';
 import { AUTONOMIC_COLUMNS } from './columns-data-3-autonomic.mjs';
 import { INSOMNIA_COLUMNS } from './columns-data-4-insomnia.mjs';
 import { DEPRESSION_SOMATIC_COLUMNS } from './columns-data-5-depression-somatic.mjs';
+import { resolveThumbnail } from './thumbnail-resolver.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const columnDir = path.resolve(__dirname, '..', 'content', 'column');
@@ -148,12 +149,20 @@ export function renderColumnFile(c) {
     </div>`
   ).join('\n');
 
+  const matchedImage = resolveThumbnail({
+    categoryName: c.category,
+    title: c.title,
+    slug: c.slug,
+    currentImage: ''
+  });
+
   return `---
 title: "${cleanTitle}"
 summary: "${cleanSummary}"
 date: "${c.date}"
 type: column
 category: "${c.category}"
+image: "${matchedImage}"
 tags: ${JSON.stringify(c.tags)}
 ---
 

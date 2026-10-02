@@ -1,7 +1,20 @@
 User-agent: *
 Allow: /
 
-# AI & Search Engine Crawlers
+# Korean & Global Search Engine Crawlers
+User-agent: Yeti
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI & LLM Crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -26,6 +39,8 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Sitemap & LLMs Context Specification
+# Sitemaps & Feeds
 Sitemap: {{ "sitemap.xml" | absURL }}
-# LLMs Context: {{ "llms.txt" | absURL }}
+Sitemap: {{ "index.xml" | absURL }}
+Sitemap: {{ "column/index.xml" | absURL }}
+Sitemap: {{ "qa/index.xml" | absURL }}

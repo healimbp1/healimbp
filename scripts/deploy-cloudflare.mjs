@@ -6,6 +6,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
+console.log('🔄 [0/2] 칼럼 및 Q&A 인덱스 목록 자동 갱신 중...');
+try {
+  execSync('node scripts/update-index-all.mjs', { cwd: rootDir, stdio: 'inherit' });
+  execSync('node scripts/rebuild-qa-index.mjs', { cwd: rootDir, stdio: 'inherit' });
+  console.log('✅ 인덱스 목록 갱신 완료!\n');
+} catch (err) {
+  console.warn('⚠️ 인덱스 갱신 경고 (계속 진행):', err.message);
+}
+
 console.log('🚀 [1/2] Hugo 사이트 정적 빌드 시작 (hugo --minify --buildFuture)...');
 try {
   execSync('hugo --minify --buildFuture', { cwd: rootDir, stdio: 'inherit' });
