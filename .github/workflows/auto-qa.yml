@@ -1,9 +1,12 @@
-name: Daily AI Q&A Auto-Publisher
+name: Daily 2x AI Q&A Auto-Publisher
 
 on:
   schedule:
-    # 매일 오전 10:00 KST (01:00 UTC) 자동 발행
-    - cron: '0 1 * * *'
+    # 하루 2회 자동 발행 (한국 시간 KST 기준):
+    # 1. 오전 11:00 KST (02:00 UTC) - 오전 진료 및 검색 시간대
+    # 2. 오후 15:30 KST (06:30 UTC) - 오후 휴식 및 검색 시간대
+    - cron: '0 2 * * *'
+    - cron: '30 6 * * *'
   # GitHub 웹에서 수동으로 'Run workflow' 버튼을 눌러 즉시 1개 발행도 가능
   workflow_dispatch:
 
@@ -44,6 +47,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No new Q&A generated."
           else
-            git commit -m "feat(qa): auto-publish daily clinical Q&A case study"
+            git commit -m "feat(qa): auto-publish 2x daily clinical Q&A case study"
             git push origin main
           fi

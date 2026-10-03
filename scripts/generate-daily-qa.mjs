@@ -919,39 +919,125 @@ export const QA_MASTER_TOPICS = [
   }
 ];
 
-// 3. Q&A 자동 생성 메인 함수
+// 3. Q&A 스마트 타겟 선정 및 중복 영구 방지 메인 함수
 export async function generateDailyQA() {
   const existingFiles = fs.readdirSync(qaDir).filter(f => f.endsWith('.md') && f !== '_index.md');
   const now = new Date();
   const dateStr = now.toISOString().split('T')[0];
   const dateFull = now.toISOString();
 
-  // 순환 인덱스 선택
-  const topicIndex = existingFiles.length % QA_MASTER_TOPICS.length;
-  const regionIndex = existingFiles.length % REGION_POOLS.length;
+  // 기존 발행 데이터 전수 분석
+  const publishedTitles = new Set();
+  const publishedQuestions = new Set();
+  const recentRegions = [];
+  const topicStats = QA_MASTER_TOPICS.map((_, idx) => ({ index: idx, count: 0, lastDate: 0 }));
+  const todayCategories = new Set();
 
-  const topic = QA_MASTER_TOPICS[topicIndex];
-  const region = REGION_POOLS[regionIndex];
+  for (const f of existingFiles) {
+    const filePath = path.join(qaDir, f);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const titleMatch = content.match(/title:\s*["']?(.*?)["']?$/m);
+    const dateMatch = content.match(/date:\s*["']?(.*?)["']?$/m);
+    const catMatch = content.match(/category:\s*["']?(.*?)["']?$/m);
+    const locMatch = content.match(/location:\s*["']?(.*?)["']?$/m);
 
-  const title = topic.titleTpl.replace(/{region}/g, region);
-  const question = topic.question.replace(/{region}/g, region);
-  let answer = topic.answer.replace(/{region}/g, region);
+    if (titleMatch) {
+      publishedTitles.add(titleMatch[1].trim());
+    }
+    if (locMatch) {
+      recentRegions.push(locMatch[1].trim());
+    }
+
+    const fileDate = dateMatch ? new Date(dateMatch[1].trim()).getTime() : 0;
+    if (dateMatch && dateMatch[1].trim().startsWith(dateStr) && catMatch) {
+      todayCategories.add(catMatch[1].trim());
+    }
+
+    // 마스터 토픽 매칭 카운트
+    for (let i = 0; i < QA_MASTER_TOPICS.length; i++) {
+      const baseTitle = QA_MASTER_TOPICS[i].titleTpl.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      if (titleMatch && titleMatch[1].includes(baseTitle)) {
+        topicStats[i].count += 1;
+        if (fileDate > topicStats[i].lastDate) {
+          topicStats[i].lastDate = fileDate;
+        }
+      }
+    }
+  }
+
+  // 1) 발행 횟수가 가장 적은 순, 그중에서 가장 오래전에 발행된 순으로 정렬
+  topicStats.sort((a, b) => {
+    if (a.count !== b.count) return a.count - b.count;
+    return a.lastDate - b.lastDate;
+  });
+
+  // 2) 오늘 아직 발행되지 않은 카테고리의 미발행/최소발행 토픽 우선 탐색
+  let selectedTopic = null;
+  let selectedTopicIndex = 0;
+
+  for (const stat of topicStats) {
+    const candidateTopic = QA_MASTER_TOPICS[stat.index];
+    if (!todayCategories.has(candidateTopic.category)) {
+      selectedTopic = candidateTopic;
+      selectedTopicIndex = stat.index;
+      break;
+    }
+  }
+
+  // 오늘 카테고리가 모두 찼으면 전체 중 최소 발행 토픽 선택
+  if (!selectedTopic) {
+    selectedTopic = QA_MASTER_TOPICS[topicStats[0].index];
+    selectedTopicIndex = topicStats[0].index;
+  }
+
+  // 3) 최근 10개 파일에서 사용되지 않은 지역 우선 매칭
+  const recentRegionSlice = recentRegions.slice(-12);
+  let selectedRegion = REGION_POOLS[0];
+
+  for (const reg of REGION_POOLS) {
+    if (!recentRegionSlice.includes(reg)) {
+      // 제목 조합 중복 검사
+      const testTitle = selectedTopic.titleTpl.replace(/{region}/g, reg);
+      if (!publishedTitles.has(testTitle)) {
+        selectedRegion = reg;
+        break;
+      }
+    }
+  }
+
+  // 최종 제목 및 본문 조합
+  let title = selectedTopic.titleTpl.replace(/{region}/g, selectedRegion);
+  
+  // 혹시라도 중복 발생 시 미사용 지역 순환 탐색
+  if (publishedTitles.has(title)) {
+    for (const altReg of REGION_POOLS) {
+      const altTitle = selectedTopic.titleTpl.replace(/{region}/g, altReg);
+      if (!publishedTitles.has(altTitle)) {
+        selectedRegion = altReg;
+        title = altTitle;
+        break;
+      }
+    }
+  }
+
+  const question = selectedTopic.question.replace(/{region}/g, selectedRegion);
+  let answer = selectedTopic.answer.replace(/{region}/g, selectedRegion);
 
   // 마크다운 볼드(**) 기호 0% 배제 원칙 엄수
   answer = answer.replace(/\*\*(.*?)\*\*/g, '$1');
 
-  const fileName = `qa-${dateStr}-${topic.categoryKey}-${Math.floor(1000 + Math.random() * 9000)}.md`;
+  const fileName = `qa-${dateStr}-${selectedTopic.categoryKey}-${Math.floor(1000 + Math.random() * 9000)}.md`;
   const filePath = path.join(qaDir, fileName);
 
-  const tagsMd = (topic.tags || []).map(t => `  - "${t}"`).join('\n');
+  const tagsMd = (selectedTopic.tags || []).map(t => `  - "${t}"`).join('\n');
 
   const content = `---
 title: "${title}"
 linkTitle: "${title.slice(0, 30)}..."
 date: ${dateFull}
-category: "${topic.category}"
-location: "${region}"
-patient_info: "질문자: ${region} 거주 환자분 (${topic.patientRole})"
+category: "${selectedTopic.category}"
+location: "${selectedRegion}"
+patient_info: "질문자: ${selectedRegion} 거주 환자분 (${selectedTopic.patientRole})"
 summary: "${question.split('\n')[0]} - 한방침구과 전문의 권형근 대표원장의 1:1 맞춤 상담 솔루션"
 question: |
   ${question.replace(/\n/g, '\n  ')}
@@ -970,9 +1056,9 @@ ${answer}
   rebuildQAIndex();
 
   // 텔레그램 알림 전송
-  await sendTelegramNotification(title, region, topic.category);
+  await sendTelegramNotification(title, selectedRegion, selectedTopic.category);
 
-  return { fileName, title, category: topic.category, region };
+  return { fileName, title, category: selectedTopic.category, region: selectedRegion };
 }
 
 async function sendTelegramNotification(title, region, category) {
@@ -998,5 +1084,11 @@ async function sendTelegramNotification(title, region, category) {
   }
 }
 
-// 스크립트 단독 실행 시
-generateDailyQA();
+// 스크립트 단독 실행 시에만 호출 (import 시 자동 실행 방지)
+if (process.argv[1] && process.argv[1].endsWith('generate-daily-qa.mjs')) {
+  generateDailyQA().catch(err => {
+    console.error('❌ Q&A 생성 오류:', err);
+    process.exit(1);
+  });
+}
+

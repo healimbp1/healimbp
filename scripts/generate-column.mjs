@@ -527,7 +527,7 @@ export function selectSmartTarget() {
   const dayOfYear = Math.floor((kstDateObj - kstYearStart) / (1000 * 60 * 60 * 24)) + 1;
   const hourFormatter = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Seoul', hour: 'numeric', hour12: false });
   const hour = parseInt(hourFormatter.format(now), 10);
-  const slot = hour < 10 ? 0 : hour < 14 ? 1 : hour < 18 ? 2 : 3;
+  const slot = hour < 14 ? 0 : 1; // 하루 2회 (0: 오전 08:30경, 1: 오후/저녁 18:30경)
 
   // 기존 발행된 모든 칼럼 파일 스캔하여 기존 제목 집합 구축
   const existingFiles = fs.readdirSync(columnDir).filter(f => f.endsWith('.md') && f !== '_index.md');
@@ -550,7 +550,7 @@ export function selectSmartTarget() {
   }
 
   // 오늘 아직 발행되지 않은 카테고리 우선 선택
-  let baseCatIdx = ((dayOfYear * 4) + slot) % CATEGORIES.length;
+  let baseCatIdx = ((dayOfYear * 2) + slot) % CATEGORIES.length;
   let selectedCat = CATEGORIES[baseCatIdx];
 
   for (let i = 0; i < CATEGORIES.length; i++) {
@@ -563,11 +563,11 @@ export function selectSmartTarget() {
   }
 
   // 기본 주제 및 지역 선택 (로테이션)
-  const initialTopicIdx = Math.floor(((dayOfYear * 4) + slot) / CATEGORIES.length) % selectedCat.topics.length;
+  const initialTopicIdx = Math.floor(((dayOfYear * 2) + slot) / CATEGORIES.length) % selectedCat.topics.length;
   let selectedTopic = selectedCat.topics[initialTopicIdx];
-  const initialRegionIdx = (((dayOfYear * 4) + slot) + baseCatIdx) % REGION_POOLS.length;
+  const initialRegionIdx = (((dayOfYear * 2) + slot) + baseCatIdx) % REGION_POOLS.length;
   let selectedRegion = REGION_POOLS[initialRegionIdx];
-  let patternType = ((dayOfYear * 4) + slot) % 3;
+  let patternType = ((dayOfYear * 2) + slot) % 3;
 
   function buildRawTitle(pattern, region, cat, topic) {
     const catShort = cat.name.split(' ')[0];
