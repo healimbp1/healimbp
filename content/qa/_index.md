@@ -86,7 +86,7 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      중요한 시험을 앞두고 집중이 되지 않아 스스로를 탓하며 불안과 무기력감에 빠져 계신 상황이 안타깝습니다.
+                      안녕하세요. 인천 계양구 계산동에서 시험 준비 중인 수험생입니다. - 한방침구과 전문의 권형근 대표원장의 1:1 맞춤 상담 솔루션
                     </p>
                   </div>
                 </div>
@@ -128,7 +128,7 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      조용한 사무실이나 회의 시간에 자신도 모르게 튀어나오는 헛기침과 킁킁거림으로 인해 직장 생활에서 남모를 긴장과 스트레스를 겪으셨을 것 같습니다.
+                      안녕하세요. 인천 서구 루원시티에서 근무하는 30대 직장인입니다. - 한방침구과 전문의 권형근 대표원장의 1:1 맞춤 상담 솔루션
                     </p>
                   </div>
                 </div>
@@ -590,7 +590,7 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      매일같이 찾아오는 관자놀이와 뒷머리의 극심한 통증으로 진통제에 의존하며 업무와 일상을 버텨내시느라 참으로 고생이 많으셨겠습니다.
+                      안녕하세요 원장님. 인천 부평구에 사는 30대입니다. - 한방침구과 전문의 권형근 대표원장의 1:1 맞춤 상담 솔루션
                     </p>
                   </div>
                 </div>
@@ -632,7 +632,7 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      열정적으로 달려오시던 중 신체적·정신적 에너지가 완전히 고갈되어 겪고 계신 깊은 무기력감과 허탈감에 깊이 공감합니다.
+                      안녕하세요 원장님. 인천 서구 검단에서 7년째 근무 중인 30대 직장인입니다. - 한방침구과 전문의 권형근 대표원장의 1:1 맞춤 상담 솔루션
                     </p>
                   </div>
                 </div>
@@ -646,7 +646,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 자율신경 & 실신·어지럼증·이명] 귀·뇌 검사는 다 정상인데 머리가 붕 뜨고 어지러운 이유는 무엇인가요? (인천 미추홀구) -->
+              <!-- [Q&A | 자율신경 & 실신·어지럼증·이명] 지하철이나 피검사 때 눈앞이 캄캄해지며 주저앉는 미주신경성 실신 치료 (인천 미추홀구) -->
               <article class="qa-item autonomic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="autonomic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -658,11 +658,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 인천 미추홀구 거주 OO님 (30대 직장인 / 여성)</span>
+                      <span class="truncate">질문자: 인천 미추홀구 거주 환자분 (20대 여성)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-20-autonomic-8960/" class="hover:underline">
-                        귀·뇌 검사는 다 정상인데 머리가 붕 뜨고 어지러운 이유는 무엇인가요? (인천 미추홀구)
+                        지하철이나 피검사 때 눈앞이 캄캄해지며 주저앉는 미주신경성 실신 치료 (인천 미추홀구)
                       </a>
                     </h3>
                   </div>
@@ -674,13 +674,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요. 인천 미추홀구에 거주하는 30대입니다....
+                      예고 없이 찾아오는 실신과 어지럼증으로 인해 길거리나 대중교통에서 쓰러질까 봐 극심한 불안을 안고 지내셨겠습니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 만성어지럼증 • 자율신경실조증 • 브레인포그</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 미주신경성실신 • 혈관미주신경 • 실신전조증상</span>
                   <a href="/qa/qa-2026-09-20-autonomic-8960/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -688,7 +688,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 공황 · 불안 & 강박증] 출근길 지하철에서 숨이 턱 막히고 쓰러질 것 같은데 공황장애인가요? (인천 계양구) -->
+              <!-- [Q&A | 공황 · 불안 & 강박증] 터널이나 고속도로 운전 중 가슴이 조여오고 핸들을 놓칠 것 같은 운전공포증 (인천 계양구) -->
               <article class="qa-item panic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="panic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -700,11 +700,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 인천 계양구 거주 OO님 (30대 직장인)</span>
+                      <span class="truncate">질문자: 인천 계양구 거주 환자분 (40대 운전자)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-19-panic-1061/" class="hover:underline">
-                        출근길 지하철에서 숨이 턱 막히고 쓰러질 것 같은데 공황장애인가요? (인천 계양구)
+                        터널이나 고속도로 운전 중 가슴이 조여오고 핸들을 놓칠 것 같은 운전공포증 (인천 계양구)
                       </a>
                     </h3>
                   </div>
@@ -716,13 +716,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요. 인천 계양구에 거주하는 30대입니다....
+                      고속도로 터널 안에서 겪으셨던 아찔한 경험으로 인해 운전대를 잡을 때마다 두려움이 엄습하셨을 것으로 생각됩니다. 일상적인 출퇴근과 이동에 큰 제약이 생겨 답답함도 크셨을 것입니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 공황장애 • 공황발작 • 과호흡</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 운전공포증 • 터널공포증 • 광장공포증</span>
                   <a href="/qa/qa-2026-09-19-panic-1061/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -730,7 +730,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 불면증 & 수면장애] 수면제를 1년 넘게 먹었는데 한방으로 줄여서 끊을 수 있나요? (경기 시흥시) -->
+              <!-- [Q&A | 불면증 & 수면장애] 잠들기까지 2~3시간 걸리고 사소한 소리에도 깨는 입면장애 치료 (경기 시흥시) -->
               <article class="qa-item insomnia heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="insomnia">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -742,11 +742,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 경기 시흥시 거주 OO님 (40대 직장인)</span>
+                      <span class="truncate">질문자: 경기 시흥시 거주 환자분 (50대 주부)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-18-insomnia-5373/" class="hover:underline">
-                        수면제를 1년 넘게 먹었는데 한방으로 줄여서 끊을 수 있나요? (경기 시흥시)
+                        잠들기까지 2~3시간 걸리고 사소한 소리에도 깨는 입면장애 치료 (경기 시흥시)
                       </a>
                     </h3>
                   </div>
@@ -758,13 +758,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요. 경기 시흥시에 사는 40대 직장인입니다....
+                      극심한 육체적 피로에도 불구하고 잠자리에 누우면 뇌가 각성되어 잠들지 못하고, 얕은 잠으로 고통받고 계신 심정을 깊이 공감합니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 불면증 • 수면제감약 • 졸피뎀</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 입면장애 • 조기각성 • 수면유도</span>
                   <a href="/qa/qa-2026-09-18-insomnia-5373/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -772,7 +772,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 물건을 매일 잃어버리고 마감 직전까지 일을 미루는데 성인 ADHD인가요? (인천 남동구 구월동) -->
+              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 책만 펴면 10분을 못 버티고 멍해지는 성인 주의력 결핍 한방 치료 (인천 남동구 구월동) -->
               <article class="qa-item tic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="tic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -784,11 +784,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 인천 남동구 구월동 거주 OO님 (20대 대학원생 / 직장인)</span>
+                      <span class="truncate">질문자: 인천 남동구 구월동 거주 환자분 (취업준비생)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-17-tic-6995/" class="hover:underline">
-                        물건을 매일 잃어버리고 마감 직전까지 일을 미루는데 성인 ADHD인가요? (인천 남동구 구월동)
+                        책만 펴면 10분을 못 버티고 멍해지는 성인 주의력 결핍 한방 치료 (인천 남동구 구월동)
                       </a>
                     </h3>
                   </div>
@@ -800,13 +800,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요 원장님. 인천 남동구 구월동에서 직장생활을 하고 있는 20대입니다....
+                      중요한 시험을 앞두고 집중이 되지 않아 스스로를 탓하며 불안과 무기력감에 빠져 계신 상황이 안타깝습니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 성인ADHD • 집중력저하 • 만성미루기</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 성인주의력결핍 • 수험생집중력 • 브레인포그</span>
                   <a href="/qa/qa-2026-09-17-tic-6995/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -814,7 +814,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 아이가 긴장하면 눈 깜빡임과 헛기침 틱을 하는데 스트레스 때문인가요? (인천 연수구 송도) -->
+              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 사춘기 중학생의 목 꺾임과 어깨 털기 복합 틱, 청소년기 완치 가능할까요? (인천 연수구 송도) -->
               <article class="qa-item tic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="tic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -826,11 +826,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 인천 연수구 송도 거주 OO님 (초등학생 학부모)</span>
+                      <span class="truncate">질문자: 인천 연수구 송도 거주 환자분 (중학생 학부모)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-16-tic-9881/" class="hover:underline">
-                        아이가 긴장하면 눈 깜빡임과 헛기침 틱을 하는데 스트레스 때문인가요? (인천 연수구 송도)
+                        사춘기 중학생의 목 꺾임과 어깨 털기 복합 틱, 청소년기 완치 가능할까요? (인천 연수구 송도)
                       </a>
                     </h3>
                   </div>
@@ -842,13 +842,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요 원장님. 인천 연수구 송도에 거주하는 초등학생 학부모입니다....
+                      사춘기 시기에 틱 증상이 다시 심해져 아이 스스로도 크게 위축되고, 부모님께서도 걱정이 깊으실 것으로 생각됩니다. 외모와 교우관계에 매우 민감한 시기이기에 아이의 자존감 저하와 불안이 더욱 클 수밖에 없습니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 소아틱장애 • 눈깜빡임 • 음성틱</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 청소년틱장애 • 운동틱 • 목꺾임</span>
                   <a href="/qa/qa-2026-09-16-tic-9881/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -856,7 +856,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 신체화 & 담적·두통·턱관절] 식사만 하면 명치가 돌처럼 굳고 트림이 끊이지 않는 담적병 치료 (인천 서구 청라) -->
+              <!-- [Q&A | 신체화 & 담적·두통·턱관절] 조금만 신경 쓰면 배가 아프고 설사와 변비가 반복되는 과민성 대장증후군 (인천 서구 청라) -->
               <article class="qa-item somatic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="somatic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -868,11 +868,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 인천 서구 청라 거주 OO님 (40대 직장인)</span>
+                      <span class="truncate">질문자: 인천 서구 청라 거주 환자분 (50대 남성)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-15-somatic-3151/" class="hover:underline">
-                        식사만 하면 명치가 돌처럼 굳고 트림이 끊이지 않는 담적병 치료 (인천 서구 청라)
+                        조금만 신경 쓰면 배가 아프고 설사와 변비가 반복되는 과민성 대장증후군 (인천 서구 청라)
                       </a>
                     </h3>
                   </div>
@@ -884,13 +884,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요. 인천 서구 청라에 거주하는 40대 직장인입니다....
+                      외출이나 긴장되는 상황마다 불쑥 찾아오는 복통과 설사로 인해 장거리 이동조차 두려우셨을 마음이 짐작됩니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 담적병 • 신경성소화불량 • 명치답답</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 과민성대장증후군 • 신경성복통 • 장뇌축</span>
                   <a href="/qa/qa-2026-09-15-somatic-3151/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -898,7 +898,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 우울증 · 화병 & 번아웃] 가슴이 터질 듯 답답하고 목에 뭔가 걸려 안 넘어가는 화병과 매핵기 (경기 부천시) -->
+              <!-- [Q&A | 우울증 · 화병 & 번아웃] 얼굴로 열이 훅 치밀고 사소한 일에도 분노가 폭발하는 갱년기 화병 (경기 부천시) -->
               <article class="qa-item stress heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="stress">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -910,11 +910,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 경기 부천시 거주 OO님 (50대 주부)</span>
+                      <span class="truncate">질문자: 경기 부천시 거주 환자분 (50대 여성)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-14-stress-5071/" class="hover:underline">
-                        가슴이 터질 듯 답답하고 목에 뭔가 걸려 안 넘어가는 화병과 매핵기 (경기 부천시)
+                        얼굴로 열이 훅 치밀고 사소한 일에도 분노가 폭발하는 갱년기 화병 (경기 부천시)
                       </a>
                     </h3>
                   </div>
@@ -926,13 +926,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요. 경기 부천시에 거주하는 50대 주부입니다....
+                      호르몬 변화와 함께 통제되지 않는 감정 기복, 상열감으로 인해 몸도 마음도 몹시 지치고 힘드셨을 것으로 생각됩니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 화병 • 매핵기 • 목이물감</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 갱년기화병 • 상열감 • 감정기복</span>
                   <a href="/qa/qa-2026-09-14-stress-5071/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
@@ -1108,7 +1108,7 @@ sections:
                 </div>
               </article>
 
-              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 아이가 긴장하면 눈 깜빡임과 헛기침 틱을 하는데 스트레스 때문인가요? (경기 시흥시) -->
+              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 수업 시간에 자리에 가만히 못 앉아있고 충동성이 심한 초등 ADHD 한방 치료 (경기 시흥시) -->
               <article class="qa-item tic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="tic">
                 <div class="space-y-3">
                   <div class="flex items-center justify-between">
@@ -1120,11 +1120,11 @@ sections:
                   <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
                     <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
                       <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
-                      <span class="truncate">질문자: 경기 시흥시 거주 OO님 (초등학생 학부모)</span>
+                      <span class="truncate">질문자: 경기 시흥시 거주 환자분 (초등 5학년 남학생 부모님)</span>
                     </div>
                     <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
                       <a href="/qa/qa-2026-09-09-tic-9176/" class="hover:underline">
-                        아이가 긴장하면 눈 깜빡임과 헛기침 틱을 하는데 스트레스 때문인가요? (경기 시흥시)
+                        수업 시간에 자리에 가만히 못 앉아있고 충동성이 심한 초등 ADHD 한방 치료 (경기 시흥시)
                       </a>
                     </h3>
                   </div>
@@ -1136,13 +1136,13 @@ sections:
                       <span>권형근 대표원장 답변 요약</span>
                     </div>
                     <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
-                      안녕하세요 원장님. 경기 시흥시에 거주하는 초등학생 학부모입니다....
+                      학교에서 아이의 주의산만함과 충동성으로 인해 연락을 받으시며 부모님으로서 마음이 많이 무겁고 속상하셨을 것으로 생각됩니다. 특히 성장기 약물 복용에 대한 부작용 걱정으로 치료 방향을 정하기가 쉽지 않으셨을 것입니다.
                     </p>
                   </div>
                 </div>
 
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
-                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 소아틱장애 • 눈깜빡임 • 음성틱</span>
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 소아ADHD • 충동성조절 • 주의력결핍</span>
                   <a href="/qa/qa-2026-09-09-tic-9176/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
                     <span>답변 전체보기</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
