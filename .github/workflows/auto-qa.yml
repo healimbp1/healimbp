@@ -52,5 +52,6 @@ jobs:
             echo "No new Q&A generated."
           else
             git commit -m "feat(qa): auto-publish 2x daily clinical Q&A case study"
+            git pull --rebase origin main || true
             git push origin main
           fi

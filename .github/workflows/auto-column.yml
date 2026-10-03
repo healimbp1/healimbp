@@ -66,5 +66,6 @@ jobs:
             echo "No new column generated."
           else
             git commit -m "feat(column): auto-publish 2x daily medical column by Director Kwon Hyung-keun"
+            git pull --rebase origin main || true
             git push origin main
           fi
