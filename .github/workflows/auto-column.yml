@@ -23,10 +23,20 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install Korean Fonts for Clean Typography
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-nanum fonts-noto-cjk
+          fc-cache -fv
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Install Dependencies
+        run: |
+          npm install
 
       - name: Configure Git
         run: |
