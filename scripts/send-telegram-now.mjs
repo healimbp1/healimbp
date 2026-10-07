@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { convertColumnToTistoryHtml } from './render-tistory.mjs';
 import { resolveThumbnail } from './thumbnail-resolver.mjs';
+import { buildTistoryThumbnailPng } from './exact-tistory-thumbnail-builder.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,9 +45,22 @@ async function sendTelegramColumnPackage(slug) {
   const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.replace(/["'\s]/g, '')).filter(Boolean) : ['부평한의원', '건강칼럼'];
   const image = (fm.match(/image:\s*"([^"]+)"/) || [])[1] || '';
 
-  const relThumb = resolveThumbnail({ categoryName: category, title, slug, currentImage: image });
-  const absThumbPath = path.join(rootDir, 'static', relThumb.replace(/^\//, ''));
+  // 1:1 썸네일 단일 소스 리졸빙 및 사전 검증 (Pre-Flight Check)
+  let relThumb = resolveThumbnail({ categoryName: category, title, slug, currentImage: image });
+  let absThumbPath = path.join(rootDir, 'static', relThumb.replace(/^\//, ''));
   
+  if (!fs.existsSync(absThumbPath) || relThumb.includes('bupyeong-autonomic/01_naver_main_thumbnail.jpg')) {
+    try {
+      const outPngPath = path.join(rootDir, 'static', 'blog-images', 'tistory-thumbnails', `${slug}.png`);
+      buildTistoryThumbnailPng({ title, categoryName: category, category, slug }, outPngPath);
+      relThumb = `/blog-images/tistory-thumbnails/${slug}.png`;
+      absThumbPath = outPngPath;
+      console.log(`[send-telegram-now] 🖼️ 1:1 맞춤형 썸네일 실시간 렌더링 완료: ${outPngPath}`);
+    } catch (e) {
+      console.warn('[send-telegram-now] 썸네일 실시간 빌드 에러:', e.message);
+    }
+  }
+
   const hasThumb = fs.existsSync(absThumbPath);
   let thumbBuffer = null;
   let thumbExt = 'png';
@@ -58,6 +72,10 @@ async function sendTelegramColumnPackage(slug) {
     thumbExt = path.extname(absThumbPath).toLowerCase() === '.png' ? 'png' : 'jpg';
     thumbMime = thumbExt === 'png' ? 'image/png' : 'image/jpeg';
     thumbFileName = `thumbnail_${slug}.${thumbExt}`;
+    const stat = fs.statSync(absThumbPath);
+    console.log(`[send-telegram-now] 🖼️ 썸네일 사전 검증 통과: ${relThumb} (${(stat.size / 1024).toFixed(1)} KB)`);
+  } else {
+    console.error(`[send-telegram-now] ❌ 썸네일 파일 부재: ${absThumbPath}`);
   }
 
   const columnObj = { title, category, categoryName: category, image: relThumb, slug };

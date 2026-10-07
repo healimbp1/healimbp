@@ -18,7 +18,7 @@ export function getTistoryThumbnailUrl(content = '', slug = '', column = null) {
 }
 
 import { parseMasterColumn } from './parse-master-column.mjs';
-import { renderMasterColumnToTistoryHtml } from './format-master-column.mjs';
+import { renderMasterColumnToTistoryHtml, ensureQuestionTitle, formatLeadConclusion, getRelatedColumns } from './format-master-column.mjs';
 
 export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = null) {
   // If it's a structured master column (contains section-label or standard 6-section structure)
@@ -196,7 +196,78 @@ export function convertColumnToTistoryHtml(mdContent, slug = 'column', column = 
   const bookingUrl = `https://booking.naver.com/booking/13/bizes/934695`;
   const kakaoUrl = `https://pf.kakao.com/_Tcxcxoxj`;
 
+  const colTitle = ensureQuestionTitle(column?.title || column?.tistoryTitle || (mdContent.match(/title:\s*"([^"]+)"/) || [])[1] || slug);
+  const colCategory = column?.categoryName || column?.category || (mdContent.match(/category:\s*"([^"]+)"/) || [])[1] || '신경정신과 클리닉';
+  const relatedList = getRelatedColumns(slug, colCategory, 3);
+
+  // Extract FAQs from content if not explicitly in column.faq
+  let finalFaqs = column?.faq || [];
+  if (!Array.isArray(finalFaqs) || finalFaqs.length === 0) {
+    const faqMatches = [...content.matchAll(/\*\*Q(\d+)\.\s*([^*]+)\*\*\s*[\r\n]+(?:>\s*)?(.*?)(?=(?:\n\s*\*\*Q|\n\s*###|\n\s*>\s*\*\*권형근|\n\s*---\s*\n|$))/gs)];
+    finalFaqs = faqMatches.map(m => ({
+      q: m[2].trim(),
+      a: m[3].replace(/^>\s*/gm, '').replace(/[*_#`]/g, '').trim()
+    }));
+  }
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": ["Article", "MedicalWebPage"],
+    "headline": colTitle,
+    "description": column?.summary || `${colCategory} 한방 신경정신과 클리닉 권형근 대표원장의 심층 원인 및 1:1 맞춤 치료 가이드`,
+    "image": [
+      `https://healimbp.com/blog-images/tistory-thumbnails/${slug}.png`
+    ],
+    "author": {
+      "@type": "Physician",
+      "name": "권형근",
+      "jobTitle": "대표원장, 한방침구과 전문의",
+      "worksFor": {
+        "@type": "MedicalClinic",
+        "name": "해아림한의원 인천부평점",
+        "url": "https://healimbp.com"
+      }
+    },
+    "publisher": {
+      "@type": "MedicalClinic",
+      "name": "해아림한의원 인천부평점",
+      "url": "https://healimbp.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://healimbp.com/images/director.jpg"
+      }
+    },
+    "inLanguage": "ko-KR",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": columnUrl
+    }
+  };
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": finalFaqs.map(f => ({
+      "@type": "Question",
+      "name": f.q.replace(/[*_#`]/g, '').trim(),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a.replace(/[*_#`]/g, '').trim()
+      }
+    }))
+  };
+
   return `
+<!-- [SEO Schema] Article & MedicalWebPage JSON-LD -->
+<script type="application/ld+json">
+${JSON.stringify(articleSchema, null, 2)}
+</script>
+
+<!-- [SEO Schema] FAQPage JSON-LD (Google & Naver Rich Snippets) -->
+<script type="application/ld+json">
+${JSON.stringify(faqPageSchema, null, 2)}
+</script>
+
 <div style="font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; line-height: 1.85; color: #333333; max-width: 780px; margin: 0 auto; padding: 10px 0; font-style: normal;">
   
   <!-- 대표 썸네일 이미지 (1:1 완벽 맞춤형 카드 썸네일) -->
@@ -218,6 +289,45 @@ ${quoteHtml}
   <!-- 칼럼 본문 -->
   <div style="font-size: 16px; color: #374151; word-break: keep-all; font-style: normal;">
 ${parsedBodyHtml}
+  </div>
+
+  <!-- 저자 프로필 카드 (E-E-A-T 전문성 및 신뢰도 강화: 한의사명 + 상세 경력) -->
+  <div style="background-color: #FAFBF9; border: 1.5px solid #DDE6E1; border-radius: 14px; padding: 24px 28px; margin: 38px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
+      <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid #2F5D50; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+        <img src="https://healimbp.com/images/director.jpg" alt="권형근 대표원장" style="width: 100%; height: 100%; object-fit: cover;" />
+      </div>
+      <div>
+        <div style="font-size: 17.5px; font-weight: 800; color: #1E4638; margin-bottom: 3px;">권형근 대표원장</div>
+        <div style="font-size: 13px; color: #2F5D50; font-weight: 700;">보건복지부 공인 한방침구과 전문의 ｜ 해아림한의원 인천부평점</div>
+      </div>
+    </div>
+    <div style="border-top: 1px dashed #DDE6E1; padding-top: 14px;">
+      <div style="font-size: 12.5px; font-weight: 700; color: #526059; margin-bottom: 6px;">👨‍⚕️ 주요 약력 및 전문 진료 분야</div>
+      <ul style="margin: 0; padding-left: 18px; font-size: 13.5px; color: #4B5563; line-height: 1.8;">
+        <li>보건복지부 공인 한방침구과 전문의</li>
+        <li>대한한방신경정신과학회 정회원</li>
+        <li>대한침구의학회 평생회원</li>
+        <li>전 원광대학교 한의과대학 외래교수</li>
+        <li>뇌파·체열·자율신경 1:1 심층 분석 진료 (부평역 7번 출구)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 함께 읽어보면 좋은 연관 의학 칼럼 (Internal Link: 내부 링크 연결) -->
+  <div style="background-color: #F8FAF9; border: 1px solid #E2EAE5; border-radius: 14px; padding: 22px 26px; margin: 36px 0;">
+    <div style="font-size: 15.5px; font-weight: 800; color: #1E4638; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+      <span>🔗</span> <span>함께 읽어보면 도움 되는 추천 의학 칼럼</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      ${relatedList.map(r => `
+        <a href="https://healimbp.com/column/${r.slug}/" target="_blank" rel="noopener" style="text-decoration: none; display: block; background-color: #ffffff; border: 1px solid #DDE6E1; border-radius: 10px; padding: 14px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
+          <div style="font-size: 11.5px; color: #2F5D50; font-weight: 700; margin-bottom: 4px;">${r.category || colCategory}</div>
+          <div style="font-size: 14.5px; font-weight: 800; color: #26332E; line-height: 1.45; margin-bottom: 6px;">${r.title}</div>
+          <div style="font-size: 12.5px; color: #68736E; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${r.summary}</div>
+        </a>
+      `).join('')}
+    </div>
   </div>
 
   <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 44px 0 32px 0;" />

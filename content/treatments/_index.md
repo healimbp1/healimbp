@@ -88,6 +88,13 @@ sections:
                 </ul>
               </div>
             </div>
+
+            <div class="pt-2 flex justify-end">
+              <a href="/treatments/panic-anxiety/" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2F5D50] hover:bg-[#24483E] text-white text-xs sm:text-sm font-bold rounded-xl transition">
+                <span>공황 · 불안장애 클리닉 상세 보기</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
           </div>
 
           <!-- 4. 진료 카테고리 2: 수면 · 자율신경 클리닉 -->
@@ -129,6 +136,17 @@ sections:
                 </ul>
               </div>
             </div>
+
+            <div class="pt-2 flex flex-wrap justify-end gap-3">
+              <a href="/treatments/insomnia-sleep/" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2F5D50] hover:bg-[#24483E] text-white text-xs sm:text-sm font-bold rounded-xl transition">
+                <span>불면증 클리닉 상세 보기</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a href="/treatments/autonomic-nerve/" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2F5D50] hover:bg-[#24483E] text-white text-xs sm:text-sm font-bold rounded-xl transition">
+                <span>자율신경 · 어지럼증 클리닉 상세 보기</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
           </div>
 
           <!-- 5. 진료 카테고리 3: 소아청소년 두뇌케어 -->
@@ -166,6 +184,13 @@ sections:
                   <li><strong>부모 코칭 & 양육 스트레스 상담</strong>: 가정 내 정서적 안정 환경 조성</li>
                 </ul>
               </div>
+            </div>
+
+            <div class="pt-2 flex justify-end">
+              <a href="/treatments/child-tic-adhd/" class="inline-flex items-center gap-2 px-4 py-2 bg-[#2F5D50] hover:bg-[#24483E] text-white text-xs sm:text-sm font-bold rounded-xl transition">
+                <span>틱장애 · ADHD 클리닉 상세 보기</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
             </div>
           </div>
 

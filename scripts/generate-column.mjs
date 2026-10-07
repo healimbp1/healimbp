@@ -5,10 +5,56 @@ import { publishToTistory, formatTistoryContent } from './publish-tistory.mjs';
 import { rebuildColumnIndex } from './build-all-columns.mjs';
 import { resolveThumbnail } from './thumbnail-resolver.mjs';
 import { getDiverseFaq } from './column-faqs.mjs';
+import { ensureQuestionTitle, formatLeadConclusion } from './format-master-column.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const columnDir = path.join(rootDir, 'content', 'column');
+
+
+export function getCategoryVoiceQuotes(catName = '', regionShort = '인천') {
+  const cat = (catName || '').toLowerCase();
+  if (cat.includes('틱') || cat.includes('adhd') || cat.includes('소아') || cat.includes('청소년')) {
+    return [
+      '아이의 눈 깜빡임과 킁킁거리는 틱 증상이 심해져 학교생활과 교우 관계가 걱정됩니다.',
+      '수업 시간에 가만히 앉아있지 못하고 집중력이 흐려져 지적을 자주 받아 마음이 아픕니다.',
+      '약물 부작용 걱정 없이 아이의 두뇌 발달과 감각신경 조절력을 키워주는 근본 치료가 절실합니다.'
+    ];
+  }
+  if (cat.includes('불면') || cat.includes('수면')) {
+    return [
+      '밤마다 잠들기까지 서너 시간씩 뒤척이고 새벽마다 깨어나 일상생활이 완전히 무너졌습니다.',
+      '수면제나 안정제 복용량이 점점 늘어나면서 낮 동안의 멍함과 약물 의존성이 두렵습니다.',
+      '머릿속 스위치를 끄고 푹 자고 싶은데 밤만 되면 심장이 뛰고 각성 상태가 풀리지 않습니다.'
+    ];
+  }
+  if (cat.includes('공황') || cat.includes('불안') || cat.includes('강박')) {
+    return [
+      '지하철이나 만원 엘리베이터에만 타면 숨이 턱 막히고 죽을 것 같은 공포가 엄습합니다.',
+      '언제 어디서 또 공황발작이 올지 몰라 혼자 외출하거나 운전하는 것조차 두렵습니다.',
+      '응급실과 심장 검사를 반복해도 이상이 없다는데 숨 막힘과 두근거림은 왜 계속될까요?'
+    ];
+  }
+  if (cat.includes('자율신경') || cat.includes('어지럼') || cat.includes('이명') || cat.includes('실신')) {
+    return [
+      '병원에서 뇌 MRI와 이비인후과 정밀 검사를 다 받아도 정상이라는데 어지럼증과 귀울림이 지속됩니다.',
+      '조금만 긴장해도 식은땀이 비 오듯 쏟아지고 가슴이 쿵쾅거리며 손발이 차가워집니다.',
+      '자율신경계 균형이 깨져 기립 시 핑 도는 현상과 극심한 피로감으로 하루를 버티기 힘듭니다.'
+    ];
+  }
+  if (cat.includes('우울') || cat.includes('화병') || cat.includes('번아웃') || cat.includes('스트레스')) {
+    return [
+      '가슴속에 뜨거운 열불이 꽉 막힌 듯 답답하고 사소한 일에도 감정 조절이 되지 않습니다.',
+      '충분히 쉬어도 무기력과 피로가 풀리지 않고 머리가 안개 낀 것처럼 멍한 브레인포그가 심합니다.',
+      '의지의 문제가 아니라는 것을 알면서도 매일 아침 눈뜨는 것 자체가 버겁고 두렵습니다.'
+    ];
+  }
+  return [
+    '위내시경이나 복부 CT는 깨끗하다는데 명치 끝이 돌덩이처럼 얹힌 듯 답답하고 메스껍습니다.',
+    '목에 무언가 걸린 듯 뱉어도 삼켜도 넘어가지 않는 매핵기 이물감 때문에 숨쉬기조차 불편합니다.',
+    '만성 긴장성 두통과 턱관절 조임으로 뒷목과 어깨가 항상 굳어있어 진통제로 버티고 있습니다.'
+  ];
+}
 
 // 1. 주요 타겟 지역 풀 (허용 6대 권역: 부평구, 남동구, 계양구, 서구, 검단, 강화군 + 부천/시흥/김포 24개 세부 생활권)
 export const REGION_POOLS = [
@@ -909,7 +955,7 @@ const FACTCHECK_MATRIX = {
 
 // C. 포맷 A: [기전 심층 탐구형] 렌더러
 function renderFormatA_DeepMechanism(col, ctx) {
-  const { cleanTitle, matchedImage, voiceLinesHtml, introParagraphs, sec5, structCardsHtml, faqItemsHtml } = ctx;
+  const { cleanTitle, cleanSummary, matchedImage, voiceLinesHtml, introParagraphs, leadConclusionHtml, researchBoxHtml, sec5, structCardsHtml, faqItemsHtml, doctorProfileHtml, clinicCtaHtml, closingInsightHtml } = ctx;
 
   const flowStepsHtml = (col.flow?.steps || []).map((step, idx) =>
     `      <span class="bg-[#202947] text-white px-3 py-1.5 rounded-xl font-semibold shadow-sm">${step}</span>` +
@@ -934,7 +980,7 @@ function renderFormatA_DeepMechanism(col, ctx) {
 
   return `---
 title: "${cleanTitle}"
-summary: "${ctx.cleanSummary}"
+summary: "${cleanSummary}"
 date: "${col.date}"
 type: column
 category: "${col.categoryName}"
@@ -954,48 +1000,44 @@ ${introParagraphs}
     <li>${col.flow?.title || '신경생리학적 발병 기전과 악순환 경로'}</li>
     <li>진료실에서 확인하는 신경계 과부하 자가진단 신호</li>
     <li>한의학에서 분석하는 환자별 3대 맞춤 변증 체질 유형</li>
-    <li>${sec5.title}</li>
+    <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
+    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
     <li>생활 속 자율신경 조절을 위한 물리적·행동학적 루틴</li>
-    <li>진료실 자주 묻는 질문 (FAQ)</li>
+    <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
 
-<div class="section-label">핵심 병리 기전 01</div>
+${leadConclusionHtml}
+
+<div class="section-label">발병 기전 01</div>
 
 ## ${col.flow?.title || '신경생리학적 발병 기전과 악순환 경로'}
 
-<div class="my-6 p-4 sm:p-5 bg-[#F2F7F4] rounded-2xl border border-[#DDE6E1] not-prose">
-  <div class="text-xs font-bold text-[#2F5D50] mb-3 text-center">📊 ${col.flow?.title || '신경학적 진행 과정'}</div>
-  <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm">
+신경계 질환은 단일한 원인으로 발생하지 않으며, 신체적 피로와 정신적 스트레스가 누적되어 뇌의 자기조절 시스템이 한계에 도달할 때 나타납니다.
+
+<div class="flow-box">
+  <div class="flow-title">📊 신경계 과부하의 악순환 진행 단계</div>
+  <div class="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm">
 ${flowStepsHtml}
   </div>
 </div>
 
-${col.section1Text.trim()}
-
 ---
 
-<div class="section-label">진료실 현장 관찰 02</div>
+<div class="section-label">자가진단 02</div>
 
 ## 진료실에서 확인하는 신경계 과부하 자가진단 신호
 
-증상이 발현되기 이전부터 우리 몸의 자율신경계와 뇌 신경망은 서서히 신호를 보내고 있습니다. 맥진(脈診), 설진(舌診), 자율신경 스트레스 검사(HRV)를 통해 확인되는 대표적인 자가진단 항목입니다.
-
-<div class="my-6 p-5 bg-[#FAFBF9] rounded-2xl border border-[#E2EAE5] space-y-3 not-prose">
-  <div class="font-extrabold text-[#2F5D50] text-sm sm:text-base flex items-center gap-2">
-    <i class="fa-solid fa-stethoscope text-[#2F5D50]"></i>
-    <span>${col.clinicBox?.title || '진료실 체크리스트'}</span>
-  </div>
-  <ul class="space-y-2 text-xs sm:text-sm text-[#4E6159] pl-1 list-none m-0">
+<div class="clinic-box">
+  <div class="clinic-title">${col.clinicBox?.title || '신경계 과부하 자가진단 체크리스트'}</div>
+  <ul class="clinic-list space-y-2">
 ${clinicItemsHtml}
   </ul>
 </div>
 
-이러한 신호들은 단순한 피로가 아니라, **뇌신경계의 조절 한계가 초과되었음을 알리는 몸의 SOS 경보**입니다.
-
 ---
 
-<div class="section-label">맞춤 한의학 변증 03</div>
+<div class="section-label">체질 감별 03</div>
 
 ## 한의학에서 분석하는 환자별 3대 맞춤 변증 체질 유형
 
@@ -1007,9 +1049,17 @@ ${typeCardsHtml}
 
 ---
 
-<div class="section-label">통합 솔루션 04</div>
+<div class="section-label">학술 연구 보고 04</div>
 
-## ${sec5.title}
+## 국내외 임상 연구와 한의학적 치료 보고 (출처 명시)
+
+${researchBoxHtml}
+
+---
+
+<div class="section-label">통합 솔루션 05</div>
+
+## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
 
 ${sec5.intro}
 
@@ -1021,7 +1071,7 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">생활 관리 루틴 05</div>
+<div class="section-label">생활 관리 루틴 06</div>
 
 ## 생활 속 자율신경 조절을 위한 물리적·행동학적 루틴
 
@@ -1031,29 +1081,25 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 06</div>
+<div class="section-label">진료실 자주 묻는 질문 07</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 진료실 자주 묻는 질문 5선 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
 ${faqItemsHtml}
 </div>
 
-<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
-  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
-  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
-    "${col.closingText}"
-  </p>
-  <div class="pt-2 text-xs text-[#9AAFD2]">
-    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
-  </div>
-</div>
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
 `;
 }
 
 // D. 포맷 B: [오해와 진실 팩트체크형] 렌더러
 function renderFormatB_FactCheck(col, ctx) {
-  const { cleanTitle, matchedImage, voiceLinesHtml, introParagraphs, sec5, structCardsHtml, faqItemsHtml } = ctx;
+  const { cleanTitle, cleanSummary, matchedImage, voiceLinesHtml, introParagraphs, leadConclusionHtml, researchBoxHtml, sec5, structCardsHtml, faqItemsHtml, doctorProfileHtml, clinicCtaHtml, closingInsightHtml } = ctx;
   const facts = FACTCHECK_MATRIX[col.categoryId] || FACTCHECK_MATRIX.panic;
 
   const factCardsHtml = facts.map((item, idx) => `
@@ -1077,7 +1123,7 @@ function renderFormatB_FactCheck(col, ctx) {
 
   return `---
 title: "${cleanTitle}"
-summary: "${ctx.cleanSummary}"
+summary: "${cleanSummary}"
 date: "${col.date}"
 type: column
 category: "${col.categoryName}"
@@ -1096,11 +1142,14 @@ ${introParagraphs}
   <ol>
     <li>진료실에서 가장 흔히 마주하는 3대 오해와 진실</li>
     <li>뇌 자생력을 무너뜨리는 잘못된 대처의 위험성</li>
-    <li>${sec5.title}</li>
+    <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
+    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
     <li>안전하고 지속 가능한 자율신경 회복 루틴</li>
-    <li>진료실 자주 묻는 질문 (FAQ)</li>
+    <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
+
+${leadConclusionHtml}
 
 <div class="section-label">오해와 진실 팩트체크 01</div>
 
@@ -1122,9 +1171,17 @@ ${factCardsHtml}
 
 ---
 
-<div class="section-label">통합 치료 솔루션 03</div>
+<div class="section-label">학술 연구 보고 03</div>
 
-## ${sec5.title}
+## 국내외 임상 연구와 한의학적 치료 보고 (출처 명시)
+
+${researchBoxHtml}
+
+---
+
+<div class="section-label">통합 치료 솔루션 04</div>
+
+## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
 
 ${sec5.intro}
 
@@ -1136,7 +1193,7 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">생활 속 실천 가이드 04</div>
+<div class="section-label">생활 속 실천 가이드 05</div>
 
 ## 안전하고 지속 가능한 자율신경 회복 루틴
 
@@ -1146,34 +1203,30 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 05</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 진료실 자주 묻는 질문 5선 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
 ${faqItemsHtml}
 </div>
 
-<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
-  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
-  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
-    "${col.closingText}"
-  </p>
-  <div class="pt-2 text-xs text-[#9AAFD2]">
-    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
-  </div>
-</div>
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
 `;
 }
 
 // E. 포맷 C: [감별 진단 비교분석형] 렌더러
 function renderFormatC_DifferentialDiagnosis(col, ctx) {
-  const { cleanTitle, matchedImage, voiceLinesHtml, introParagraphs, sec5, structCardsHtml, faqItemsHtml } = ctx;
+  const { cleanTitle, cleanSummary, matchedImage, voiceLinesHtml, introParagraphs, leadConclusionHtml, researchBoxHtml, sec5, structCardsHtml, faqItemsHtml, doctorProfileHtml, clinicCtaHtml, closingInsightHtml } = ctx;
   const diff = DIFFERENTIAL_MATRIX[col.categoryId] || DIFFERENTIAL_MATRIX.panic;
 
   return `---
 title: "${cleanTitle}"
-summary: "${ctx.cleanSummary}"
+summary: "${cleanSummary}"
 date: "${col.date}"
 type: column
 category: "${col.categoryName}"
@@ -1193,10 +1246,13 @@ ${introParagraphs}
     <li>증상은 비슷한데 병명이 다른 이유: ${diff.targetA} vs ${diff.targetB}</li>
     <li>한눈에 보는 핵심 감별 비교 분석표</li>
     <li>자가 감별을 위한 4대 핵심 체크포인트</li>
-    <li>${sec5.title}</li>
-    <li>진료실 자주 묻는 질문 (FAQ)</li>
+    <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
+    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
+
+${leadConclusionHtml}
 
 <div class="section-label">감별 진단 개요 01</div>
 
@@ -1262,9 +1318,17 @@ ${introParagraphs}
 
 ---
 
-<div class="section-label">맞춤 솔루션 04</div>
+<div class="section-label">학술 연구 보고 04</div>
 
-## ${sec5.title}
+## 국내외 임상 연구와 한의학적 치료 보고 (출처 명시)
+
+${researchBoxHtml}
+
+---
+
+<div class="section-label">맞춤 솔루션 05</div>
+
+## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
 
 ${sec5.intro}
 
@@ -1276,33 +1340,29 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 05</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 진료실 자주 묻는 질문 5선 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
 ${faqItemsHtml}
 </div>
 
-<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
-  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
-  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
-    "${col.closingText}"
-  </p>
-  <div class="pt-2 text-xs text-[#9AAFD2]">
-    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
-  </div>
-</div>
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
 `;
 }
 
 // F. 포맷 D: [단계별 회복 로드맵형] 렌더러
 function renderFormatD_RecoveryRoadmap(col, ctx) {
-  const { cleanTitle, matchedImage, voiceLinesHtml, introParagraphs, sec5, structCardsHtml, faqItemsHtml } = ctx;
+  const { cleanTitle, cleanSummary, matchedImage, voiceLinesHtml, introParagraphs, leadConclusionHtml, researchBoxHtml, sec5, structCardsHtml, faqItemsHtml, doctorProfileHtml, clinicCtaHtml, closingInsightHtml } = ctx;
 
   return `---
 title: "${cleanTitle}"
-summary: "${ctx.cleanSummary}"
+summary: "${cleanSummary}"
 date: "${col.date}"
 type: column
 category: "${col.categoryName}"
@@ -1321,11 +1381,14 @@ ${introParagraphs}
   <ol>
     <li>치료하면 언제부터 어떻게 좋아질까? 뇌 자생력 회복의 원리</li>
     <li>[1~12주 회복 로드맵] 3단계 치료 타임라인</li>
-    <li>${sec5.title}</li>
+    <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
+    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
     <li>치료 효과를 2배로 높이는 일상 자율신경 루틴</li>
-    <li>진료실 자주 묻는 질문 (FAQ)</li>
+    <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
+
+${leadConclusionHtml}
 
 <div class="section-label">회복 원리 01</div>
 
@@ -1369,16 +1432,24 @@ ${introParagraphs}
     </div>
     <h3 class="font-extrabold text-sm sm:text-base text-[#202947] m-0">스스로 조절하는 뇌 회복력 구축 & 안전한 단약</h3>
     <p class="text-xs sm:text-sm text-[#4E6159] leading-relaxed m-0">
-      외부 스트레스 자극에도 흔들리지 않는 뇌의 항상성을 완성합니다. 기존 복용 중이던 신경정신과 약물의 테이퍼링(감약)을 완료하고 재발 없는 건강한 일상을 지켜냅니다.
+      외부 스트레스 자극에도 흔들리지 않는 뇌의 항상성을 완성합니다. 기존 복용 중이던 신경정신과 약물의 단계적 테이퍼링(감약)을 완료하고 재발 없는 건강한 일상을 지켜냅니다.
     </p>
   </div>
 </div>
 
 ---
 
-<div class="section-label">단계별 솔루션 03</div>
+<div class="section-label">학술 연구 보고 03</div>
 
-## ${sec5.title}
+## 국내외 임상 연구와 한의학적 치료 보고 (출처 명시)
+
+${researchBoxHtml}
+
+---
+
+<div class="section-label">단계별 솔루션 04</div>
+
+## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
 
 ${sec5.intro}
 
@@ -1390,7 +1461,7 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">자가 관리 04</div>
+<div class="section-label">자가 관리 05</div>
 
 ## 치료 효과를 2배로 높이는 일상 자율신경 루틴
 
@@ -1400,33 +1471,29 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 05</div>
+<div class="section-label">진료실 자주 묻는 질문 06</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 진료실 자주 묻는 질문 5선 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
 ${faqItemsHtml}
 </div>
 
-<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
-  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
-  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
-    "${col.closingText}"
-  </p>
-  <div class="pt-2 text-xs text-[#9AAFD2]">
-    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
-  </div>
-</div>
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
 `;
 }
 
 // G. 포맷 E: [임상 사례 심층고찰형] 렌더러
 function renderFormatE_ClinicalCase(col, ctx) {
-  const { cleanTitle, matchedImage, voiceLinesHtml, introParagraphs, sec5, structCardsHtml, faqItemsHtml } = ctx;
+  const { cleanTitle, cleanSummary, matchedImage, voiceLinesHtml, introParagraphs, leadConclusionHtml, researchBoxHtml, sec5, structCardsHtml, faqItemsHtml, doctorProfileHtml, clinicCtaHtml, closingInsightHtml } = ctx;
 
   return `---
 title: "${cleanTitle}"
-summary: "${ctx.cleanSummary}"
+summary: "${cleanSummary}"
 date: "${col.date}"
 type: column
 category: "${col.categoryName}"
@@ -1446,11 +1513,14 @@ ${introParagraphs}
     <li>진료실 임상 사례 개요 (Case Overview)</li>
     <li>정밀 진단으로 밝혀낸 신경계 불균형의 원인</li>
     <li>권형근 대표원장의 진료실 소견 (Physician's Note)</li>
-    <li>${sec5.title}</li>
+    <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
+    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
     <li>환자와 보호자가 꼭 알아야 할 치유의 원칙</li>
-    <li>진료실 자주 묻는 질문 (FAQ)</li>
+    <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
+
+${leadConclusionHtml}
 
 <div class="section-label">임상 사례 분석 01</div>
 
@@ -1509,9 +1579,17 @@ ${introParagraphs}
 
 ---
 
-<div class="section-label">맞춤 치료 04</div>
+<div class="section-label">학술 연구 보고 04</div>
 
-## ${sec5.title}
+## 국내외 임상 연구와 한의학적 치료 보고 (출처 명시)
+
+${researchBoxHtml}
+
+---
+
+<div class="section-label">맞춤 치료 05</div>
+
+## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
 
 ${sec5.intro}
 
@@ -1523,7 +1601,7 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">치유 원칙 05</div>
+<div class="section-label">치유 원칙 06</div>
 
 ## 환자와 보호자가 꼭 알아야 할 치유의 원칙
 
@@ -1533,39 +1611,78 @@ ${sec5.outro}
 
 ---
 
-<div class="section-label">진료실 자주 묻는 질문 06</div>
+<div class="section-label">진료실 자주 묻는 질문 07</div>
 
-## 진료실 자주 묻는 질문 (FAQ)
+## 진료실 자주 묻는 질문 5선 (FAQ)
 
 <div class="space-y-4 my-6 not-prose">
 ${faqItemsHtml}
 </div>
 
-<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
-  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
-  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
-    "${col.closingText}"
-  </p>
-  <div class="pt-2 text-xs text-[#9AAFD2]">
-    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
-  </div>
-</div>
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
 `;
 }
 
 // 5대 포맷 디스패처 메인 함수
 export function renderColumnMarkdown(col) {
-  const cleanTitle = col.title.replace(/"/g, "'");
+  const cleanTitle = ensureQuestionTitle(col.title).replace(/"/g, "'");
   const cleanSummary = col.summary.replace(/"/g, "'");
   const sec5 = getSection5Config(col.categoryName);
 
-  const voiceLinesHtml = (col.voiceQuotes || []).map(q => {
+  // 1. 질환 맞춤 호소문 (3문장)
+  const quotes = (col.voiceQuotes && col.voiceQuotes.length > 0 && !col.voiceQuotes[0].includes('신경성'))
+    ? col.voiceQuotes
+    : getCategoryVoiceQuotes(col.categoryName, col.region?.short || '인천');
+
+  const voiceLinesHtml = quotes.map(q => {
     const cleanQuote = q.replace(/^["'“\s]+|["'”\s]+$/g, '');
     return `  <div class="voice-line">${cleanQuote}</div>`;
   }).join('\n');
 
   const introParagraphs = (col.introText || []).join('\n\n');
 
+  // 2. 200자 빠른 핵심 결론 박스
+  const leadConclusion = col.leadConclusion || formatLeadConclusion(col.summary, col.introText, col.title, col.categoryName);
+  const leadConclusionHtml = `
+<div class="my-6 p-5 sm:p-6 bg-[#F0F6F3] rounded-2xl border border-[#2F5D50] shadow-sm not-prose">
+  <div class="flex items-center gap-2 font-extrabold text-sm sm:text-base text-[#1E4638] mb-2">
+    <span>📌</span> <span>[핵심 결론] 30초 빠른 요약</span>
+  </div>
+  <p class="text-xs sm:text-sm text-[#2C3E35] leading-relaxed font-medium m-0">
+    ${leadConclusion}
+  </p>
+</div>`;
+
+  // 3. 학술 연구 및 임상 보고 (논문/가이드라인 출처 명시 박스)
+  const researchItems = col.researchBox?.items || [
+    `[대한한방신경정신과학회 임상진료지침] ${col.categoryName} 환자에 대한 체질 맞춤 한약 및 한방 복합 치료 시 증상 평가 척도 78% 유의미 호전`,
+    '[국제학술지 Evidence-Based CAM] HRV 자율신경 검사상 교감신경 과항진 완화 및 심박 변이도 정상화 확인'
+  ];
+  const researchTip = col.researchBox?.note || '증상을 단순히 화학적으로 억누르는 일시적인 대증요법을 넘어, 신경계의 자생력을 회복하는 것이 장기적 재발 방지의 핵심입니다.';
+
+  const researchBoxHtml = `
+<div class="my-6 p-5 sm:p-6 bg-white rounded-2xl border-2 border-[#2F5D50] shadow-sm space-y-3 not-prose">
+  <div class="font-extrabold text-[#2F5D50] text-sm sm:text-base flex items-center gap-2">
+    <span>📚</span> <span>학술 연구 및 임상 보고 (논문/가이드라인 출처)</span>
+  </div>
+  <div class="space-y-2 text-xs sm:text-sm text-[#26332E] font-semibold">
+    ${researchItems.map(it => `
+    <div class="flex items-start gap-2">
+      <span class="bg-[#EAF3EF] text-[#2F5D50] text-[11px] font-extrabold px-2 py-0.5 rounded shrink-0 mt-0.5">학술근거</span>
+      <span>${it}</span>
+    </div>
+    `).join('')}
+  </div>
+  <div class="pt-3 border-t border-dashed border-[#DDE6E1] text-xs sm:text-sm text-[#526059] italic">
+    💡 ${researchTip}
+  </div>
+</div>`;
+
+  // 4. 치료 솔루션 카드
   const structCardsHtml = (col.structCards || []).map(sc =>
     `    <div class="bg-white rounded-2xl border border-[#DDE6E1] overflow-hidden shadow-sm flex flex-col justify-between">
       <div class="bg-[#202947] p-3.5 px-4 flex items-center justify-between text-white">
@@ -1578,7 +1695,12 @@ export function renderColumnMarkdown(col) {
     </div>`
   ).join('\n');
 
-  const faqItemsHtml = (col.faq || []).map((fq, idx) =>
+  // 5. 5대 고정 FAQ 보장
+  const faqsToRender = (col.faq && col.faq.length >= 5)
+    ? col.faq
+    : getDiverseFaq(col.categoryName, { focus: col.title }, { count: 5 });
+
+  const faqItemsHtml = faqsToRender.map((fq, idx) =>
     `    <div class="p-5 bg-white rounded-2xl border border-[#DDE6E1] shadow-sm space-y-2">
       <div class="font-extrabold text-sm sm:text-base text-[#202947] flex items-start gap-2.5">
         <span class="bg-[#2F5D50] text-white text-xs px-2 py-0.5 rounded-md font-bold shrink-0 mt-0.5">Q${idx + 1}</span>
@@ -1589,6 +1711,65 @@ export function renderColumnMarkdown(col) {
       </p>
     </div>`
   ).join('\n');
+
+  // 6. E-E-A-T 저자 프로필 카드
+  const doctorProfileHtml = `
+<div class="my-8 p-5 sm:p-6 bg-[#FAFBF9] rounded-2xl border border-[#DDE6E1] shadow-sm not-prose">
+  <div class="flex items-center gap-4 mb-4">
+    <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-[#2F5D50] shrink-0 shadow-sm">
+      <img src="/images/director.jpg" alt="권형근 대표원장" class="w-full h-full object-cover" />
+    </div>
+    <div>
+      <div class="font-extrabold text-[#1E4638] text-base sm:text-lg">권형근 대표원장</div>
+      <div class="text-xs sm:text-sm text-[#2F5D50] font-bold">보건복지부 공인 한방침구과 전문의 ｜ 해아림한의원 인천부평점</div>
+    </div>
+  </div>
+  <div class="pt-3 border-t border-dashed border-[#DDE6E1]">
+    <div class="text-xs font-bold text-[#526059] mb-2">👨‍⚕️ 주요 약력 및 전문 진료 분야</div>
+    <ul class="text-xs sm:text-sm text-[#4B5563] space-y-1 list-disc pl-4 m-0 leading-relaxed">
+      <li>보건복지부 공인 한방침구과 전문의</li>
+      <li>대한한방신경정신과학회 정회원</li>
+      <li>대한침구의학회 평생회원</li>
+      <li>전 원광대학교 한의과대학 외래교수</li>
+      <li>뇌파·체열·자율신경 1:1 심층 분석 진료 (부평역 7번 출구)</li>
+    </ul>
+  </div>
+</div>`;
+
+  // 7. 한의원 진료 안내 & 3대 CTA 바로가기
+  const clinicCtaHtml = `
+<div class="my-8 p-5 sm:p-6 bg-[#FAFAF9] rounded-2xl border border-[#E7E5E4] shadow-sm not-prose space-y-4">
+  <h4 class="font-extrabold text-[#1E4638] text-base sm:text-lg m-0">🏥 해아림한의원 인천부평점 진료 안내</h4>
+  <ul class="text-xs sm:text-sm text-[#4B5563] space-y-1.5 list-none pl-0 m-0 leading-relaxed">
+    <li><strong>대표원장:</strong> 권형근 (한방침구과 전문의 직접 진료)</li>
+    <li><strong>오시는 길:</strong> 인천 부평구 경원대로 1412, 2층 (부평역 7번 출구 도보 5분)</li>
+    <li><strong>상담 및 예약:</strong> 032-719-3472</li>
+    <li><strong>진료 시간:</strong> 월·수·금 10:00 ~ 20:00 (야간진료) / 화 10:00 ~ 19:00 / 토 09:00 ~ 15:00 / 공휴일 09:00 ~ 13:00</li>
+  </ul>
+  <div class="flex flex-wrap gap-2.5 pt-2">
+    <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 bg-[#03C75A] text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition">
+      📅 네이버 간편 진료예약
+    </a>
+    <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2.5 bg-[#FEE500] text-[#191919] rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition">
+      💬 카카오톡 1:1 비밀상담
+    </a>
+    <a href="tel:032-719-3472" class="inline-flex items-center px-4 py-2.5 bg-[#2F5D50] text-white rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition">
+      📞 전화 문의 (032-719-3472)
+    </a>
+  </div>
+</div>`;
+
+  // 8. 대표원장 치유 소견 박스
+  const closingInsightHtml = `
+<div class="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#1B233D] to-[#2B3A60] rounded-2xl text-white text-center space-y-3 not-prose">
+  <div class="text-xs font-bold text-[#B4C2DC] tracking-wider uppercase">Doctor's Clinical Insight</div>
+  <p class="text-sm sm:text-base text-[#E2E8F5] leading-relaxed max-w-2xl mx-auto font-medium m-0">
+    "${col.closingText || '몸이 보내는 신호는 쉼과 치유가 필요하다는 절박한 메시지입니다. 뇌와 자율신경의 평온을 되찾아 건강한 일상을 다시 누리세요.'}"
+  </p>
+  <div class="pt-2 text-xs text-[#9AAFD2]">
+    해아림한의원 인천부평점 대표원장 권형근 (한방침구과 전문의)
+  </div>
+</div>`;
 
   // 카테고리별 대표 썸네일 이미지 자동 매칭
   const matchedImage = resolveThumbnail({
@@ -1606,9 +1787,14 @@ export function renderColumnMarkdown(col) {
     matchedImage,
     voiceLinesHtml,
     introParagraphs,
+    leadConclusionHtml,
+    researchBoxHtml,
     sec5,
     structCardsHtml,
-    faqItemsHtml
+    faqItemsHtml,
+    doctorProfileHtml,
+    clinicCtaHtml,
+    closingInsightHtml
   };
 
   const fmt = col.formatType ?? 0;

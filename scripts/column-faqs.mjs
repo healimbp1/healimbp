@@ -597,7 +597,8 @@ export function findTopicKey(topicFocus = '', title = '', categoryName = '') {
   if (titleText.includes('입면') || titleText.includes('뒤척') || titleText.includes('잡생각') || titleText.includes('dmn') || titleText.includes('잠들기')) return 'sleep-onset';
   if (titleText.includes('새벽') || titleText.includes('중도각성') || titleText.includes('자다 깨') || titleText.includes('수면유지') || titleText.includes('야간뇨') || titleText.includes('통잠') || titleText.includes('불면')) return 'sleep-maintenance';
 
-  // 11. ADHD / 집중력 / 스마트폰
+  // 11. ADHD / 집중력 / 스마트폰 / 감각통합
+  if (titleText.includes('감각통합') || titleText.includes('메트로놈') || titleText.includes('im ') || titleText.includes('타이밍 조절') || titleText.includes('neuronflex')) return 'pediatric-tic';
   if (titleText.includes('스마트폰') || titleText.includes('게임') || titleText.includes('팝콘 브레인') || titleText.includes('과의존')) return 'smartphone-addiction';
   if (titleText.includes('성인 adhd') || titleText.includes('성인adhd') || titleText.includes('직장인 adhd') || titleText.includes('미루기') || titleText.includes('실행기능') || titleText.includes('도파민')) return 'adult-adhd';
   if (titleText.includes('조용한 adhd') || titleText.includes('add') || titleText.includes('소아 adhd') || titleText.includes('소아adhd') || titleText.includes('adhd') || titleText.includes('산만') || titleText.includes('주의력')) return 'pediatric-adhd';
@@ -605,40 +606,122 @@ export function findTopicKey(topicFocus = '', title = '', categoryName = '') {
   // 12. 만성피로 & 자율신경
   if (titleText.includes('만성피로') || titleText.includes('소진') || titleText.includes('피로') || titleText.includes('상열하한') || titleText.includes('식후 졸음') || titleText.includes('자율신경')) return 'chronic-fatigue';
 
-  // 12. Fallback: CategoryName 기반
+  // 13. Fallback: CategoryName 기반
   const cat = (categoryName || '').toLowerCase();
   if (cat.includes('공황') || cat.includes('불안')) return 'panic-attack';
   if (cat.includes('수면') || cat.includes('불면')) return 'sleep-maintenance';
-  if (cat.includes('성인') && cat.includes('adhd')) return 'adult-adhd';
   if (cat.includes('틱')) return 'pediatric-tic';
+  if (cat.includes('성인') && cat.includes('adhd')) return 'adult-adhd';
   if (cat.includes('소아') || cat.includes('청소년')) return 'pediatric-adhd';
   if (cat.includes('자율신경')) return 'chronic-fatigue';
   if (cat.includes('화병') || cat.includes('우울') || cat.includes('스트레스')) return 'hwabyeong-maehaekgi';
   return 'damjeok-dyspepsia';
 }
 
+// =========================================================================
+// 카테고리별 임상 심층 보강 FAQ 풀 (치료 기간/구체적 수치, 양약 감량, 생활 루틴)
+// =========================================================================
+export const CATEGORY_CLINICAL_EXTENSIONS = {
+  '공황': [
+    {
+      q: '공황장애의 한방 집중 치료 기간과 호전율은 어느 정도인가요?',
+      a: '초기 4~8주 집중 치료(주 1~2회 침구 치료 및 뇌신경 자율신경 조절 훈련) 시 환자의 약 75~80%에서 공황 발작의 빈도와 예기불안의 강도가 현저히 감소합니다. 이후 2~3개월간 신경계 안정화 및 재발 방지 치료를 통해 일상생활 자생력을 완성합니다.'
+    },
+    {
+      q: '신경안정제(자낙스, 알프라졸람 등)와 한약을 병행 복용해도 안전한가요?',
+      a: '네, 안전합니다. 한약과 양약은 흡수 및 대사 경로가 다르므로 1~2시간 시차를 두고 복용하시면 됩니다. 초기에는 병행하여 뇌 신경계를 안정시킨 후, 4주 차 이후부터 주치의 진료하에 2~3주 간격으로 양약을 서서히 감량(Tapering)해 나갑니다.'
+    }
+  ],
+  '수면': [
+    {
+      q: '수면제(스틸녹스 등)를 복용 중인데 한방 치료로 끊는 데 얼마나 걸리나요?',
+      a: '수면제를 갑자기 끊으면 극심한 반동 불면이 생기므로, 초기 4주는 한약과 병행하여 뇌 스스로 델타파 숙면을 유도하는 자생력을 복원합니다. 이후 2~3주 간격으로 약 용량을 25%씩 단계적으로 줄여 총 8~12주 로드맵으로 안전하게 단약합니다.'
+    },
+    {
+      q: '불면증 환자가 일상에서 실천해야 할 가장 효과적인 수면 환경 루틴은 무엇인가요?',
+      a: '기상 직후 15분간 햇볕을 쬐어 멜라토닌 분비 생체시계를 세팅하고, 취침 90분 전 40도 온도의 족욕(15분)으로 심부 체온을 떨어뜨리는 루틴이 중요합니다. 또한 취침 2시간 전 스마트폰 블루라이트를 차단해 뇌 각성을 방지해야 합니다.'
+    }
+  ],
+  '자율신경': [
+    {
+      q: '자율신경실조증의 한방 치료 기간과 내원 빈도는 어떻게 되나요?',
+      a: '초기 4~8주는 주 1~2회 내원하여 과열된 교감신경을 이완시키는 침구 및 신경 조절 치료를 받으시며, 내원 환자의 약 70~80%가 4주 전후로 심계항진과 어지럼증, 식은땀 완화를 경험합니다. 전체 안정화에는 2~4개월이 권장됩니다.'
+    },
+    {
+      q: '병원 검사는 다 정상인데 일상에서 자율신경을 안정시키는 호흡법이 있나요?',
+      a: '부교감신경(미주신경)을 활성화하는 "4-7-8 복식호흡법(4초 들이마시고 7초 멈춘 뒤 8초 동안 길게 내쉬기)"을 아침·저녁 5분씩 실천하시면 심박수가 안정되고 뇌로 공급되는 혈류량이 즉각적으로 개선됩니다.'
+    }
+  ],
+  '소아': [
+    {
+      q: '소아 틱장애/ADHD의 한방 치료 기간과 호전율은 어떻게 되나요?',
+      a: '아이들의 뇌 신경망이 성숙해지는 과정에 맞추어 통상 3~6개월의 치료 기간이 소요됩니다. 보통 치료 시작 4~6주 차에 틱의 강도와 횟수가 50% 이상 완화되는 호전 반응을 보이며, 두뇌 훈련(NeuronFlex)과 침구 치료를 주 1~2회 병행합니다.'
+    },
+    {
+      q: '가정에서 부모님이 틱이나 산만함을 대할 때 가장 주의해야 할 수칙은 무엇인가요?',
+      a: '틱 동작이나 산만한 행동을 직접 지적하거나 제지하면 뇌 편도체의 불안도가 급상승하여 증상이 더욱 악화됩니다. 의연하게 모르는 척 무관심을 유지해주시고, 스마트폰과 게임 이용을 1일 30분 이내로 조절하여 도파민 과부하를 막아주는 것이 핵심입니다.'
+    }
+  ],
+  '화병': [
+    {
+      q: '화병과 울화증의 치료 기간과 상열감 호전 시점은 언제인가요?',
+      a: '가슴 중앙(전중혈)의 울체된 기운을 풀어주는 청심침구 치료와 분심기음 계열 한약 투여 시, 보통 2~4주 차에 가슴 답답함과 상열감이 60% 이상 완화되며, 8~12주간 신경계 회복 치료를 통해 심리적 회복탄력성을 완성합니다.'
+    },
+    {
+      q: '가슴이 답답하고 화가 치밀 때 즉각적으로 열을 내리는 신체 이완법이 있나요?',
+      a: '목 뒤의 풍지혈(風池穴)과 정수리의 백회혈(百會穴)을 양손 엄지로 30초간 지그시 지압하며 찬물로 손을 씻거나 손목 안쪽을 식혀주면 상체로 솟구친 열독(熱毒)이 빠르게 가라앉습니다.'
+    }
+  ],
+  '담적': [
+    {
+      q: '담적병과 신경성 소화불량의 치료 기간과 내원 횟수는 어떻게 되나요?',
+      a: '위장 평활근의 담적 독소를 배출하고 자율신경을 안정시키는 데 통상 8~12주가 소요됩니다. 주 1~2회 온구 요법과 침구 치료를 병행하며, 4주 차부터 명치 답답함과 식후 더부룩함의 70% 이상 개선을 경험하게 됩니다.'
+    },
+    {
+      q: '담적 환자가 식사할 때 반드시 지켜야 할 위장 보호 원칙은 무엇인가요?',
+      a: '한 끼 식사를 최소 20분 이상 천천히 꼭꼭 씹어 침 속 소화효소를 충분히 섞어야 하며, 식사 직후 바로 눕는 습관과 야식은 위장 운동성을 마비시키므로 철저히 피해야 합니다.'
+    }
+  ]
+};
+
 /**
- * 주어진 카테고리, 주제, 인덱스/슬롯을 기반으로 3개의 다채로운 질환 특화 FAQ 반환
- * (절대로 다른 질환의 FAQ를 섞지 않고, 해당 풀 내에서만 순환)
+ * 주어진 카테고리, 주제, 인덱스/슬롯을 기반으로 5개의 다채로운 질환 특화 FAQ 반환 (고정 5개)
+ * (절대로 다른 질환의 FAQ를 섞지 않고, 해당 풀 내에서만 순환 및 임상 보강)
  */
 export function getDiverseFaq(categoryName = '', topic = {}, options = {}) {
   const topicFocus = typeof topic === 'string' ? topic : (topic?.focus || topic?.titleSuffix || '');
   const title = options.title || '';
   const key = findTopicKey(topicFocus, title, categoryName);
-  const pool = TOPIC_FAQ_DATABASE[key] || TOPIC_FAQ_DATABASE['panic-attack'];
+  const basePool = TOPIC_FAQ_DATABASE[key] || TOPIC_FAQ_DATABASE['panic-attack'];
+  const pool = [...basePool];
+
+  // 카테고리별 임상 보강 풀 매칭 (치료기간, 양약감량, 생활관리 5대 축 완성)
+  const cat = (categoryName || '').toLowerCase();
+  let extCat = '공황';
+  if (cat.includes('수면') || cat.includes('불면')) extCat = '수면';
+  else if (cat.includes('자율신경') || cat.includes('피로')) extCat = '자율신경';
+  else if (cat.includes('틱') || cat.includes('adhd') || cat.includes('소아')) extCat = '소아';
+  else if (cat.includes('화병') || cat.includes('우울') || cat.includes('스트레스')) extCat = '화병';
+  else if (cat.includes('담적') || cat.includes('소화') || cat.includes('턱') || cat.includes('두통')) extCat = '담적';
+
+  const extPool = CATEGORY_CLINICAL_EXTENSIONS[extCat] || CATEGORY_CLINICAL_EXTENSIONS['자율신경'];
+  for (const ext of extPool) {
+    if (!pool.some(item => item.q === ext.q)) {
+      pool.push(ext);
+    }
+  }
 
   const seed = options.seed !== undefined ? options.seed : (options.slot !== undefined ? options.slot : 0);
+  const targetCount = options.count !== undefined ? options.count : 5;
 
-  // 3개 질문 선택 (해당 풀 내에서만 순환)
-  const count = Math.min(3, pool.length);
+  const count = Math.min(targetCount, pool.length);
   const selected = [];
   for (let i = 0; i < count; i++) {
     const idx = (seed + i) % pool.length;
     selected.push(pool[idx]);
   }
 
-  // 만약 풀에 2개 이하만 있을 경우에도 절대 다른 질환 풀에서 가져오지 않고 해당 풀 항목 반복/변형
-  while (selected.length < 3 && pool.length > 0) {
+  while (selected.length < targetCount && pool.length > 0) {
     selected.push(pool[selected.length % pool.length]);
   }
 

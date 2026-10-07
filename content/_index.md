@@ -167,7 +167,7 @@ sections:
                     <div class="heal-ico">
                       <i class="fa-solid fa-heart-pulse"></i>
                     </div>
-                    <a href="/treatments/#panic" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
+                    <a href="/treatments/panic-anxiety/" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
                   </div>
                   <h3 class="text-base sm:text-lg font-extrabold text-[#26332E]">공황장애 · 불안 & 강박증</h3>
                   <p class="text-xs sm:text-sm text-[#68736E] leading-relaxed">
@@ -188,7 +188,7 @@ sections:
                     <div class="heal-ico">
                       <i class="fa-solid fa-network-wired"></i>
                     </div>
-                    <a href="/treatments/#autonomic" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
+                    <a href="/treatments/autonomic-nerve/" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
                   </div>
                   <h3 class="text-base sm:text-lg font-extrabold text-[#26332E]">자율신경 & 실신·어지럼·이명</h3>
                   <p class="text-xs sm:text-sm text-[#68736E] leading-relaxed">
@@ -209,7 +209,7 @@ sections:
                     <div class="heal-ico">
                       <i class="fa-solid fa-moon"></i>
                     </div>
-                    <a href="/treatments/#insomnia" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
+                    <a href="/treatments/insomnia-sleep/" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
                   </div>
                   <h3 class="text-base sm:text-lg font-extrabold text-[#26332E]">불면증 & 수면유지장애</h3>
                   <p class="text-xs sm:text-sm text-[#68736E] leading-relaxed">
@@ -230,7 +230,7 @@ sections:
                     <div class="heal-ico">
                       <i class="fa-solid fa-child"></i>
                     </div>
-                    <a href="/treatments/#tic-adhd" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
+                    <a href="/treatments/child-tic-adhd/" class="text-xs font-bold text-[#2F5D50] hover:underline">자세히 →</a>
                   </div>
                   <h3 class="text-base sm:text-lg font-extrabold text-[#26332E]">소아청소년 & 성인 ADHD·틱</h3>
                   <p class="text-xs sm:text-sm text-[#68736E] leading-relaxed">
@@ -718,73 +718,73 @@ sections:
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="home-column-grid">
 
-              <!-- 칼럼 1: 자율신경실조증 & 만성피로 -->
+              <!-- 칼럼 1: 검사 정상 증후군 & 자율신경실조증 -->
               <div class="heal-card flex flex-col justify-between space-y-4 bg-white border border-[#DDE6E1] hover:shadow-md transition">
                 <div class="space-y-2.5">
                   <div class="flex items-center justify-between">
-                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">자율신경 & 실신·어지럼증·이명</span>
-                    <span class="text-[11px] text-[#68736E]">2026-08-22 • 권형근 원장 칼럼</span>
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">수면 · 자율신경 클리닉</span>
+                    <span class="text-[11px] text-[#68736E]">2026-10-05 • 권형근 원장 칼럼</span>
                   </div>
                   <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
-                    <a href="/column/post-2026-08-22-autonomic-8984/" class="hover:underline">
-                      [인천 구월동 자율신경] 긴장하면 손발에땀 쏟아지는 수족다한증, 교감신경 긴장 완화 처방
+                    <a href="/column/normal-tests-autonomic-panic-fatigue/" class="hover:underline">
+                      [검사 정상 증후군] 심장·뇌·내시경 검사는 정상인데 왜 숨차고 어지러울까? 자율신경의 진실
                     </a>
                   </h3>
                   <p class="text-xs text-[#53615B] leading-relaxed line-clamp-3">
-                    인천 구월동, 간석동, 만수동, 부평 지역에서 긴장하거나 집중할 때 손발에 땀이 쏟아지는 수족다한증과 자율신경 과흥분의 신경학적 기전 및 SGB 성상신경절 맞춤 한방 치료
+                    심장내과 홀터 심전도 정상, 이비인후과 어지럼증 정상, 위내시경 깨끗한데 가슴 두근거림, 호흡곤란, 목이물감으로 고통받는 분들을 위한 자율신경계 기능 이상 해설과 1:1 맞춤 치료
                   </p>
                 </div>
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
-                  <span class="text-[11px] text-[#68736E]">• 구월동자율신경 • 수족다한증</span>
-                  <a href="/column/post-2026-08-22-autonomic-8984/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
+                  <span class="text-[11px] text-[#68736E]">• 검사정상두근거림 • 자율신경실조</span>
+                  <a href="/column/normal-tests-autonomic-panic-fatigue/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
                     전문 읽기 →
                   </a>
                 </div>
               </div>
 
-              <!-- 칼럼 2: 불면증 & 수면유지장애 -->
+              <!-- 칼럼 2: 신경안정제·수면제 양약 단약 가이드 -->
               <div class="heal-card flex flex-col justify-between space-y-4 bg-white border border-[#DDE6E1] hover:shadow-md transition">
                 <div class="space-y-2.5">
                   <div class="flex items-center justify-between">
-                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">불면증 · 수면장애</span>
-                    <span class="text-[11px] text-[#68736E]">2026-08-22 • 권형근 원장 칼럼</span>
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">공황 · 불안장애 클리닉</span>
+                    <span class="text-[11px] text-[#68736E]">2026-10-05 • 권형근 원장 칼럼</span>
                   </div>
                   <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
-                    <a href="/column/post-2026-08-22-insomnia-7730/" class="hover:underline">
-                      [부천 상동 불면증] 새벽 3~4시에 자다 깨는 수면유지장애, 간·심장 허열 치료 원리
+                    <a href="/column/psychiatric-medication-tapering-guide/" class="hover:underline">
+                      [양약 단약 가이드] 신경안정제·수면제 복용 중 한약 병행과 안전한 감량(테이퍼링) 4단계
                     </a>
                   </h3>
                   <p class="text-xs text-[#53615B] leading-relaxed line-clamp-3">
-                    부천시 상동, 중동, 신중동, 부평 지역에서 잠든 뒤 매일 새벽 3~4시만 되면 눈이 번쩍 떠져 다시 못 자는 수면유지장애의 신경학적 원인과 간·심장 허열 해소 한방 수면 치료
+                    자낙스, 알프람, 스틸녹스, 항우울제 장기 복용으로 인한 내성과 반동불면 걱정. 한약 병행 치료를 통해 뇌 자생력을 키우고 부작용 없이 서서히 줄여가는 안전한 의학적 감량법
                   </p>
                 </div>
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
-                  <span class="text-[11px] text-[#68736E]">• 부천불면증 • 중도각성치료</span>
-                  <a href="/column/post-2026-08-22-insomnia-7730/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
+                  <span class="text-[11px] text-[#68736E]">• 신경안정제한약병행 • 테이퍼링</span>
+                  <a href="/column/psychiatric-medication-tapering-guide/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
                     전문 읽기 →
                   </a>
                 </div>
               </div>
 
-              <!-- 칼럼 3: 청소년 틱장애 & 두뇌훈련 -->
+              <!-- 칼럼 3: 출퇴근 공황 & 야간진료 -->
               <div class="heal-card flex flex-col justify-between space-y-4 bg-white border border-[#DDE6E1] hover:shadow-md transition">
                 <div class="space-y-2.5">
                   <div class="flex items-center justify-between">
-                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">소아청소년 & 성인 ADHD·틱</span>
-                    <span class="text-[11px] text-[#68736E]">2026-08-22 • 권형근 원장 칼럼</span>
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">직장인 야간진료 특화</span>
+                    <span class="text-[11px] text-[#68736E]">2026-10-05 • 권형근 원장 칼럼</span>
                   </div>
                   <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
-                    <a href="/column/post-2026-08-22-tic-2206/" class="hover:underline">
-                      [부천 상동 청소년틱] 청소년기 복합 틱장애와 자존감 회복, 두뇌 신경망 1:1 맞춤 치료
+                    <a href="/column/night-clinic-subway-panic-insomnia/" class="hover:underline">
+                      [출퇴근 공황 & 야간진료] 만원 지하철 숨막힘과 부평역 직장인 긴급 대처 3단계
                     </a>
                   </h3>
                   <p class="text-xs text-[#53615B] leading-relaxed line-clamp-3">
-                    부천 상동, 중동, 부평 지역 중·고등학생의 학업 스트레스로 재발하는 복합 운동틱·음성틱의 기저핵 과민 원인과 NeuronFlex 두뇌훈련 및 맞춤 한방 치료
+                    1호선·인천1호선 부평역, 신도림역 출퇴근길 지하철 급성 호흡곤란과 식은땀. 주간 시간 내기 힘든 직장인을 위한 월·수·금 20시 야간진료와 공황발작 응급 대처법
                   </p>
                 </div>
                 <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
-                  <span class="text-[11px] text-[#68736E]">• 부천청소년틱 • 두뇌훈련</span>
-                  <a href="/column/post-2026-08-22-tic-2206/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
+                  <span class="text-[11px] text-[#68736E]">• 부평역야간진료 • 지하철공황</span>
+                  <a href="/column/night-clinic-subway-panic-insomnia/" class="text-xs font-bold text-[#2F5D50] hover:underline inline-flex items-center gap-1">
                     전문 읽기 →
                   </a>
                 </div>

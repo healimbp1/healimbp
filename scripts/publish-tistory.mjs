@@ -4,6 +4,7 @@
  */
 
 import { convertColumnToTistoryHtml } from './render-tistory.mjs';
+import { ensureQuestionTitle } from './format-master-column.mjs';
 
 export function formatTistoryContent(column, slug) {
   const content = column.tistoryScript || column.contentHtml || '';
@@ -21,7 +22,7 @@ export async function publishToTistory(column, slug) {
     return null;
   }
 
-  const title = column.tistoryTitle || column.title;
+  const title = ensureQuestionTitle(column.tistoryTitle || column.title);
   const content = formatTistoryContent(column, slug);
   
   // 태그 포맷팅 정제 (공백, # 제거 후 쉼표 구분자 표준화)
