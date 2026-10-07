@@ -4,6 +4,9 @@ import { fileURLToPath } from 'url';
 import { resolveThumbnail } from './thumbnail-resolver.mjs';
 import { buildTistoryThumbnailPng } from './exact-tistory-thumbnail-builder.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, '..');
+
 import { PILLAR_COLUMNS } from './build-all-columns.mjs';
 import { getDiverseFaq } from './column-faqs.mjs';
 
@@ -513,6 +516,15 @@ ${insightHtml}
     </div>
   </div>
 
+  <!-- [구글 SEO 중복문서 방지 & E-E-A-T 원문 출처 공식 안내] -->
+  <div style="background-color: #F8FAF9; border-left: 4px solid #2F5D50; border-radius: 8px; padding: 16px 20px; margin: 32px 0 20px 0; font-size: 13.5px; color: #4B5563; line-height: 1.8;">
+    <div style="font-weight: 800; color: #1E4638; font-size: 14.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      <span>📌</span> <span>[의학 정보 출처 및 원문 칼럼 안내]</span>
+    </div>
+    본 포스팅은 <strong>해아림한의원 인천부평점 권형근 대표원장(한방침구과 전문의)</strong>의 임상 경험을 바탕으로 환자와 보호자의 눈높이에 맞추어 재구성한 건강 정보입니다.<br>
+    신경생리학적 정밀 진단 지표와 1:1 맞춤 한방 치료 사례 전문은 <a href="${columnUrl}" target="_blank" rel="noopener" style="color: #2F5D50; font-weight: 700; text-decoration: underline;">해아림한의원 공식 의학 칼럼 원문</a>에서 확인하실 수 있습니다.
+  </div>
+
   <!-- 출처 표기 (백링크 SEO) -->
   <p style="text-align: right; font-size: 12px; color: #9CA3AF; margin-top: 16px;">
     출처: <a href="https://healimbp.com" target="_blank" rel="noopener" style="color: #6B7280; text-decoration: underline;">해아림한의원 인천부평점 공식 홈페이지</a>
@@ -538,9 +550,10 @@ export function renderMasterColumnToPlainText(data, index = 0) {
     doctorInsight
   } = data;
 
+  let cleanBase = title.replace(/^\[[^\]]+\]\s*/, '').replace(/,\s*(원인과\s*치료법은\s*무엇일까|어떤\s*원인일까|어떻게\s*치료할까)\??$/i, '').trim();
   let titleP1 = ensureQuestionTitle(title);
-  let titleP2 = ensureQuestionTitle(title.replace(/^\[[^\]]+\]\s*/, '').replace(/\s*\([^)]+\)$/, ''));
-  let titleP3 = ensureQuestionTitle(`${category} ｜ ${titleP2} 1:1 맞춤 한방 치료 가이드`);
+  let titleP2 = ensureQuestionTitle(cleanBase);
+  let titleP3 = ensureQuestionTitle(`${cleanBase}, 1:1 맞춤 한방 치료법은 무엇일까?`);
 
   const leadConclusion = data.leadConclusion || formatLeadConclusion(summary, introParagraphs, title, category);
   const relatedColumns = getRelatedColumns(slug, category, 3);
@@ -555,15 +568,23 @@ export function renderMasterColumnToPlainText(data, index = 0) {
   lines.push(`📋 [티스토리/블로그 원클릭 복사용 원고 #${index + 1}]`);
   lines.push(`※ 본문 및 강조 문구에 마크다운 볼드 기호(**)가 일체 없어 에디터에 바로 붙여넣으실 수 있습니다.`);
   lines.push(``);
-  lines.push(`🎯 [블로그 포스팅용 추천 질문형 제목 옵션]`);
-  lines.push(`1️⃣ 표준 질문형 (지역명 포함):`);
+  lines.push(`🎯 [블로그 포스팅용 추천 제목 옵션 - 💡 구글 중복문서 방지 안내]`);
+  lines.push(`💡 구글 및 포털의 유사문서(중복 콘텐츠) 판정을 완벽히 예방하려면, 홈페이지와 동일한 1️⃣번 대신 2️⃣번(기전형) 또는 3️⃣번(블로그형) 제목으로 등록하시는 것을 강력히 권장합니다.`);
+  lines.push(``);
+  lines.push(`1️⃣ 표준 질문형 (홈페이지 원문 동일형):`);
   lines.push(cleanTextForPlain(titleP1));
   lines.push(``);
-  lines.push(`2️⃣ 질환 기전 질문형:`);
+  lines.push(`2️⃣ 질환 기전 질문형 (구글 중복 방지 추천 🌟):`);
   lines.push(cleanTextForPlain(titleP2));
   lines.push(``);
-  lines.push(`3️⃣ 1:1 맞춤 솔루션 질문형:`);
+  lines.push(`3️⃣ 블로그 검색최적화형 (구글 중복 방지 추천 🌟):`);
   lines.push(cleanTextForPlain(titleP3));
+  lines.push(``);
+  lines.push(`────────────────────────────────────`);
+  lines.push(``);
+  lines.push(`📌 [구글 SEO 중복문서 방지 & E-E-A-T 원문 출처 공식 표기]`);
+  lines.push(`• 본 포스팅은 해아림한의원 인천부평점 권형근 대표원장(한방침구과 전문의)의 임상 진료 경험을 바탕으로 재구성한 건강 정보입니다.`);
+  lines.push(`• 정밀 진단 지표와 1:1 맞춤 한방 치료 사례 전문: ${columnUrl}`);
   lines.push(``);
   lines.push(`────────────────────────────────────`);
   lines.push(``);

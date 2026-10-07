@@ -5,7 +5,8 @@ import { publishToTistory, formatTistoryContent } from './publish-tistory.mjs';
 import { rebuildColumnIndex } from './build-all-columns.mjs';
 import { resolveThumbnail } from './thumbnail-resolver.mjs';
 import { getDiverseFaq } from './column-faqs.mjs';
-import { ensureQuestionTitle, formatLeadConclusion } from './format-master-column.mjs';
+import { ensureQuestionTitle, formatLeadConclusion, renderMasterColumnToPlainText, renderMasterColumnToTistoryHtml } from './format-master-column.mjs';
+import { parseMasterColumn } from './parse-master-column.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -2233,7 +2234,7 @@ async function postTelegramMessage(botToken, chatId, text) {
   return data;
 }
 
-// 9. 텔레그램 알림 발송
+// 9. 텔레그램 알림 발송 (구글 SEO 중복문서 방지 & 티스토리 차별화 패키지)
 export async function sendTelegramNotification(column, slug, target = null) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN || '8825145197:AAFNSDxXpqCBq1c0BW93kDbrtDC7Ncr2Bxk';
   const chatId = process.env.TELEGRAM_CHAT_ID || '2026055528';
@@ -2244,10 +2245,25 @@ export async function sendTelegramNotification(column, slug, target = null) {
   }
 
   const columnUrl = `https://healimbp.com/column/${slug}/`;
-  const bookingUrl = `https://booking.naver.com/booking/13/bizes/934695`;
-  const kakaoUrl = `https://pf.kakao.com/_Tcxcxoxj`;
+  const bookingUrl = 'https://booking.naver.com/booking/13/bizes/934695';
+  const kakaoUrl = 'https://pf.kakao.com/_Tcxcxoxj';
 
-  const pName = column.patternName || '[패턴] 건강 칼럼';
+  const mdPath = path.join(rootDir, 'content', 'column', `${slug}.md`);
+  let parsedData = null;
+  let tScript = '';
+  let tistoryHtml = '';
+
+  if (fs.existsSync(mdPath)) {
+    try {
+      const rawMd = fs.readFileSync(mdPath, 'utf8');
+      parsedData = parseMasterColumn(rawMd, slug);
+      tScript = renderMasterColumnToPlainText(parsedData, 0);
+      tistoryHtml = renderMasterColumnToTistoryHtml(parsedData);
+    } catch (parseErr) {
+      console.warn('[Auto-Column SEO] Master column parse fallback:', parseErr.message);
+    }
+  }
+
   const variants = column.titleVariants || target?.titleVariants || {
     p1: column.title,
     p2: column.title,
@@ -2256,11 +2272,14 @@ export async function sendTelegramNotification(column, slug, target = null) {
 
   const tTags = (column.tistoryTags || column.tags || []).map(t => `#${t.replace(/^#|\s+/g, '')}`).join(' ');
   const dynamicFaq = column.faq || getDiverseFaq(column.categoryName, { focus: column.title }, { title: column.title });
-  const rawScript = column.tistoryScript || generateFallbackTistoryScript({ name: column.categoryName }, { focus: '', hookLine: '' }, { short: '부평' }, column.patternType || 0, variants, dynamicFaq);
-  const tScript = injectFaqIntoTistoryScript(rawScript, dynamicFaq)
-    .replace(/\*\*(.*?)\*\*/g, '$1')
-    .replace(/<[^>]+>/g, '')
-    .trim();
+
+  if (!tScript) {
+    const rawScript = column.tistoryScript || generateFallbackTistoryScript({ name: column.categoryName }, { focus: '', hookLine: '' }, { short: '부평' }, column.patternType || 0, variants, dynamicFaq);
+    tScript = injectFaqIntoTistoryScript(rawScript, dynamicFaq)
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/<[^>]+>/g, '')
+      .trim();
+  }
 
   // 1:1 썸네일 단일 소스 리졸빙
   const relThumb = resolveThumbnail({
@@ -2272,34 +2291,10 @@ export async function sendTelegramNotification(column, slug, target = null) {
   const absThumbPath = path.join(rootDir, 'static', relThumb.replace(/^\//, ''));
   const hasThumb = fs.existsSync(absThumbPath);
 
-  const tistoryNotice = `📋 <b>[티스토리/블로그 원클릭 복사용 맞춤 대본]</b>
-<i>※ 마크다운 볼드 기호(**)가 일체 없어 에디터에 바로 붙여넣으실 수 있습니다.</i>
-
-🎯 <b>[블로그 포스팅용 추천 제목 3종 세트]</b>
-1️⃣ <b>표준 지역명형:</b>
-<code>${escapeHtml(variants.p1)}</code>
-
-2️⃣ <b>질환 기전 집중형:</b>
-<code>${escapeHtml(variants.p2)}</code>
-
-3️⃣ <b>1:1 맞춤 솔루션형:</b>
-<code>${escapeHtml(variants.p3)}</code>
-
-─────────────────
-${escapeHtml(tScript)}
-─────────────────
-
-🏥 <b>[해아림한의원 인천부평점 안내]</b>
-• 진료: 권형근 대표원장 (한방침구과 전문의 직접 진료)
-• 위치: 인천 부평구 경원대로 1412, 2층 (부평역 7번 출구 도보 5분)
-• 문의: 032-719-3472
-• 야간진료: 월 · 수 · 금 저녁 8시까지
-• 네이버예약: ${bookingUrl}
-• 카카오톡상담: ${kakaoUrl}
-• 홈페이지 칼럼원문: ${columnUrl}
-
-🏷️ <b>[추천 태그]</b>
-<code>${escapeHtml(tTags)}</code>`;
+  if (!tistoryHtml) {
+    const columnObj = { ...column, image: relThumb };
+    tistoryHtml = formatTistoryContent(columnObj, slug);
+  }
 
   try {
     // 1) 고화질 100% 매칭 대표 썸네일 사진 전송
@@ -2309,10 +2304,11 @@ ${escapeHtml(tScript)}
       const thumbMime = thumbExt === 'png' ? 'image/png' : 'image/jpeg';
       const thumbFileName = `thumbnail_${slug}.${thumbExt}`;
 
-      const photoCaption = `🖼️ <b>[티스토리/칼럼 1:1 매칭 썸네일]</b>\n\n` +
+      const photoCaption = `🖼️ <b>[티스토리 1:1 매칭 썸네일]</b>\n\n` +
         `📝 <b>칼럼 제목:</b> <code>${escapeHtml(column.title)}</code>\n` +
         `📂 <b>진료 분야:</b> ${escapeHtml(column.categoryName)}\n` +
-        `🏷️ <b>추천 태그:</b> <code>${escapeHtml(tTags)}</code>`;
+        `🏷️ <b>추천 태그:</b> <code>${escapeHtml(tTags)}</code>\n\n` +
+        `💡 <i>구글 중복문서 방지를 위해 아래 대본의 2️⃣번 또는 3️⃣번 추천 제목으로 등록하세요.</i>`;
 
       const photoFormData = new FormData();
       photoFormData.append('chat_id', chatId);
@@ -2328,28 +2324,32 @@ ${escapeHtml(tScript)}
       await new Promise(r => setTimeout(r, 600));
     }
 
-    // 2) 복사용 대본 (마크다운 볼드 없는 정자체)
-    const MAX_LEN = 3800;
-    if (tistoryNotice.length <= MAX_LEN) {
-      await postTelegramMessage(botToken, chatId, tistoryNotice);
-      console.log('[Auto-Column SEO] Telegram 2/3 (티스토리 차별화 대본) 전송 완료!');
-    } else {
-      const part1 = tistoryNotice.slice(0, MAX_LEN);
-      const part2 = tistoryNotice.slice(MAX_LEN);
-      await postTelegramMessage(botToken, chatId, part1);
-      await postTelegramMessage(botToken, chatId, part2);
-      console.log('[Auto-Column SEO] Telegram 2/3 (티스토리 대본 분할) 전송 완료!');
+    // 2) 0% 마크다운 볼드 맞춤 대본 전송 (4,000자 분할 지원)
+    const chunks = [];
+    let remaining = tScript;
+    while (remaining.length > 3800) {
+      let splitIdx = remaining.lastIndexOf('\n\n', 3800);
+      if (splitIdx === -1) splitIdx = 3800;
+      chunks.push(remaining.slice(0, splitIdx));
+      remaining = remaining.slice(splitIdx).trim();
     }
+    if (remaining.length > 0) chunks.push(remaining);
+
+    for (let i = 0; i < chunks.length; i++) {
+      const chunkText = chunks[i];
+      const prefix = chunks.length > 1 ? `<b>[티스토리 원고 Part ${i + 1}/${chunks.length}]</b>\n\n` : '';
+      await postTelegramMessage(botToken, chatId, `${prefix}<code>${escapeHtml(chunkText)}</code>`);
+      await new Promise(r => setTimeout(r, 500));
+    }
+    console.log(`[Auto-Column SEO] Telegram 2/3 (맞춤 대본 ${chunks.length}개) 전송 완료!`);
 
     await new Promise(r => setTimeout(r, 600));
 
-    // 3) 티스토리 HTML 모드 전용 파일 첨부
+    // 3) 티스토리 HTML 모드 전용 완성형 파일 첨부 (구글 SEO 중복문서 방지 출처 및 썸네일 내장)
     try {
-      const columnObj = { ...column, image: relThumb };
-      const tistoryHtml = formatTistoryContent(columnObj, slug);
       const formData = new FormData();
       formData.append('chat_id', chatId);
-      formData.append('caption', `📝 <b>[티스토리 HTML 모드 전용 파일]</b>\n파일을 열어 전체 복사 후 티스토리 에디터 [HTML] 모드에 붙여넣으시면 상단 맞춤 썸네일과 모든 박스/비교표 서식이 100% 완벽하게 적용됩니다.`);
+      formData.append('caption', `📝 <b>[티스토리 HTML 모드 전용 완성형 파일]</b>\n💡 <b>구글 SEO 중복문서 방지 출처 박스 및 대표 썸네일 완벽 내장</b>\n전체 복사 후 티스토리 에디터 [HTML] 모드에 붙여넣으시면 모든 박스·비교표·5대 FAQ 서식이 즉시 적용됩니다.`);
       formData.append('parse_mode', 'HTML');
       const blob = new Blob([tistoryHtml], { type: 'text/html;charset=utf-8' });
       formData.append('document', blob, `tistory_${slug}.html`);
