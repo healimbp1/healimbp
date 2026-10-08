@@ -34,7 +34,7 @@ sections:
             <!-- 탭 버튼 목록 -->
             <div class="flex flex-wrap gap-2 pb-2" id="qa-category-tabs">
               <button onclick="filterQA('all', this)" class="qa-tab-btn active-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                전체보기 <span class="text-[11px] opacity-80" id="qa-tab-count-all">(51)</span>
+                전체보기 <span class="text-[11px] opacity-80" id="qa-tab-count-all">(52)</span>
               </button>
               <button onclick="filterQA('tic', this)" class="qa-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 소아청소년 & 성인 ADHD·틱 <span class="text-[11px] opacity-80" id="qa-tab-count-tic">(14)</span>
@@ -49,7 +49,7 @@ sections:
                 자율신경 & 실신·어지럼증·이명 <span class="text-[11px] opacity-80" id="qa-tab-count-autonomic">(8)</span>
               </button>
               <button onclick="filterQA('stress', this)" class="qa-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                우울증 · 화병 & 번아웃 <span class="text-[11px] opacity-80" id="qa-tab-count-stress">(7)</span>
+                우울증 · 화병 & 번아웃 <span class="text-[11px] opacity-80" id="qa-tab-count-stress">(8)</span>
               </button>
               <button onclick="filterQA('somatic', this)" class="qa-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 신체화 & 담적·두통·턱관절 <span class="text-[11px] opacity-80" id="qa-tab-count-somatic">(6)</span>
@@ -58,6 +58,48 @@ sections:
 
             <!-- Q&A 카드 그리드 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[400px]" id="qa-grid">
+              <!-- [Q&A | 우울증 · 화병 & 번아웃] 아무것도 하기 싫고 방에만 틀어박히는 무기력증과 우울증 극복 (인천 서구 청라) -->
+              <article class="qa-item stress heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="stress">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">우울증 · 화병 & 번아웃</span>
+                    <span class="text-xs text-[#68736E]">인천 서구 청라 • 2026-10-08</span>
+                  </div>
+
+                  <!-- Q. 질문 미리보기 -->
+                  <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
+                    <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
+                      <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
+                      <span class="truncate">질문자: 인천 서구 청라 거주 환자분 (20대 취업준비생)</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
+                      <a href="/qa/qa-2026-10-08-stress-3334/" class="hover:underline">
+                        아무것도 하기 싫고 방에만 틀어박히는 무기력증과 우울증 극복 (인천 서구 청라)
+                      </a>
+                    </h3>
+                  </div>
+
+                  <!-- A. 답변 요약 -->
+                  <div class="space-y-1.5 pt-1">
+                    <div class="flex items-center gap-1.5 font-bold text-xs text-[#2F5D50]">
+                      <span class="w-4 h-4 rounded-full bg-[#2F5D50] text-white text-[10px] flex items-center justify-center font-extrabold">A</span>
+                      <span>권형근 대표원장 답변 요약</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                      반복된 좌절과 미래에 대한 불안으로 인해 캄캄한 터널 속에 갇힌 듯한 고통을 겪고 계신 청년분의 마음에 깊은 위로를 전합니다.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 청년우울증 • 학습된무기력 • 취준생스트레스</span>
+                  <a href="/qa/qa-2026-10-08-stress-3334/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
+                    <span>답변 전체보기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
+
               <!-- [Q&A | 자율신경 & 실신·어지럼증·이명] 조용한 방에만 들어가면 삐- 소리가 커지는 스트레스성 이명 한방 치료 (경기 부천시) -->
               <article class="qa-item autonomic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="autonomic">
                 <div class="space-y-3">
@@ -2204,7 +2246,7 @@ sections:
             <!-- 페이지네이션 컨트롤 바 -->
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#DDE6E1] pt-6 not-prose" id="qa-pagination-wrapper">
               <div class="text-xs sm:text-sm text-[#68736E] font-medium" id="qa-pagination-info">
-                총 <strong class="text-[#2F5D50] font-bold" id="qa-total-count">51</strong>개 상담사례 중 <span id="qa-page-range" class="font-semibold text-[#26332E]">1 - 8</span>개 표시
+                총 <strong class="text-[#2F5D50] font-bold" id="qa-total-count">52</strong>개 상담사례 중 <span id="qa-page-range" class="font-semibold text-[#26332E]">1 - 8</span>개 표시
               </div>
               <div class="flex items-center gap-1.5 flex-wrap justify-center" id="qa-pagination-controls">
                 <!-- 동적 페이지 번호 버튼 -->
