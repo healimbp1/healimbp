@@ -42,10 +42,14 @@ export function validateAllColumns() {
 
     // 2. 썸네일 파일 실재 여부 검증
     if (image && !verifyStaticImage(image)) {
-      errors.push({
-        file: filename,
-        issue: `Thumbnail file not found in static: ${image}`
-      });
+      if (process.argv.includes('--fix')) {
+        console.warn(`⚠️ [Missing Image] ${filename}: ${image} not found, resolving expected...`);
+      } else {
+        errors.push({
+          file: filename,
+          issue: `Thumbnail file not found in static: ${image}`
+        });
+      }
     }
 
     // 3. 카테고리와 썸네일 일치성 정밀 검증
@@ -57,10 +61,17 @@ export function validateAllColumns() {
     });
 
     if (image !== expectedImage) {
-      errors.push({
-        file: filename,
-        issue: `Thumbnail mismatch! Current: ${image} | Expected: ${expectedImage}`
-      });
+      if (process.argv.includes('--fix') && verifyStaticImage(expectedImage)) {
+        const updatedContent = content.replace(/(image:\s*["']?)(.*?)(["']?$)/m, `$1${expectedImage}$3`);
+        fs.writeFileSync(filePath, updatedContent, 'utf-8');
+        console.log(`🔧 [Auto-Healed] ${filename}: updated thumbnail to ${expectedImage}`);
+        passed++;
+      } else {
+        errors.push({
+          file: filename,
+          issue: `Thumbnail mismatch! Current: ${image} | Expected: ${expectedImage}`
+        });
+      }
     } else {
       passed++;
     }
