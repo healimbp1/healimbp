@@ -1665,18 +1665,17 @@ export function renderColumnMarkdown(col) {
   ];
   const researchTip = col.researchBox?.note || '증상을 단순히 화학적으로 억누르는 일시적인 대증요법을 넘어, 신경계의 자생력을 회복하는 것이 장기적 재발 방지의 핵심입니다.';
 
+  const researchItemsHtml = researchItems.map(it =>
+    `    <div class="flex items-start gap-2"><span class="bg-[#EAF3EF] text-[#2F5D50] text-[11px] font-extrabold px-2 py-0.5 rounded shrink-0 mt-0.5">학술근거</span><span>${it}</span></div>`
+  ).join('\n');
+
   const researchBoxHtml = `
 <div class="my-6 p-5 sm:p-6 bg-white rounded-2xl border-2 border-[#2F5D50] shadow-sm space-y-3 not-prose">
   <div class="font-extrabold text-[#2F5D50] text-sm sm:text-base flex items-center gap-2">
     <span>📚</span> <span>학술 연구 및 임상 보고 (논문/가이드라인 출처)</span>
   </div>
   <div class="space-y-2 text-xs sm:text-sm text-[#26332E] font-semibold">
-    ${researchItems.map(it => `
-    <div class="flex items-start gap-2">
-      <span class="bg-[#EAF3EF] text-[#2F5D50] text-[11px] font-extrabold px-2 py-0.5 rounded shrink-0 mt-0.5">학술근거</span>
-      <span>${it}</span>
-    </div>
-    `).join('')}
+${researchItemsHtml}
   </div>
   <div class="pt-3 border-t border-dashed border-[#DDE6E1] text-xs sm:text-sm text-[#526059] italic">
     💡 ${researchTip}
@@ -1731,7 +1730,6 @@ export function renderColumnMarkdown(col) {
       <li>보건복지부 공인 한방침구과 전문의</li>
       <li>대한한방신경정신과학회 정회원</li>
       <li>대한침구의학회 평생회원</li>
-      <li>전 원광대학교 한의과대학 외래교수</li>
       <li>뇌파·체열·자율신경 1:1 심층 분석 진료 (부평역 7번 출구)</li>
     </ul>
   </div>

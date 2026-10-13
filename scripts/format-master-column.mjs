@@ -466,7 +466,6 @@ ${insightHtml}
         <li>보건복지부 공인 한방침구과 전문의</li>
         <li>대한한방신경정신과학회 정회원</li>
         <li>대한침구의학회 평생회원</li>
-        <li>전 원광대학교 한의과대학 외래교수</li>
         <li>뇌파·체열·자율신경 1:1 심층 분석 진료 (부평역 7번 출구)</li>
       </ul>
     </div>
@@ -714,7 +713,6 @@ export function renderMasterColumnToPlainText(data, index = 0) {
   lines.push(`• 보건복지부 공인 한방침구과 전문의`);
   lines.push(`• 대한한방신경정신과학회 정회원`);
   lines.push(`• 대한침구의학회 평생회원`);
-  lines.push(`• 전 원광대학교 한의과대학 외래교수`);
   lines.push(`• 뇌파·체열·자율신경 1:1 심층 분석 진료`);
   lines.push(``);
 
