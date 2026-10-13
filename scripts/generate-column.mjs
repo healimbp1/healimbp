@@ -1002,7 +1002,7 @@ ${introParagraphs}
     <li>진료실에서 확인하는 신경계 과부하 자가진단 신호</li>
     <li>한의학에서 분석하는 환자별 3대 맞춤 변증 체질 유형</li>
     <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
-    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)</li>
     <li>생활 속 자율신경 조절을 위한 물리적·행동학적 루틴</li>
     <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
@@ -1060,7 +1060,7 @@ ${researchBoxHtml}
 
 <div class="section-label">통합 솔루션 05</div>
 
-## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
+## ${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)
 
 ${sec5.intro}
 
@@ -1144,7 +1144,7 @@ ${introParagraphs}
     <li>진료실에서 가장 흔히 마주하는 3대 오해와 진실</li>
     <li>뇌 자생력을 무너뜨리는 잘못된 대처의 위험성</li>
     <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
-    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)</li>
     <li>안전하고 지속 가능한 자율신경 회복 루틴</li>
     <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
@@ -1182,7 +1182,7 @@ ${researchBoxHtml}
 
 <div class="section-label">통합 치료 솔루션 04</div>
 
-## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
+## ${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)
 
 ${sec5.intro}
 
@@ -1248,7 +1248,7 @@ ${introParagraphs}
     <li>한눈에 보는 핵심 감별 비교 분석표</li>
     <li>자가 감별을 위한 4대 핵심 체크포인트</li>
     <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
-    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)</li>
     <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
 </div>
@@ -1329,7 +1329,7 @@ ${researchBoxHtml}
 
 <div class="section-label">맞춤 솔루션 05</div>
 
-## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
+## ${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)
 
 ${sec5.intro}
 
@@ -1383,7 +1383,7 @@ ${introParagraphs}
     <li>치료하면 언제부터 어떻게 좋아질까? 뇌 자생력 회복의 원리</li>
     <li>[1~12주 회복 로드맵] 3단계 치료 타임라인</li>
     <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
-    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)</li>
     <li>치료 효과를 2배로 높이는 일상 자율신경 루틴</li>
     <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
@@ -1450,7 +1450,7 @@ ${researchBoxHtml}
 
 <div class="section-label">단계별 솔루션 04</div>
 
-## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
+## ${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)
 
 ${sec5.intro}
 
@@ -1515,7 +1515,7 @@ ${introParagraphs}
     <li>정밀 진단으로 밝혀낸 신경계 불균형의 원인</li>
     <li>권형근 대표원장의 진료실 소견 (Physician's Note)</li>
     <li>국내외 임상 연구와 한의학적 치료 보고 (출처 명시)</li>
-    <li>${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)</li>
+    <li>${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)</li>
     <li>환자와 보호자가 꼭 알아야 할 치유의 원칙</li>
     <li>진료실 자주 묻는 질문 5선 (FAQ)</li>
   </ol>
@@ -1590,7 +1590,7 @@ ${researchBoxHtml}
 
 <div class="section-label">맞춤 치료 05</div>
 
-## ${sec5.title} (초기 4~8주 집중 치료 & 주 1~2회)
+## ${sec5.title} (초기 4-8주 집중 치료 & 주 1-2회)
 
 ${sec5.intro}
 

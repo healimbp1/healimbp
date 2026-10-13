@@ -236,7 +236,7 @@ export function renderMasterColumnToTistoryHtml(data) {
     if (sec.solutions && sec.solutions.length > 0) {
       secBodyHtml += `
     <!-- 해아림 통합 솔루션 2대 카드 -->
-    <h3 style="font-size: 16px; font-weight: 800; color: #1E4638; margin: 24px 0 12px 0;">🎯 해아림 1:1 맞춤 통합 치료 솔루션 (초기 4~8주 집중 치료 & 주 1~2회)</h3>
+    <h3 style="font-size: 16px; font-weight: 800; color: #1E4638; margin: 24px 0 12px 0;">🎯 해아림 1:1 맞춤 통합 치료 솔루션 (초기 4-8주 집중 치료 & 주 1-2회)</h3>
     <div style="margin: 0 0 24px 0; display: flex; flex-direction: column; gap: 14px;">
       ${sec.solutions.map(s => `
         <div style="background-color: #ffffff; border: 1px solid #DDE6E1; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
@@ -668,7 +668,7 @@ export function renderMasterColumnToPlainText(data, index = 0) {
 
     // 6. Solutions
     if (sec.solutions && sec.solutions.length > 0) {
-      lines.push(`[🎯 해아림 1:1 맞춤 통합 솔루션 (초기 4~8주 집중 치료 & 주 1~2회)]`);
+      lines.push(`[🎯 해아림 1:1 맞춤 통합 솔루션 (초기 4-8주 집중 치료 & 주 1-2회)]`);
       sec.solutions.forEach(s => {
         lines.push(`[${cleanTextForPlain(s.badge)}] ${cleanTextForPlain(s.title)}`);
         lines.push(`  • ${cleanTextForPlain(s.desc)}`);
