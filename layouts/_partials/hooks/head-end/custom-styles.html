@@ -13,6 +13,9 @@
   <link rel="image_src" href="{{ $imgUrl }}" />
 {{ end }}
 <meta name="author" content="권형근 대표원장 (해아림한의원 인천부평점)" />
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+<meta name="robots" content="noindex, follow" />
+{{ end }}
 {{ if eq .Type "column" }}
   <script type="application/ld+json">
   {

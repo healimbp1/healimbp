@@ -1,18 +1,33 @@
 User-agent: *
 Allow: /
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
 
 # Korean & Global Search Engine Crawlers
 User-agent: Yeti
 Allow: /
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
 
 User-agent: Daumoa
 Allow: /
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
 
 # AI & LLM Crawlers
 User-agent: GPTBot
