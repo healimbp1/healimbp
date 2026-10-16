@@ -34,10 +34,10 @@ sections:
             <!-- 탭 버튼 목록 -->
             <div class="flex flex-wrap gap-2 pb-2" id="qa-category-tabs">
               <button onclick="filterQA('all', this)" class="qa-tab-btn active-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                전체보기 <span class="text-[11px] opacity-80" id="qa-tab-count-all">(67)</span>
+                전체보기 <span class="text-[11px] opacity-80" id="qa-tab-count-all">(68)</span>
               </button>
               <button onclick="filterQA('tic', this)" class="qa-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                소아청소년 & 성인 ADHD·틱 <span class="text-[11px] opacity-80" id="qa-tab-count-tic">(16)</span>
+                소아청소년 & 성인 ADHD·틱 <span class="text-[11px] opacity-80" id="qa-tab-count-tic">(17)</span>
               </button>
               <button onclick="filterQA('insomnia', this)" class="qa-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 불면증 & 수면장애 <span class="text-[11px] opacity-80" id="qa-tab-count-insomnia">(9)</span>
@@ -58,6 +58,48 @@ sections:
 
             <!-- Q&A 카드 그리드 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[400px]" id="qa-grid">
+              <!-- [Q&A | 소아청소년 & 성인 ADHD·틱] 성인이 되어서도 계속되는 음성 틱과 코 킁킁거림 치료법 (인천 남동구 구월동) -->
+              <article class="qa-item tic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="tic">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold text-xs">소아청소년 & 성인 ADHD·틱</span>
+                    <span class="text-xs text-[#68736E]">인천 남동구 구월동 • 2026-10-16</span>
+                  </div>
+
+                  <!-- Q. 질문 미리보기 -->
+                  <div class="p-3.5 bg-[#FAF8F3] rounded-xl border border-[#EADFCB] space-y-1">
+                    <div class="flex items-center gap-2 font-bold text-xs text-[#C87941]">
+                      <span class="w-4 h-4 rounded-full bg-[#C87941] text-white text-[10px] flex items-center justify-center font-extrabold">Q</span>
+                      <span class="truncate">질문자: 인천 남동구 구월동 거주 환자분 (30대 직장인)</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-[#26332E] leading-snug hover:text-[#2F5D50] transition">
+                      <a href="/qa/qa-2026-10-16-tic-8345/" class="hover:underline">
+                        성인이 되어서도 계속되는 음성 틱과 코 킁킁거림 치료법 (인천 남동구 구월동)
+                      </a>
+                    </h3>
+                  </div>
+
+                  <!-- A. 답변 요약 -->
+                  <div class="space-y-1.5 pt-1">
+                    <div class="flex items-center gap-1.5 font-bold text-xs text-[#2F5D50]">
+                      <span class="w-4 h-4 rounded-full bg-[#2F5D50] text-white text-[10px] flex items-center justify-center font-extrabold">A</span>
+                      <span>권형근 대표원장 답변 요약</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                      조용한 사무실이나 회의 시간에 자신도 모르게 튀어나오는 헛기침과 킁킁거림으로 인해 직장 생활에서 남모를 긴장과 스트레스를 겪으셨을 것 같습니다.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between text-xs">
+                  <span class="text-[#68736E] truncate max-w-[200px] sm:max-w-none">• 성인틱장애 • 성인음성틱 • 킁킁거림</span>
+                  <a href="/qa/qa-2026-10-16-tic-8345/" class="inline-flex items-center gap-1 font-bold text-[#2F5D50] bg-[#EAF3EF] px-3.5 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0">
+                    <span>답변 전체보기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
+
               <!-- [Q&A | 신체화 & 담적·두통·턱관절] 만성 소화불량과 함께 머리가 멍하고 어깨가 굳는 담적 두통 치료 (인천 강화군) -->
               <article class="qa-item somatic heal-card p-6 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:border-[#2F5D50] hover:shadow-lg transition space-y-4 rounded-2xl" data-category="somatic">
                 <div class="space-y-3">
@@ -2876,7 +2918,7 @@ sections:
             <!-- 페이지네이션 컨트롤 바 -->
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#DDE6E1] pt-6 not-prose" id="qa-pagination-wrapper">
               <div class="text-xs sm:text-sm text-[#68736E] font-medium" id="qa-pagination-info">
-                총 <strong class="text-[#2F5D50] font-bold" id="qa-total-count">67</strong>개 상담사례 중 <span id="qa-page-range" class="font-semibold text-[#26332E]">1 - 8</span>개 표시
+                총 <strong class="text-[#2F5D50] font-bold" id="qa-total-count">68</strong>개 상담사례 중 <span id="qa-page-range" class="font-semibold text-[#26332E]">1 - 8</span>개 표시
               </div>
               <div class="flex items-center gap-1.5 flex-wrap justify-center" id="qa-pagination-controls">
                 <!-- 동적 페이지 번호 버튼 -->
