@@ -7,9 +7,9 @@ category: "불면증 · 수면장애"
 tags: ["불면증", "수면장애", "자율신경실조", "부평한의원", "해아림한의원 인천부평점"]
 ---
 
-작성: 한방침구과 전문의 권형근 대표원장
-소속: 해아림한의원 인천부평점
-진료 분야: 불면증, 수면장애, 자율신경실조, 만성피로, 공황·불안
+- 작성: 한방침구과 전문의 권형근 대표원장
+- 소속: 해아림한의원 인천부평점
+- 진료 분야: 불면증, 수면장애, 자율신경실조, 만성피로, 공황·불안
 
 > "낮에는 눈이 감길 만큼 피곤한데, 밤에 침대에만 누우면 정신이 또렷해지고 새벽까지 뒤척입니다."
 
@@ -65,37 +65,46 @@ tags: ["불면증", "수면장애", "자율신경실조", "부평한의원", "�
 ## 7. 자주 묻는 질문
 
 Q. 수면제를 오래 먹고 있는데 한약을 먹으면서 바로 끊어도 되나요?
+
 절대 임의로 한 번에 끊으시면 안 됩니다. 오랫동안 복용하던 수면제를 갑자기 중단하면 반동성 불면이나 불안이 심해질 수 있습니다. 처방의와 상의하면서 몸의 수면 리듬이 회복되는 속도에 맞춰 단계적으로 조절하는 것이 안전합니다.
 
 Q. 낮에 너무 졸린데 낮잠을 자면 안 될까요?
+
 밤잠이 심하게 부족할 때는 오후 3시 이전에 15~20분 이내의 짧은 휴식만 취하시고, 30분 이상 깊게 주무시는 것은 밤의 수면 압력을 떨어뜨리므로 피하는 편이 좋습니다.
 
 Q. 몇 시간 자야 정상인가요? 꼭 8시간을 자야 하나요?
+
 사람마다 필요한 적정 수면 시간은 다릅니다. 6~7시간을 자더라도 낮에 크게 졸리지 않고 일상에 지장이 없다면 본인에게 맞는 수면량일 수 있으므로, 시간 숫자 자체보다 낮 동안의 컨디션을 기준으로 삼으시는 것이 좋습니다.
 
-## 상담 및 진료 안내
+### 상담 및 진료 안내
 
 해아림한의원 인천부평점 (한방침구과 전문의 권형근 대표원장)
-위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
-진료시간:
+
+- 위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
+- 문의 및 예약: 032-719-3472
+
+진료시간 안내
+
 - 월·수·금: 오전 10시 ~ 오후 8시 (야간진료)
 - 화요일: 오전 10시 ~ 오후 7시
 - 토요일: 오전 9시 ~ 오후 3시 (점심시간 없음)
 - 공휴일: 오전 9시 ~ 오후 1시 (점심시간 없음)
 - 목요일·일요일: 정기 휴진
-문의 및 예약: 032-719-3472
-홈페이지: https://healimbp.com
-네이버 예약: https://booking.naver.com/booking/13/bizes/934695
-카카오톡 상담: https://pf.kakao.com/_Tcxcxoxj
-오시는 길: https://map.naver.com/p/entry/place/1739958320
+
+바로가기 안내
+
+- [홈페이지 바로가기](https://healimbp.com)
+- [네이버 예약 바로가기](https://booking.naver.com/booking/13/bizes/934695)
+- [카카오톡 상담 바로가기](https://pf.kakao.com/_Tcxcxoxj)
+- [네이버 지도 오시는 길](https://map.naver.com/p/entry/place/1739958320)
 
 ## 참고 자료
 
-[1] Sforza M, Morin CM, Dang-Vu TT, et al. The effectiveness of Cognitive behavioral therapy for insomnia on sleep EEG hyperarousal: a multicentric polysomnographic study. Transl Psychiatry. 2026. https://doi.org/10.1038/s41398-026-03882-1
-[2] McCall WV. Daytime autonomic nervous system functions differ among adults with and without insomnia symptoms. J Clin Sleep Med. 2023. https://doi.org/10.5664/jcsm.10704
-[3] de Zambotti M, et al. Dynamic coupling between the central and autonomic nervous systems during sleep: a review. Neurosci Biobehav Rev. 2018. https://doi.org/10.1016/j.neubiorev.2018.03.027
-[4] Qaseem A, et al. Management of Chronic Insomnia Disorder in Adults: A Clinical Practice Guideline From the American College of Physicians. Ann Intern Med. 2016. https://doi.org/10.7326/M15-2175
-[5] Lin YK, et al. Can Addressing Autonomic Hyperarousal with Heart Rate Variability Biofeedback Enhance CBT-I Outcomes in Insomnia Disorder? Behav Sleep Med. 2026. https://doi.org/10.1080/15402002.2025.2549554
+- [1] Sforza M, Morin CM, Dang-Vu TT, et al. The effectiveness of Cognitive behavioral therapy for insomnia on sleep EEG hyperarousal: a multicentric polysomnographic study. Transl Psychiatry. 2026. https://doi.org/10.1038/s41398-026-03882-1
+- [2] McCall WV. Daytime autonomic nervous system functions differ among adults with and without insomnia symptoms. J Clin Sleep Med. 2023. https://doi.org/10.5664/jcsm.10704
+- [3] de Zambotti M, et al. Dynamic coupling between the central and autonomic nervous systems during sleep: a review. Neurosci Biobehav Rev. 2018. https://doi.org/10.1016/j.neubiorev.2018.03.027
+- [4] Qaseem A, et al. Management of Chronic Insomnia Disorder in Adults: A Clinical Practice Guideline From the American College of Physicians. Ann Intern Med. 2016. https://doi.org/10.7326/M15-2175
+- [5] Lin YK, et al. Can Addressing Autonomic Hyperarousal with Heart Rate Variability Biofeedback Enhance CBT-I Outcomes in Insomnia Disorder? Behav Sleep Med. 2026. https://doi.org/10.1080/15402002.2025.2549554
 
 ---
 
