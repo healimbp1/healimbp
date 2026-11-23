@@ -33,13 +33,13 @@ sections:
             <!-- 탭 버튼 목록 (동적 개수 반영) -->
             <div class="flex flex-wrap gap-2 pb-2" id="column-category-tabs">
               <button onclick="filterColumn('all', this)" class="column-tab-btn active-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                전체보기 <span class="text-[11px] opacity-80" id="tab-count-all">(265)</span>
+                전체보기 <span class="text-[11px] opacity-80" id="tab-count-all">(266)</span>
               </button>
               <button onclick="filterColumn('panic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 공황 · 불안 & 강박증 <span class="text-[11px] opacity-80" id="tab-count-panic">(48)</span>
               </button>
               <button onclick="filterColumn('autonomic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                자율신경 & 실신·어지럼증·이명 <span class="text-[11px] opacity-80" id="tab-count-autonomic">(44)</span>
+                자율신경 & 실신·어지럼증·이명 <span class="text-[11px] opacity-80" id="tab-count-autonomic">(45)</span>
               </button>
               <button onclick="filterColumn('insomnia', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 불면증 & 수면장애 <span class="text-[11px] opacity-80" id="tab-count-insomnia">(43)</span>
@@ -57,6 +57,31 @@ sections:
 
             <!-- 칼럼 카드 그리드 (페이지별 8개씩 분할 노출) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[400px]" id="column-grid">
+
+              <!-- [칼럼 #신규5 | 자율신경 & 실신·어지럼증·이명] 이명은 귀만의 문제일까요? -->
+              <article class="column-item autonomic heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="autonomic">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold">자율신경 & 실신·어지럼증·이명</span>
+                    <span class="text-xs text-[#68736E]">2026-11-23 • 권형근 원장 칼럼</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#26332E] leading-snug cursor-pointer hover:text-[#2F5D50] transition">
+                    <a href="/column/post-2026-11-23-tinnitus-column/" class="hover:underline">
+                      이명은 귀만의 문제일까요? 귀 검사가 정상인데도 소리가 커지는 이유
+                    </a>
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                    이비인후과 검사에서 뚜렷한 이상이 없는데도 조용한 밤만 되면 커지는 이명의 원인과 자율신경·뇌 신호 처리 관점의 해아림한의원 인천부평점 안내입니다.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
+                  <span class="text-[11px] text-[#68736E]">• 이명 • 자율신경실조</span>
+                  <a href="/column/post-2026-11-23-tinnitus-column/" class="inline-flex items-center gap-1 text-xs font-bold text-[#2F5D50] bg-[#EAF3EF] px-3 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0 ml-2">
+                    <span>칼럼 전문 읽기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
 
               <!-- [칼럼 #신규1 | 공황 · 불안 & 강박증] 공황장애는 마음만의 문제일까요? -->
               <article class="column-item panic heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="panic">
