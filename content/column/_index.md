@@ -33,22 +33,22 @@ sections:
             <!-- 탭 버튼 목록 (동적 개수 반영) -->
             <div class="flex flex-wrap gap-2 pb-2" id="column-category-tabs">
               <button onclick="filterColumn('all', this)" class="column-tab-btn active-tab px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                전체보기 <span class="text-[11px] opacity-80" id="tab-count-all">(261)</span>
+                전체보기 <span class="text-[11px] opacity-80" id="tab-count-all">(265)</span>
               </button>
               <button onclick="filterColumn('panic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                공황 · 불안 & 강박증 <span class="text-[11px] opacity-80" id="tab-count-panic">(47)</span>
+                공황 · 불안 & 강박증 <span class="text-[11px] opacity-80" id="tab-count-panic">(48)</span>
               </button>
               <button onclick="filterColumn('autonomic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 자율신경 & 실신·어지럼증·이명 <span class="text-[11px] opacity-80" id="tab-count-autonomic">(44)</span>
               </button>
               <button onclick="filterColumn('insomnia', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                불면증 & 수면장애 <span class="text-[11px] opacity-80" id="tab-count-insomnia">(42)</span>
+                불면증 & 수면장애 <span class="text-[11px] opacity-80" id="tab-count-insomnia">(43)</span>
               </button>
               <button onclick="filterColumn('tic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                소아청소년 & 성인 ADHD·틱 <span class="text-[11px] opacity-80" id="tab-count-tic">(45)</span>
+                소아청소년 & 성인 ADHD·틱 <span class="text-[11px] opacity-80" id="tab-count-tic">(46)</span>
               </button>
               <button onclick="filterColumn('stress', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
-                우울증 · 화병 & 번아웃 <span class="text-[11px] opacity-80" id="tab-count-stress">(42)</span>
+                우울증 · 화병 & 번아웃 <span class="text-[11px] opacity-80" id="tab-count-stress">(43)</span>
               </button>
               <button onclick="filterColumn('somatic', this)" class="column-tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
                 신체화 & 담적·두통·턱관절 <span class="text-[11px] opacity-80" id="tab-count-somatic">(41)</span>
@@ -57,6 +57,106 @@ sections:
 
             <!-- 칼럼 카드 그리드 (페이지별 8개씩 분할 노출) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[400px]" id="column-grid">
+
+              <!-- [칼럼 #신규1 | 공황 · 불안 & 강박증] 공황장애는 마음만의 문제일까요? -->
+              <article class="column-item panic heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="panic">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold">공황 · 불안 & 강박증</span>
+                    <span class="text-xs text-[#68736E]">2026-11-23 • 권형근 원장 칼럼</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#26332E] leading-snug cursor-pointer hover:text-[#2F5D50] transition">
+                    <a href="/column/post-2026-11-23-panic-column/" class="hover:underline">
+                      공황장애는 마음만의 문제일까요? 검사상 정상인데도 숨이 막히고 두근거리는 이유
+                    </a>
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                    응급실과 내과 검사상 정상인데도 숨이 막히고 심장이 두근거리는 공황장애의 원인과 자율신경계·HRV 관점의 해아림한의원 인천부평점 치료 안내입니다.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
+                  <span class="text-[11px] text-[#68736E]">• 공황장애 • 자율신경실조</span>
+                  <a href="/column/post-2026-11-23-panic-column/" class="inline-flex items-center gap-1 text-xs font-bold text-[#2F5D50] bg-[#EAF3EF] px-3 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0 ml-2">
+                    <span>칼럼 전문 읽기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- [칼럼 #신규2 | 불면증 · 수면장애] 불면증은 잠을 안 자려는 습관일까요? -->
+              <article class="column-item insomnia heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="insomnia">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold">불면증 · 수면장애</span>
+                    <span class="text-xs text-[#68736E]">2026-11-23 • 권형근 원장 칼럼</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#26332E] leading-snug cursor-pointer hover:text-[#2F5D50] transition">
+                    <a href="/column/post-2026-11-23-insomnia-column/" class="hover:underline">
+                      불면증은 잠을 안 자려는 습관일까요? 몸이 피곤한데도 뇌가 깨어 있는 이유
+                    </a>
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                    몸은 피곤한데 밤만 되면 뇌가 깨어 있는 만성 불면증의 과각성 기전과 자율신경 회복 중심의 해아림한의원 인천부평점 치료 안내입니다.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
+                  <span class="text-[11px] text-[#68736E]">• 불면증 • 과각성</span>
+                  <a href="/column/post-2026-11-23-insomnia-column/" class="inline-flex items-center gap-1 text-xs font-bold text-[#2F5D50] bg-[#EAF3EF] px-3 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0 ml-2">
+                    <span>칼럼 전문 읽기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- [칼럼 #신규3 | 우울증 · 화병 & 번아웃] 우울증은 마음의 약함 때문일까요? -->
+              <article class="column-item stress heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="stress">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold">우울증 · 화병 & 번아웃</span>
+                    <span class="text-xs text-[#68736E]">2026-11-23 • 권형근 원장 칼럼</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#26332E] leading-snug cursor-pointer hover:text-[#2F5D50] transition">
+                    <a href="/column/post-2026-11-23-depression-column/" class="hover:underline">
+                      우울증은 마음의 약함 때문일까요? 몸의 에너지와 자율신경이 함께 가라앉는 이유
+                    </a>
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                    만성 무기력과 우울감이 이어질 때 HPA 축과 자율신경 소진 관점에서 살피는 해아림한의원 인천부평점 진료 안내입니다.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
+                  <span class="text-[11px] text-[#68736E]">• 우울증 • 무기력</span>
+                  <a href="/column/post-2026-11-23-depression-column/" class="inline-flex items-center gap-1 text-xs font-bold text-[#2F5D50] bg-[#EAF3EF] px-3 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0 ml-2">
+                    <span>칼럼 전문 읽기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- [칼럼 #신규4 | 소아청소년 & 성인 ADHD·틱] 틱장애는 나쁜 버릇일까요? -->
+              <article class="column-item tic heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="tic">
+                <div class="space-y-2.5">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag bg-[#EAF3EF] text-[#2F5D50] font-bold">소아청소년 & 성인 ADHD·틱</span>
+                    <span class="text-xs text-[#68736E]">2026-11-23 • 권형근 원장 칼럼</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-extrabold text-[#26332E] leading-snug cursor-pointer hover:text-[#2F5D50] transition">
+                    <a href="/column/post-2026-11-23-tic-column/" class="hover:underline">
+                      틱장애는 나쁜 버릇일까요? 아이의 눈 깜빡임과 킁킁거림을 키우는 뇌의 각성과 긴장
+                    </a>
+                  </h3>
+                  <p class="text-xs sm:text-sm text-[#53615B] leading-relaxed line-clamp-3">
+                    전조 충동과 스트레스·자율신경 각성 관점에서 살피는 소아·성인 틱장애의 이해와 해아림한의원 인천부평점 치료·가정 관리 안내입니다.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-[#F2F7F4] flex items-center justify-between">
+                  <span class="text-[11px] text-[#68736E]">• 틱장애 • 소아·성인 틱</span>
+                  <a href="/column/post-2026-11-23-tic-column/" class="inline-flex items-center gap-1 text-xs font-bold text-[#2F5D50] bg-[#EAF3EF] px-3 py-1.5 rounded-lg hover:bg-[#2F5D50] hover:text-white transition shrink-0 ml-2">
+                    <span>칼럼 전문 읽기</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </article>
 
               <!-- [칼럼 #1 | 불면증 · 수면장애] [부천 중동한의원 불면증] 수면제 의존 없이 깊은 잠드는 법, 뇌파 안정과 자생적 수면 리듬, 원인과 치료법은 무엇일까? -->
               <article class="column-item insomnia heal-card space-y-4 bg-white flex flex-col justify-between border border-[#DDE6E1] hover:shadow-md transition" data-category="insomnia">
