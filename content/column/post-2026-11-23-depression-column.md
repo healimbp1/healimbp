@@ -7,9 +7,9 @@ category: "우울증 · 무기력"
 tags: ["우울증", "무기력", "자율신경실조", "부평한의원", "해아림한의원 인천부평점"]
 ---
 
-작성: 한방침구과 전문의 권형근 대표원장
-소속: 해아림한의원 인천부평점
-진료 분야: 우울증, 무기력·번아웃, 자율신경실조, 불면증, 공황·불안
+- 작성: 한방침구과 전문의 권형근 대표원장
+- 소속: 해아림한의원 인천부평점
+- 진료 분야: 우울증, 무기력·번아웃, 자율신경실조, 불면증, 공황·불안
 
 > "특별히 큰 사건이 있었던 것도 아닌데 아무것도 하기 싫고, 아침에 눈을 뜨는 것조차 버겁습니다. 제가 게으르고 의지가 약해서 이런 걸까요?"
 
@@ -65,36 +65,45 @@ tags: ["우울증", "무기력", "자율신경실조", "부평한의원", "해�
 ## 7. 자주 묻는 질문
 
 Q. 우울증이 심할 때 한의원 치료만으로 해결되나요, 아니면 정신과와 함께 가야 하나요?
+
 증상의 깊이와 위기 여부에 따라 다릅니다. 자해 위험이나 일상 마비가 심한 경우에는 정신건강의학과 진료가 필수적이며, 기존 약물 치료를 유지하면서 몸의 수면·소화·기력 회복을 돕기 위해 한방 치료를 병행하는 것도 좋은 선택이 될 수 있습니다.
 
 Q. 아무것도 하기 싫은데 운동을 억지로라도 해야 할까요?
+
 체력이 완전히 바닥난 상태에서 무리한 고강도 운동을 하면 오히려 더 지치고 자책감이 커질 수 있습니다. '운동'이라 부르기 민망할 정도의 짧은 산책이나 햇볕 쬐기부터 시작하시는 편이 안전합니다.
 
 Q. 기분이 조금 나아진 것 같아 약이나 치료를 바로 멈춰도 될까요?
+
 우울증은 증상이 조금 가벼워진 시기에 무리하거나 치료를 갑자기 중단하면 다시 가라앉기 쉽습니다. 수면과 일상 리듬이 안정적으로 유지되는지 확인하면서 전문가와 상의해 천천히 마무리하는 것이 좋습니다.
 
-## 상담 및 진료 안내
+### 상담 및 진료 안내
 
 해아림한의원 인천부평점 (한방침구과 전문의 권형근 대표원장)
-위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
-진료시간:
+
+- 위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
+- 문의 및 예약: 032-719-3472
+
+진료시간 안내
+
 - 월·수·금: 오전 10시 ~ 오후 8시 (야간진료)
 - 화요일: 오전 10시 ~ 오후 7시
 - 토요일: 오전 9시 ~ 오후 3시 (점심시간 없음)
 - 공휴일: 오전 9시 ~ 오후 1시 (점심시간 없음)
 - 목요일·일요일: 정기 휴진
-문의 및 예약: 032-719-3472
-홈페이지: https://healimbp.com
-네이버 예약: https://booking.naver.com/booking/13/bizes/934695
-카카오톡 상담: https://pf.kakao.com/_Tcxcxoxj
-오시는 길: https://map.naver.com/p/entry/place/1739958320
+
+바로가기 안내
+
+- [홈페이지 바로가기](https://healimbp.com)
+- [네이버 예약 바로가기](https://booking.naver.com/booking/13/bizes/934695)
+- [카카오톡 상담 바로가기](https://pf.kakao.com/_Tcxcxoxj)
+- [네이버 지도 오시는 길](https://map.naver.com/p/entry/place/1739958320)
 
 ## 참고 자료
 
-[1] Is cardiac autonomic control affected in major depressive disorder? A systematic review of heart rate variability studies. Transl Psychiatry. 2025. https://doi.org/10.1038/s41398-025-03430-3
-[2] Impaired Modulation of the Autonomic Nervous System in Adult Patients with Major Depressive Disorder. Biomedicines. 2024;12(6):1268. https://doi.org/10.3390/biomedicines12061268
-[3] Effects of cortisol administration on heart rate variability and functional connectivity across women with different depression histories. Behav Brain Res. 2024. https://doi.org/10.1016/j.bbr.2024.114923
-[4] Heart rate variability in patients with major depression disorder during a clinical autonomic test. Psychiatry Res. 2017. https://doi.org/10.1016/j.psychres.2017.06.041
+- [1] Is cardiac autonomic control affected in major depressive disorder? A systematic review of heart rate variability studies. Transl Psychiatry. 2025. https://doi.org/10.1038/s41398-025-03430-3
+- [2] Impaired Modulation of the Autonomic Nervous System in Adult Patients with Major Depressive Disorder. Biomedicines. 2024;12(6):1268. https://doi.org/10.3390/biomedicines12061268
+- [3] Effects of cortisol administration on heart rate variability and functional connectivity across women with different depression histories. Behav Brain Res. 2024. https://doi.org/10.1016/j.bbr.2024.114923
+- [4] Heart rate variability in patients with major depression disorder during a clinical autonomic test. Psychiatry Res. 2017. https://doi.org/10.1016/j.psychres.2017.06.041
 
 ---
 
