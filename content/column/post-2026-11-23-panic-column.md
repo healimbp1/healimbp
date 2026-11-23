@@ -7,9 +7,9 @@ category: "공황장애 · 불안장애"
 tags: ["공황장애", "자율신경실조", "불안장애", "부평한의원", "해아림한의원 인천부평점"]
 ---
 
-작성: 한방침구과 전문의 권형근 대표원장
-소속: 해아림한의원 인천부평점
-진료 분야: 공황장애, 자율신경실조, 불안장애, 불면증, 이명·두통
+- 작성: 한방침구과 전문의 권형근 대표원장
+- 소속: 해아림한의원 인천부평점
+- 진료 분야: 공황장애, 자율신경실조, 불안장애, 불면증, 이명·두통
 
 > "응급실에 가서 심전도와 혈액 검사를 다 받았는데 정상이라고 합니다. 그런데 왜 갑자기 숨이 막히고 쓰러질 것 같은 공포가 몰려오는 걸까요?"
 
@@ -65,36 +65,45 @@ tags: ["공황장애", "자율신경실조", "불안장애", "부평한의원", 
 ## 7. 자주 묻는 질문
 
 Q. 공황발작이 오면 정말 숨이 멈추거나 심장이 멎을 수도 있나요?
+
 내과적 기질 질환이 배제된 순수 공황발작 자체로 심장이 멈추거나 질식하는 일은 일어나지 않습니다. 교감신경이 급격히 항진되면서 숨이 가쁘고 죽을 것 같은 공포가 밀려오지만, 일정 시간이 지나면 우리 몸의 항상성에 의해 서서히 가라앉습니다.
 
 Q. 현재 신경정신과 약을 복용 중인데 한의원 치료를 같이 받아도 되나요?
+
 네, 복용 중인 약을 임의로 끊지 않은 상태에서 현재 증상과 복용 약물을 모두 확인한 뒤 한의학적 치료를 병행할 수 있습니다. 약을 줄이거나 중단하는 결정은 반드시 처방의와 상의하여 점진적으로 진행해야 합니다.
 
 Q. 한 번 공황장애가 오면 평생 약을 먹어야 하나요?
+
 그렇지 않습니다. 발작이 반복되면서 뇌가 특정 장소와 감각을 위험으로 학습했기 때문에 시간이 걸릴 수 있지만, 자율신경의 균형과 체력이 회복되고 예기불안의 고리가 느슨해지면 일상으로 충분히 복귀하는 경우가 많습니다.
 
-## 상담 및 진료 안내
+### 상담 및 진료 안내
 
 해아림한의원 인천부평점 (한방침구과 전문의 권형근 대표원장)
-위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
-진료시간:
+
+- 위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
+- 문의 및 예약: 032-719-3472
+
+진료시간 안내
+
 - 월·수·금: 오전 10시 ~ 오후 8시 (야간진료)
 - 화요일: 오전 10시 ~ 오후 7시
 - 토요일: 오전 9시 ~ 오후 3시 (점심시간 없음)
 - 공휴일: 오전 9시 ~ 오후 1시 (점심시간 없음)
 - 목요일·일요일: 정기 휴진
-문의 및 예약: 032-719-3472
-홈페이지: https://healimbp.com
-네이버 예약: https://booking.naver.com/booking/13/bizes/934695
-카카오톡 상담: https://pf.kakao.com/_Tcxcxoxj
-오시는 길: https://map.naver.com/p/entry/place/1739958320
+
+바로가기 안내
+
+- [홈페이지 바로가기](https://healimbp.com)
+- [네이버 예약 바로가기](https://booking.naver.com/booking/13/bizes/934695)
+- [카카오톡 상담 바로가기](https://pf.kakao.com/_Tcxcxoxj)
+- [네이버 지도 오시는 길](https://map.naver.com/p/entry/place/1739958320)
 
 ## 참고 자료
 
-[1] Heart rate variability changes in patients with panic disorder. J Affect Disord. 2020;268:106-112. https://doi.org/10.1016/j.jad.2020.01.132
-[2] Analysis of Twenty-Four Hour Heart Rate Variability among Panic Disorder Patients without Previous Drug Treatment and Comorbid Disorders. Psychiatry Investig. 2021. PubMed PMID: 33874706. https://pubmed.ncbi.nlm.nih.gov/33874706/
-[3] Analysis of twenty-four hour heart rate variability in patients with panic disorder. Biol Psychol. 2001;56(2):131-150. https://doi.org/10.1016/s0301-0511(01)00074-6
-[4] Comparison of heart rate variability in patients with panic disorder during cognitive behavioral therapy program. Neuro Endocrinol Lett. 2013;34(1):37-44. PubMed PMID: 23615552. https://pubmed.ncbi.nlm.nih.gov/23615552/
+- [1] Heart rate variability changes in patients with panic disorder. J Affect Disord. 2020;268:106-112. https://doi.org/10.1016/j.jad.2020.01.132
+- [2] Analysis of Twenty-Four Hour Heart Rate Variability among Panic Disorder Patients without Previous Drug Treatment and Comorbid Disorders. Psychiatry Investig. 2021. PubMed PMID: 33874706. https://pubmed.ncbi.nlm.nih.gov/33874706/
+- [3] Analysis of twenty-four hour heart rate variability in patients with panic disorder. Biol Psychol. 2001;56(2):131-150. https://doi.org/10.1016/s0301-0511(01)00074-6
+- [4] Comparison of heart rate variability in patients with panic disorder during cognitive behavioral therapy program. Neuro Endocrinol Lett. 2013;34(1):37-44. PubMed PMID: 23615552. https://pubmed.ncbi.nlm.nih.gov/23615552/
 
 ---
 
