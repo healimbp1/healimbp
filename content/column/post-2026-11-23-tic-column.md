@@ -7,9 +7,9 @@ category: "틱장애 · 투렛증후군"
 tags: ["틱장애", "투렛증후군", "소아틱", "부평한의원", "해아림한의원 인천부평점"]
 ---
 
-작성: 한방침구과 전문의 권형근 대표원장
-소속: 해아림한의원 인천부평점
-진료 분야: 소아·성인 틱장애, 투렛증후군, ADHD, 불안·강박, 자율신경실조
+- 작성: 한방침구과 전문의 권형근 대표원장
+- 소속: 해아림한의원 인천부평점
+- 진료 분야: 소아·성인 틱장애, 투렛증후군, ADHD, 불안·강박, 자율신경실조
 
 > "눈을 자꾸 깜빡이고 목에서 킁킁 소리를 내는데, 하지 말라고 주의를 주면 잠깐 참는 것 같다가도 이내 더 심해집니다."
 
@@ -65,34 +65,43 @@ tags: ["틱장애", "투렛증후군", "소아틱", "부평한의원", "해아�
 ## 7. 자주 묻는 질문
 
 Q. 틱이 눈에 보일 때 아이에게 '그만하라'고 말해주면 고쳐지지 않나요?
+
 오히려 반대로 작용하는 경우가 많습니다. 아이는 본인이 하고 싶어서 하는 것이 아니기 때문에 지적을 받으면 수치심과 긴장이 커지고, 참았다가 나중에 더 크게 틱이 터져 나오게 됩니다.
 
 Q. 비염 때문에 코를 킁킁거리는 것인지, 음성 틱인지 어떻게 구분하나요?
+
 비염은 주로 콧물·코막힘과 함께 계절이나 실내 먼지 환경에 영향을 받지만, 틱은 긴장·피로·집중 후 풀릴 때 등 감정과 각성 상태에 따라 출렁이며 눈 깜빡임 같은 다른 동작이 동반되거나 번갈아 나타나는 경우가 많습니다. 두 가지가 겹쳐 있는 경우도 흔하므로 함께 살피는 것이 좋습니다.
 
 Q. 성인이 되어서도 틱이 남아 있을 수 있나요?
+
 소아기 틱의 상당수는 사춘기를 지나며 호전되지만, 일부는 성인기까지 이어지거나 과도한 스트레스와 수면 부족을 계기로 다시 도드라지기도 합니다. 성인 틱 역시 자율신경과 스트레스 관리, 행동 조절을 통해 일상 불편을 줄이는 방향으로 접근할 수 있습니다.
 
-## 상담 및 진료 안내
+### 상담 및 진료 안내
 
 해아림한의원 인천부평점 (한방침구과 전문의 권형근 대표원장)
-위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
-진료시간:
+
+- 위치: 인천 부평구 경원대로 1412, 지상 2층 (부평역 7번 출구 도보 5분)
+- 문의 및 예약: 032-719-3472
+
+진료시간 안내
+
 - 월·수·금: 오전 10시 ~ 오후 8시 (야간진료)
 - 화요일: 오전 10시 ~ 오후 7시
 - 토요일: 오전 9시 ~ 오후 3시 (점심시간 없음)
 - 공휴일: 오전 9시 ~ 오후 1시 (점심시간 없음)
 - 목요일·일요일: 정기 휴진
-문의 및 예약: 032-719-3472
-홈페이지: https://healimbp.com
-네이버 예약: https://booking.naver.com/booking/13/bizes/934695
-카카오톡 상담: https://pf.kakao.com/_Tcxcxoxj
-오시는 길: https://map.naver.com/p/entry/place/1739958320
+
+바로가기 안내
+
+- [홈페이지 바로가기](https://healimbp.com)
+- [네이버 예약 바로가기](https://booking.naver.com/booking/13/bizes/934695)
+- [카카오톡 상담 바로가기](https://pf.kakao.com/_Tcxcxoxj)
+- [네이버 지도 오시는 길](https://map.naver.com/p/entry/place/1739958320)
 
 ## 참고 자료
 
-[1] Conelea CA, Woods DW, Brandt BC. The impact of a stress induction task on tic frequencies in youth with Tourette Syndrome. Behav Res Ther. 2011;49(8):492-497. https://doi.org/10.1016/j.brat.2011.05.006
-[2] Pringsheim T, et al. Practice guideline recommendations summary: Treatment of tics in people with Tourette syndrome and chronic tic disorders. Neurology. 2019;92(19):896-906. https://doi.org/10.1212/WNL.0000000000007466
+- [1] Conelea CA, Woods DW, Brandt BC. The impact of a stress induction task on tic frequencies in youth with Tourette Syndrome. Behav Res Ther. 2011;49(8):492-497. https://doi.org/10.1016/j.brat.2011.05.006
+- [2] Pringsheim T, et al. Practice guideline recommendations summary: Treatment of tics in people with Tourette syndrome and chronic tic disorders. Neurology. 2019;92(19):896-906. https://doi.org/10.1212/WNL.0000000000007466
 
 ---
 
