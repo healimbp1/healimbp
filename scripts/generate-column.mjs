@@ -1628,6 +1628,169 @@ ${clinicCtaHtml}
 `;
 }
 
+function renderEditorialColumnMarkdown(col, ctx) {
+  const {
+    cleanTitle,
+    cleanSummary,
+    matchedImage,
+    introParagraphs,
+    faqItemsHtml,
+    doctorProfileHtml,
+    clinicCtaHtml,
+    closingInsightHtml
+  } = ctx;
+
+  const firstQuote = ((col.voiceQuotes && col.voiceQuotes[0]) || `${col.categoryName} 증상이 검사상 이상이 없는데도 일상을 계속 흔들고 있습니다.`).replace(/^["'“\s]+|["'”\s]+$/g, '');
+  const leadSummary = col.leadConclusion || formatLeadConclusion(col.summary, col.introText, col.title, col.categoryName);
+  const clinicItems = (col.clinicBox?.items && col.clinicBox.items.length > 0)
+    ? col.clinicBox.items
+    : [
+        `${col.categoryName} 관련 증상이 수주 이상 반복되어 일상·수면에 지장을 주는 경우`,
+        '내과·신경과·이비인후과 검사상 큰 이상이 없다는데 불편감이 계속되는 경우',
+        '불면, 두근거림, 어지럼, 소화 불량 등 자율신경 증상이 함께 동반되는 경우',
+        '기존 약물 복용 중에도 컨디션 기복이 커서 근본적인 균형 회복이 필요한 경우'
+      ];
+  const clinicItemsMd = clinicItems.map(item => `- ${item}`).join('\n');
+
+  const typeSummary = (col.typeCards || []).map(tc => `- ${tc.title}: ${tc.desc}`).join('\n');
+  const solutionSummary = (col.structCards || []).map(sc => `- ${sc.title}: ${sc.body}`).join('\n');
+  const flowSteps = (col.flow?.steps && col.flow.steps.length > 0)
+    ? col.flow.steps.join(' → ')
+    : '과로·스트레스 누적 → 교감신경 과각성 → 뇌·자율신경 여과 기능 저하 → 신체 증상 반복';
+  const researchNote = col.researchBox?.note || '단순한 대증 억제를 넘어 자율신경의 균형과 뇌의 자생적 회복력을 함께 돌보는 것이 장기적인 안정에 중요합니다.';
+
+  return `---
+title: "${cleanTitle}"
+summary: "${cleanSummary}"
+date: "${col.date}"
+type: column
+category: "${col.categoryName}"
+image: "${matchedImage}"
+tags: ${JSON.stringify(col.tags)}
+---
+
+<div class="voice-box">
+  <div class="voice-line">${firstQuote}</div>
+  <div class="voice-line">작성: 한방침구과 전문의 권형근 대표원장 ｜ 해아림한의원 인천부평점</div>
+</div>
+
+${introParagraphs}
+
+<div class="toc">
+  <div class="toc-title">📋 이 칼럼에서 다루는 핵심 내용</div>
+  <ol>
+    <li>정밀 검사가 우선인 경우 vs 자율신경 균형을 함께 살펴야 할 경우</li>
+    <li>${col.categoryName} 증상은 왜 반복될까요? (병리 기전)</li>
+    <li>권형근 대표원장의 임상 고찰</li>
+    <li>어떤 모습이면 상담을 받아 보는 것이 좋을까요?</li>
+    <li>해아림한의원 인천부평점에서는 무엇을 확인하고 치료하나요?</li>
+    <li>집에서는 어떻게 관리하면 좋을까요?</li>
+    <li>자주 묻는 질문 (FAQ)</li>
+  </ol>
+</div>
+
+<div class="my-6 p-5 sm:p-6 bg-[#F0F6F3] rounded-2xl border border-[#2F5D50] shadow-sm not-prose">
+  <div class="flex items-center gap-2 font-extrabold text-sm sm:text-base text-[#1E4638] mb-2">
+    <span>📌</span> <span>핵심 요약</span>
+  </div>
+  <p class="text-xs sm:text-sm text-[#2C3E35] leading-relaxed font-medium m-0">
+    ${leadSummary}
+  </p>
+</div>
+
+<div class="section-label">감별 안내 01</div>
+
+## 1. 정밀 검사가 우선인 경우와 자율신경을 함께 살펴야 할 경우는 어떻게 다른가요?
+
+모든 증상을 같은 방식으로 접근하면 중요한 신호를 놓칠 수 있으므로, 기질적 이상 확인이 먼저 필요한 경우와 자율신경 균형을 함께 살펴야 하는 경우를 구분해야 합니다.
+
+| 구분 | 기질적 정밀 검사가 우선인 경우 | 자율신경·뇌신경 균형을 함께 살펴야 할 경우 |
+| --- | --- | --- |
+| 주요 양상 | 갑작스러운 마비, 극심한 통증, 급격한 악화 | 검사상 큰 이상이 없거나 경미한 소견만 있음 |
+| 증상 특징 | 특정 부위의 국소적·진행성 이상 징후 | 피로, 수면 부족, 긴장에 따라 증상이 출렁임 |
+| 동반 신호 | 고열, 실신성 외상, 급격한 체중 감소 | 불면, 가슴 두근거림, 소화 불량, 뒷목 긴장 |
+| 관리 방향 | 해당 전문과 응급·정밀 검사 우선 시행 | 자율신경 안정과 체질 맞춤 회복 관리 병행 |
+
+---
+
+<div class="section-label">병리 기전 02</div>
+
+## 2. ${col.categoryName} 증상은 왜 반복될까요?
+
+${col.section1Text}
+
+진행 흐름을 살펴보면 **${flowSteps}** 순으로 악순환이 이어지기 쉽습니다.
+
+---
+
+<div class="section-label">원장의 관점 03</div>
+
+## 3. 권형근 대표원장의 관점
+
+<div class="my-6 p-5 sm:p-6 bg-[#FAFBF9] rounded-2xl border border-[#2F5D50]/30 shadow-sm space-y-3 not-prose">
+  <div class="flex items-center gap-2 text-xs font-extrabold text-[#2F5D50] tracking-wider uppercase">
+    <i class="fa-solid fa-user-doctor"></i>
+    <span>권형근 대표원장의 임상 고찰</span>
+  </div>
+  <p class="text-xs sm:text-sm text-[#26332E] leading-relaxed m-0">
+    "${researchNote}"
+  </p>
+</div>
+
+---
+
+<div class="section-label">상담 기준 04</div>
+
+## 4. 어떤 모습이면 상담을 받아 보는 것이 좋을까요?
+
+${clinicItemsMd}
+
+---
+
+<div class="section-label">진료 안내 05</div>
+
+## 5. 해아림한의원 인천부평점에서는 무엇을 확인하고 치료하나요?
+
+진료실에서는 증상이 시작된 시기와 생활 환경(수면, 과로, 스트레스 여부), 그리고 현재의 동반 증상을 꼼꼼히 살피고 심박변이도(HRV) 등 객관적 평가를 바탕으로 개인별 맞춤 계획을 세웁니다.
+
+${typeSummary}
+
+${solutionSummary}
+
+현재 복용 중인 양약이 있다면 임의로 중단해서는 안 되며, 초진 시 복용 중인 약을 모두 알려 주셔야 안전하게 병행 계획을 세울 수 있습니다.
+
+---
+
+<div class="section-label">생활 관리 06</div>
+
+## 6. 집에서는 어떻게 관리하면 좋을까요?
+
+- 4-7-8 이완 호흡 실천하기: 긴장이나 답답함이 올라올 때 4초간 코로 들이마시고 7초간 멈춘 뒤 8초간 천천히 내쉬어 부교감신경을 자극해 주세요.
+- 수면 리듬 일정하게 유지하기: 취침과 기상 시간을 일정하게 맞추고 기상 직후 15분가량 햇볕을 쬐어 생체 시계를 정돈하세요.
+- 취침 90분 전 따뜻한 족욕하기: 38~40도의 따뜻한 물에 15분 정도 족욕을 하면 상체로 몰린 열과 긴장을 아래로 내리는 데 도움이 됩니다.
+
+---
+
+<div class="section-label">자주 묻는 질문 07</div>
+
+## 7. 자주 묻는 질문
+
+<div class="space-y-4 my-6 not-prose">
+${faqItemsHtml}
+</div>
+
+---
+
+${closingInsightHtml}
+
+${doctorProfileHtml}
+
+${clinicCtaHtml}
+
+해당 칼럼은 의료법 제56조를 준수하여 한방침구과 전문의 권형근 대표원장이 직접 작성하였습니다. 모든 치료는 개인에 따라 효과와 반응이 다를 수 있으며 부작용이 발생할 수 있으므로 한의사와 자세한 상담이 필요합니다.
+`;
+}
+
 // 5대 포맷 디스패처 메인 함수
 export function renderColumnMarkdown(col) {
   const cleanTitle = ensureQuestionTitle(col.title).replace(/"/g, "'");
@@ -1796,20 +1959,7 @@ ${researchItemsHtml}
     closingInsightHtml
   };
 
-  const fmt = col.formatType ?? 0;
-  switch (fmt) {
-    case 1:
-      return renderFormatB_FactCheck(col, ctx);
-    case 2:
-      return renderFormatC_DifferentialDiagnosis(col, ctx);
-    case 3:
-      return renderFormatD_RecoveryRoadmap(col, ctx);
-    case 4:
-      return renderFormatE_ClinicalCase(col, ctx);
-    case 0:
-    default:
-      return renderFormatA_DeepMechanism(col, ctx);
-  }
+  return renderEditorialColumnMarkdown(col, ctx);
 }
 
 // 6. Gemini API 호출 또는 폴백 생성
