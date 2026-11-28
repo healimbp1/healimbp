@@ -95,6 +95,35 @@ sections:
             <!-- 리뷰 그리드 (2열 반응형 카드) -->
             <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
+              <!-- [실제 네이버 인증 리뷰 | 최신] 777닉네임 님 -->
+              <div class="review-item heal-card bg-white flex flex-col justify-between p-6 rounded-2xl border-2 border-[#CDE5D8] shadow-sm hover:shadow-md transition space-y-4" data-category="autonomic panic">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="heal-tag text-xs font-bold text-[#2F5D50] bg-[#EAF2ED] px-2.5 py-1 rounded-md">#예약후이용 #바로입장 #자세한설명 #세심한진료</span>
+                    <div class="flex items-center text-[#FFB800] text-xs gap-0.5">★★★★★ <span class="text-[#888888] ml-1 font-medium text-[11px]">5.0</span></div>
+                  </div>
+                  <div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-[#1E4638] leading-snug">
+                      &ldquo;증상에 대해 세심하게 들어주시고 꼼꼼하게 봐주셔서 편안한 마음으로 치료받을 수 있었습니다.&rdquo;
+                    </h3>
+                    <div class="flex items-center gap-2 mt-1.5 text-xs text-[#8B9891]">
+                      <span class="font-bold text-[#333333]">777닉네임 님</span>
+                      <span>·</span>
+                      <span>네이버 리뷰 4 · 사진 5</span>
+                    </div>
+                  </div>
+                  <div class="p-4 bg-[#F9FAF8] rounded-xl border border-[#EDF2EE] text-xs sm:text-sm text-[#374151] leading-relaxed font-normal">
+                    항상 친절하게 응대해 주시고 설명도 자세하게 해주셔서 좋았습니다. 증상에 대해 말씀드릴 때도 세심하게 들어주시고 꼼꼼하게 봐주셔서 편안한 마음으로 치료받을 수 있었습니다. 감사합니다!
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-[#EAEFEA] flex items-center justify-between text-xs text-[#68736E]">
+                  <span>이용: 네이버 예약 후 이용 · 대기 시간 바로 입장</span>
+                  <span class="text-[#03C75A] font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-circle-check"></i> 네이버 영수증·예약 실제 인증
+                  </span>
+                </div>
+              </div>
+
               <!-- [실제 네이버 인증 리뷰 1] 민흠 님 -->
               <div class="review-item heal-card bg-white flex flex-col justify-between p-6 rounded-2xl border-2 border-[#CDE5D8] shadow-sm hover:shadow-md transition space-y-4" data-category="panic autonomic">
                 <div class="space-y-3">
